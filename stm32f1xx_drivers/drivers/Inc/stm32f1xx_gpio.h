@@ -62,8 +62,10 @@ typedef struct
 #define GPIO_IN_TYPE_FLOAT		1 // Floating input
 #define GPIO_IN_TYPE_PP			2 // Input with pull-up/pull-down
 
-
-
+// Interrupt modes
+#define INTER_RISING_EDGE		1 // Triggers interrupt in the rising edge
+#define INTER_FALLING_EDGE		2 // Triggers interrupt in the falling edge
+#define INTER_RISING_FALLING	3 // Triggers interrupt in both edges
 
 /*					APIs Supported by this driver 					*/
 
@@ -81,9 +83,13 @@ void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t val
 void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value);						// Write to port
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);					// Toggle GPIO pin
 
+// Interrupt handling
+void InterHandler(GPIO_Handle_t *pGPIOHandle, uint8_t InterType);
+
 // IQR configuration and handling
-void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPrio, uint8_t EnOrDi);				// To set the priority in IRQ
-void GPIO_IRQHandling(uint8_t PinNumber);												// To process interrupt
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t EnOrDi);				// To set IRQ Number
+void GPIO_IRQPriority (uint8_t IRQNumber,uint8_t IRQPriority);						// To set the priority in IRQ
+void GPIO_IRQHandling(uint8_t PinNumber);							// To process interrupt
 
 
 #endif /* INC_STM32F1XX_GPIO_H_ */

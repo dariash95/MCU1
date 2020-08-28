@@ -66,18 +66,27 @@ void GPIO_PeriClkCtrl(GPIO_RegDef_t *pGPIOx, uint8_t EnOrDi)
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 {
 	// Configuration of the pin mode
-	uint8_t temp_mode = 0;
-	uint8_t temp_config = 0;
+	uint32_t temp_mode = 0;
+	uint32_t temp_config = 0;
 
 	if (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber <= 7){ // Configuration of Pins 0-7
-		temp_mode = (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode << (4 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
-		pGPIOHandle->pGPIOx->CRL &= ~(0x03 << (4 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)); // Clearing
+
+		uint8_t aux = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber;
+		uint8_t value_mode = pGPIOHandle->GPIO_PinConfig.GPIO_PinMode;
+		uint8_t value_config = pGPIOHandle->GPIO_PinConfig.GPIO_Config;
+		uint8_t positions_mode = 4*aux;
+		uint8_t positions_config = (2 + (4 * aux));
+		uint32_t clear_mode = (0x03 << positions_mode);
+		uint32_t clear_config = (0x03 << positions_config);
+
+		temp_mode = value_mode << positions_mode;
+		pGPIOHandle->pGPIOx->CRL &= ~(clear_mode); // Clearing
 		pGPIOHandle->pGPIOx->CRL |= temp_mode; // Setting. CAREFUL: Use | to change just the position of the pin number
 
 		temp_mode = 0;
 
-		temp_config = (pGPIOHandle->GPIO_PinConfig.GPIO_Config << (2 + (4 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)));
-		pGPIOHandle->pGPIOx->CRL &= ~(0x03 << (2 + (4 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber))); //Clearing
+		temp_config = value_config << positions_config;
+		pGPIOHandle->pGPIOx->CRL &= ~(clear_config); //Clearing
 		pGPIOHandle->pGPIOx->CRL |= temp_config; //Setting
 
 		temp_config = 0;
@@ -85,15 +94,21 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 	} else { // Configuration of Pins 8-15
 
 		uint8_t aux = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber-8;
+		uint8_t value_mode = pGPIOHandle->GPIO_PinConfig.GPIO_PinMode;
+		uint8_t value_config = pGPIOHandle->GPIO_PinConfig.GPIO_Config;
+		uint8_t positions_mode = 4*aux;
+		uint8_t positions_config = (2 + (4 * aux));
+		uint32_t clear_mode = ~(0x03 << positions_mode);
+		uint32_t clear_config = ~(0x03 << positions_config);
 
-		temp_mode = (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode << (4 * aux));
-		pGPIOHandle->pGPIOx->CRH &= ~(0x03 << (4 * aux)); // Clearing
+		temp_mode = value_mode << positions_mode;
+		pGPIOHandle->pGPIOx->CRH &= clear_mode; // Clearing
 		pGPIOHandle->pGPIOx->CRH |= temp_mode; //Setting
 
 		temp_mode = 0;
 
-		temp_config = (pGPIOHandle->GPIO_PinConfig.GPIO_Config << (2 + (4 * aux)));
-		pGPIOHandle->pGPIOx->CRH &= ~(0x03 << (2 + (4 * aux))); //Clearing
+		temp_config = value_config << positions_config;
+		pGPIOHandle->pGPIOx->CRH &= clear_config; //Clearing
 		pGPIOHandle->pGPIOx->CRH |= temp_config; // Setting
 
 		temp_config = 0;
@@ -103,7 +118,6 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 	if ((pGPIOHandle->GPIO_PinConfig.GPIO_PinMode = ALT_FUNC_OP_TYPE_PP) | (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode = ALT_FUNC_OP_TYPE_OD)){
 
 	}
-
 }
 
 /******************************************************************
@@ -130,6 +144,47 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
 	} else {
 		GPIOG_REG_RESET();
 	}
+}
+
+// Interrupt handling
+/**********************
+ * @func			InterHandling(Interrupt handling)
+ * @brief			This functions configures the interrupts
+ * @param [in]		Port
+ * @param [in]		Type of interrupt
+ * @param [in]		Enable or disable
+ * @return			None
+ * @note 			None
+ */
+void InterHandler(GPIO_Handle_t *pGPIOHandle, uint8_t InterType){
+
+	uint8_t positions = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber;
+
+
+	if (InterType == 1){ //Rising edge detection
+		EXTI->RTSR = 1 << positions;
+		EXTI->FTSR = ~(1 << positions); // Disable falling edge
+
+	} else if (InterType ==2) { //Falling edge detection
+		EXTI->FTSR = 1 << positions;
+		EXTI->RTSR = ~(1 << positions); // Disable rising edge
+
+	} else { //Detection for both edges
+		EXTI->FTSR = 1 << positions;
+		EXTI->RTSR = 1 << positions;
+	}
+
+	// Configure the GPIO port selection in AFIO_EXTICR
+	uint8_t temp1 = (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber/4); // To define the EXTI (0-15)
+	uint8_t temp2 = (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber%4); // To define the position in the register
+	uint8_t portcode = GPIO_BASEADDR_TO_CODE(pGPIOHandle->pGPIOx);
+	uint8_t aux = temp2*4;
+
+	AFIO_PCLK_EN(); // RCC enable for AFIO
+	AFIO->EXTICR[temp1] = portcode << aux;
+
+	// Enable the EXTI Interrupt delivery using IMR
+	EXTI->IMR = 1 << positions;
 }
 
 // Data read or write
@@ -182,7 +237,7 @@ void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t val
 }
 
 /******************************************************************
- * @func			GPIO_WriteToOutputPor (GPIO Write to output por)
+ * @func			GPIO_WriteToOutputPor (GPIO Write to output port)
  * @brief			This functions writes a value to a port
  * @param [in]		Base Address of the GPIO port
  * @param [in]		Value that is going to be written
@@ -208,6 +263,7 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 	pGPIOx->ODR = pGPIOx->ODR ^ (1 << PinNumber); // Same as: pGPIOx->ODR ^= (1 << PinNumber)
 }
 
+
 // IQR configuration and handling
 /******************************************************************
  * @func			GPIO_IRQConfig (GPIO IRQ Configuration)
@@ -218,9 +274,42 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
  * @return			None
  * @note 			None
  */
-void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPrio, uint8_t EnOrDi)
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t EnOrDi)
 {
+	if (EnOrDi == ENABLE){
+		if (IRQNumber <= 31){ // IRQ Number 0-31
+			*NVIC_ISER0 |= (1<< IRQNumber); // Set ISER0
+		} else if (IRQNumber > 31 && IRQNumber < 64){ // IRQ Number 32-63
+			*NVIC_ISER1 |= (1<< (IRQNumber%32)); // Set ISER1
+		} else if (IRQNumber >= 64 && IRQNumber < 96){ // IRQ Number 64-95
+			*NVIC_ISER2 |= (1<< (IRQNumber%64)); // Set ISER2
+		}
+	} else {
+		if (IRQNumber <= 31){ // IRQ Number 0-31
+			*NVIC_ICER0 |= (1<< IRQNumber); // Set ICER0
+		} else if (IRQNumber > 31 && IRQNumber < 64){ // IRQ Number 32-63
+			*NVIC_ICER1 |= (1<< (IRQNumber%32)); // Set ICER1
+		} else if (IRQNumber >= 64 && IRQNumber < 96){ // IRQ Number 64-95
+			*NVIC_ICER2 |= (1<< (IRQNumber%64)); // Set ICER2
+		}
+	}
+}
 
+/******************************************************************
+ * @func			GPIO_IRQPriority (GPIO IRQ Priority)
+ * @brief			This functions process the IRQ Priority
+ * @param [in]		IRQ Number
+ * @param [in]		IRQ Priority
+ * @return			None
+ * @note 			None
+ */
+void GPIO_IRQPriority (uint8_t IRQNumber,uint8_t IRQPriority){
+
+	uint8_t iprx =  IRQNumber/4; // Define which IPR Register you have to use (0-59)
+	uint8_t iprx_section =  IRQNumber%4; // Define the section on the IPR (0-4) * 8 bc each section is 8 bits
+	uint8_t aux =  ((8* iprx_section) + (8 - NO_PR_BITS_IMPLEMENTED));
+
+	*(NVIC_PRIO_BASEADDR + (iprx*4)) |= (IRQPriority <<aux);
 }
 
 /******************************************************************
@@ -232,6 +321,9 @@ void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPrio, uint8_t EnOrDi)
  */
 void GPIO_IRQHandling(uint8_t PinNumber)
 {
-
+	// Clear the EXTI Pending Register Corresponding to the Pin Number
+	if (EXTI->PR & (1 << PinNumber)){
+		EXTI->PR |= (1 << PinNumber);
+	}
 }
 
