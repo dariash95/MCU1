@@ -1,7 +1,7 @@
 stm32f1xx_gpio.c:20:6:GPIO_PeriClkCtrl	16	static
 stm32f1xx_gpio.c:66:6:GPIO_Init	56	static
 stm32f1xx_gpio.c:130:6:GPIO_DeInit	16	static
-stm32f1xx_gpio.c:159:6:InterHandler	24	static
+stm32f1xx_gpio.c:159:6:InterHandler	32	static
 stm32f1xx_gpio.c:199:9:GPIO_ReadFromInputPin	24	static
 stm32f1xx_gpio.c:214:10:GPIO_ReadFromInputPort	24	static
 stm32f1xx_gpio.c:230:6:GPIO_WriteToOutputPin	16	static

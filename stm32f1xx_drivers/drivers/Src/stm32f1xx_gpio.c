@@ -156,22 +156,22 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
  * @return			None
  * @note 			None
  */
-void InterHandler(GPIO_Handle_t *pGPIOHandle, uint8_t InterType){
+void InterHandler(GPIO_Handle_t *pGPIOHandle, EXTI_Handle_t *pEXTIHandle, uint8_t InterType){
 
 	uint8_t positions = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber;
 
 
 	if (InterType == 1){ //Rising edge detection
-		EXTI->RTSR = 1 << positions;
-		EXTI->FTSR = ~(1 << positions); // Disable falling edge
+		pEXTIHandle->EXTIx->RTSR = 1 << positions;
+		pEXTIHandle->EXTIx->FTSR = ~(1 << positions); // Disable falling edge
 
 	} else if (InterType ==2) { //Falling edge detection
-		EXTI->FTSR = 1 << positions;
-		EXTI->RTSR = ~(1 << positions); // Disable rising edge
+		pEXTIHandle->EXTIx->FTSR = 1 << positions;
+		pEXTIHandle->EXTIx->RTSR = ~(1 << positions); // Disable rising edge
 
 	} else { //Detection for both edges
-		EXTI->FTSR = 1 << positions;
-		EXTI->RTSR = 1 << positions;
+		pEXTIHandle->EXTIx->FTSR = 1 << positions;
+		pEXTIHandle->EXTIx->RTSR = 1 << positions;
 	}
 
 	// Configure the GPIO port selection in AFIO_EXTICR

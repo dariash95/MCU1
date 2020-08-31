@@ -27,6 +27,11 @@ typedef struct
 	GPIO_PinConfig_t GPIO_PinConfig; // Holds pin configuration settings
 }GPIO_Handle_t;
 
+typedef struct
+{
+	EXTI_RegDef_t *EXTIx;
+}EXTI_Handle_t;
+
 // GPIO Pin number
 #define GPIO_PIN_0		0
 #define GPIO_PIN_1		1
@@ -84,7 +89,7 @@ void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value);						// Writ
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);					// Toggle GPIO pin
 
 // Interrupt handling
-void InterHandler(GPIO_Handle_t *pGPIOHandle, uint8_t InterType);
+void InterHandler(GPIO_Handle_t *pGPIOHandle, EXTI_Handle_t *pEXTIHandle, uint8_t InterType);
 
 // IQR configuration and handling
 void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t EnOrDi);				// To set IRQ Number

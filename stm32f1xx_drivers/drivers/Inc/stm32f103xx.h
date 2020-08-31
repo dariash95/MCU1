@@ -221,6 +221,23 @@ typedef struct
 #define IRQ_NO_EXTI9_5		23
 #define IRQ_NO_EXTI15_10	40
 
+/* IRQ Priority */
+#define NVIC_PRIO_0			0
+#define NVIC_PRIO_1			1
+#define NVIC_PRIO_2			2
+#define NVIC_PRIO_3			3
+#define NVIC_PRIO_4			4
+#define NVIC_PRIO_5			5
+#define NVIC_PRIO_6			6
+#define NVIC_PRIO_7			7
+#define NVIC_PRIO_8			8
+#define NVIC_PRIO_9			9
+#define NVIC_PRIO_10		10
+#define NVIC_PRIO_11		11
+#define NVIC_PRIO_12		12
+#define NVIC_PRIO_13		13
+#define NVIC_PRIO_14		14
+#define NVIC_PRIO_15		15
 
 /* Some generic macros */
 #define ENABLE 			1
