@@ -18,13 +18,11 @@
 #define NVIC_ISER0				((volatile uint32_t*)0xE000E100)
 #define NVIC_ISER1				((volatile uint32_t*)0xE000E104)
 #define NVIC_ISER2				((volatile uint32_t*)0xE000E108)
-#define NVIC_ISER3				((volatile uint32_t*)0xE000E10C)
 
 /* ARM Cortex-MX Processor NVIC ICERx Register Addresses */
 #define NVIC_ICER0				((volatile uint32_t*)0xE000E180)
 #define NVIC_ICER1				((volatile uint32_t*)0XE000E184)
 #define NVIC_ICER2				((volatile uint32_t*)0XE000E188)
-#define NVIC_ICER3				/* ARM Cortex-MX Processor NVIC ICERx Register Addresses */
 
 /* ARM Cortex-MX Processor Priority Register Addresses Calculation */
 #define NVIC_PRIO_BASEADDR		((volatile uint32_t*)0xE000E400)
@@ -89,7 +87,7 @@ typedef struct
 	volatile uint32_t BSRR;		// Bit Set/Reset Register		Offset 0x0010
 	volatile uint32_t BRR;		// Bit Reset Register			Offset 0x0014
 	volatile uint32_t LCKR;		// Configuration Lock Register	Offset 0x0018
-}GPIO_RegDef_t;
+}GPIO_RegDef_t; // GPIO Register Definition Structure
 
 typedef struct
 {
@@ -119,7 +117,7 @@ typedef struct
 /* EXTI registers definitions structures */
 typedef struct
 {
-	volatile uint32_t IMR;		// Interrupt mask Register 					Offset 0x0000
+	volatile uint32_t IMR;		// Interrupt Mask Register 					Offset 0x0000
 	volatile uint32_t EMR;		// Event mask Register 						Offset 0x0004
 	volatile uint32_t RTSR;		// Rising Trigger Selection Register 		Offset 0x0008
 	volatile uint32_t FTSR;		// Falling Trigger Selection Register		Offset 0x000C
@@ -127,7 +125,20 @@ typedef struct
 	volatile uint32_t PR;		// Pending Register							Offset 0x0014
 }EXTI_RegDef_t;
 
-/* Peripherals Definitions: Peripheral base address typecasted to GPIO_RegDef_t */
+/* SPI registers definitions structures */
+typedef struct{
+	volatile uint32_t CR1;		// SPI Control Register 1					Offset 0x00
+	volatile uint32_t CR2;		// SPI Control Register 2					Offset 0x04
+	volatile uint32_t SR;		// SPI Status Register						Offset 0x08
+	volatile uint32_t DR;		// SPI Data Register						Offset 0x0C
+	volatile uint32_t CRCPR;	// SPI CRC Polynomial Register				Offset 0x10
+	volatile uint32_t RXCRCR;	// SPI RX CRC Register						Offset 0x14
+	volatile uint32_t TXCRCR;	// SPI TX CRC Register						Offset 0x18
+	volatile uint32_t I2SCFGR;	// SPI_I2S Configuration Register			Offset 0x1C
+	volatile uint32_t I2SPR;	// SPI_I2S Prescaler Register				Offset 0x20
+}SPI_RegDef_t;
+
+/* GPIO Peripherals Definitions: Peripheral base address typecasted to GPIO_RegDef_t */
 #define GPIOA						((GPIO_RegDef_t*)GPIOA_BASEADDR)
 #define GPIOB						((GPIO_RegDef_t*)GPIOB_BASEADDR)
 #define GPIOC						((GPIO_RegDef_t*)GPIOC_BASEADDR)
@@ -141,6 +152,11 @@ typedef struct
 #define RCC							((RCC_RegDef_t*)RCC_BASEADDR)
 
 #define EXTI 						((EXTI_RegDef_t*)EXTI_BASEADDR)
+
+/* SPI Peripherals Definitions: Peripheral base address typecasted to SPI_RegDef_t */
+#define SPI1						((SPI_RegDef_t*)SPI1_BASEADDR)
+#define SPI2						((SPI_RegDef_t*)SPI2_BASEADDR)
+#define SPI3						((SPI_RegDef_t*)SPI3_BASEADDR)
 
 /* Clock enable macros for GPIO peripherals */
 #define GPIOA_PCLK_EN()				(RCC->APB2ENR |=(1 << 2)) // Bit 2 to enable RCC for port A
@@ -159,7 +175,7 @@ typedef struct
 #define I2C2_PCLK_EN()				(RCC->APB1ENR |=(1 << 22)) // Bit 22 to enable RCC for I2C2
 
 /* Clock enable macros for SPI peripherals */
-#define SPI1_PCLK_EN()				(RCC->APB2ENR |=(1 << 12)) // Bit 12 to enable RCC for I2C1
+#define SPI1_PCLK_EN()				(RCC->APB2ENR |=(1 << 12)) // Bit 12 to enable RCC for SPI1
 #define SPI2_PCLK_EN()				(RCC->APB1ENR |=(1 << 14)) // Bit 14 to enable RCC for SPI2
 #define SPI3_PCLK_EN()				(RCC->APB1ENR |=(1 << 15)) // Bit 15 to enable RCC for SPI3
 
@@ -203,6 +219,11 @@ typedef struct
 #define GPIOF_REG_RESET()			do {(RCC->APB2RSTR|=(1 << 8)); (RCC->APB2RSTR &= ~(1 << 8));} while (0)
 #define GPIOG_REG_RESET()			do {(RCC->APB2RSTR|=(1 << 9)); (RCC->APB2RSTR &= ~(1 << 9));} while (0)
 
+/* Macros to reset SPIx Peripherals */
+#define SPI1_REG_RESET()			do {(RCC->APB2RSTR|=(1 << 13)); (RCC->APB2RSTR &= ~(1 << 13));} while (0)
+#define SPI2_REG_RESET()			do {(RCC->APB1RSTR|=(1 << 15)); (RCC->APB2RSTR &= ~(1 << 15));} while (0)
+#define SPI3_REG_RESET()			do {(RCC->APB1RSTR|=(1 << 16)); (RCC->APB2RSTR &= ~(1 << 16));} while (0)
+
 /* Macro to get a portcode given GPIOx base address*/ //If x==GPIOA, then return 0, else
 #define GPIO_BASEADDR_TO_CODE(x)	((x == GPIOA) ? 0 :\
 									 (x == GPIOB) ? 1 :\
@@ -240,13 +261,48 @@ typedef struct
 #define NVIC_PRIO_15		15
 
 /* Some generic macros */
-#define ENABLE 			1
-#define DISABLE 		0
-#define SET 			ENABLE
-#define RESET 			DISABLE
-#define GPIO_PIN_SET	ENABLE
-#define GPIO_PIN_RESET	DISABLE
+#define ENABLE 				1
+#define DISABLE 			0
+#define SET 				ENABLE
+#define RESET 				DISABLE
+#define GPIO_PIN_SET		ENABLE
+#define GPIO_PIN_RESET		DISABLE
+#define FLAG_SET			SET
+#define FLAG_RESET			RESET
+
+/* Bit positions definition for SPI Peripheral*/
+#define SPI_CR1_CPHA 		0
+#define SPI_CR1_CPOL 		1
+#define SPI_CR1_MSTR		2
+#define SPI_CR1_BR	 		3
+#define SPI_CR1_SPE 		6
+#define SPI_CR1_LSBFRIST 	7
+#define SPI_CR1_SSI		 	8
+#define SPI_CR1_SSM 		9
+#define SPI_CR1_RXONLY		10
+#define SPI_CR1_DFF		 	11
+#define SPI_CR1_CRCNEXT 	12
+#define SPI_CR1_CRCEN	 	13
+#define SPI_CR1_BIDIOE		14
+#define SPI_CR1_BIDIMODE 	15
+
+#define SPI_CR2_RXDMAEN 	0
+#define SPI_CR2_TXDMAEN		1
+#define SPI_CR2_SSOE		2
+#define SPI_CR2_ERRIE	 	5
+#define SPI_CR2_RXNEIE 		6
+#define SPI_CR2_TXNEIE 		7
+
+#define SPI_SR_RXNE			0
+#define SPI_SR_TXE			1
+#define SPI_SR_CHSIDE		2
+#define SPI_SR_UDR			3
+#define SPI_SR_CRCERR		4
+#define SPI_SR_MODF			5
+#define SPI_SR_OVR			6
+#define SPI_SR_BSY			7
 
 #include "stm32f1xx_gpio.h"
+#include "stm32f1xx_spi.h"
 
 #endif /* INC_STM32F103XX_H_ */

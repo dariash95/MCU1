@@ -12,12 +12,12 @@
 
 #include "stm32f103xx.h" // MCU specific header file
 
- // Configuration structure for a GPIO Pin
+// Configuration structure for a GPIO Pin
 typedef struct
 {
 	uint8_t GPIO_PinNumber; // 0-15
-	uint8_t GPIO_PinMode;
-	uint8_t GPIO_Config;
+	uint8_t GPIO_PinMode;	// Possible values @ GPIO Pin possible modes
+	uint8_t GPIO_Config;	// Possible values @ GPIO Pin possible output modes and @ GPIO Pin possible input modes
 }GPIO_PinConfig_t;
 
 // Handle structure for a GPIO Pin
@@ -55,19 +55,19 @@ typedef struct
 #define GPIO_PIN_14		14
 #define GPIO_PIN_15		15
 
-// GPIO Pin possible modes
+// @ GPIO Pin possible modes
 #define GPIO_MODE_IN 			0 // Input
 #define GPIO_MODE_OUT_SPEED_10 	1 // Output, max speed 10 MHz
 #define GPIO_MODE_OUT_SPEED_2 	2 // Output, max speed 2 MHz
 #define GPIO_MODE_OUT_SPEED_50 	3 // Output, max speed 50 MHz
 
-// GPIO Pin possible output modes (
+// @ GPIO Pin possible output modes
 #define GPIO_OP_TYPE_PP 		0 // General purpose push/pull
 #define GPIO_OP_TYPE_OD 		1 // General purpose open drain
 #define ALT_FUNC_OP_TYPE_PP 	2 // Alternate function push/pull
 #define ALT_FUNC_OP_TYPE_OD 	3 // Alternate function open drain
 
-// GPIO Pin possible input modes
+// @ GPIO Pin possible input modes
 #define GPIO_IN_TYPE_ANALOG 	0 // Analog input
 #define GPIO_IN_TYPE_FLOAT		1 // Floating input
 #define GPIO_IN_TYPE_PP			2 // Input with pull-up/pull-down
@@ -94,12 +94,12 @@ void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value);						// Writ
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);					// Toggle GPIO pin
 
 // Interrupt handling
-void InterHandler(GPIO_Handle_t *pGPIOHandle, EXTI_Handle_t *pEXTIHandle, AFIO_Handle_t *pAFIOHandle, uint8_t InterType);
+void GPIO_InterHandler(GPIO_Handle_t *pGPIOHandle, EXTI_Handle_t *pEXTIHandle, AFIO_Handle_t *pAFIOHandle, uint8_t InterType);
 
 // IQR configuration and handling
-void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t EnOrDi);				// To set IRQ Number
-void GPIO_IRQPriority (uint8_t IRQNumber,uint8_t IRQPriority);						// To set the priority in IRQ
-void GPIO_IRQHandling(uint8_t PinNumber);							// To process interrupt
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t EnOrDi);									// To set IRQ Number
+void GPIO_IRQPriority (uint8_t IRQNumber,uint32_t IRQPriority);							// To set the priority in IRQ
+void GPIO_IRQHandling(uint8_t PinNumber);												// To process interrupt
 
 
 #endif /* INC_STM32F1XX_GPIO_H_ */
