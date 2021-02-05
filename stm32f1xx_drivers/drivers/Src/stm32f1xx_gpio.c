@@ -10,7 +10,7 @@
 /* 					APIs Function Implementation 					*/
 
 /******************************************************************
- * @func			GPIO_PeriClkCtrl (GPIO Peripheral Control)
+ * @func			GPIO_PeriClkCtrl (GPIO Peripheral Clock Control)
  * @brief			This functions enables or disables peripheral clock for the given GPIO Port
  * @param [in]		Base Address of the GPIO Peripheral
  * @param [in]		Enable/Disable Macros
@@ -65,6 +65,9 @@ void GPIO_PeriClkCtrl(GPIO_RegDef_t *pGPIOx, uint8_t EnOrDi)
  */
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 {
+	//Enable the peripheral clock
+	GPIO_PeriClkCtrl(pGPIOHandle->pGPIOx, ENABLE);
+
 	// Configuration of the pin mode
 	uint32_t temp_mode = 0;
 	uint32_t temp_config = 0;
@@ -156,7 +159,7 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
  * @return			None
  * @note 			None
  */
-void InterHandler(GPIO_Handle_t *pGPIOHandle, EXTI_Handle_t *pEXTIHandle, AFIO_Handle_t *pAFIOHandle, uint8_t InterType){
+void GPIO_InterHandler(GPIO_Handle_t *pGPIOHandle, EXTI_Handle_t *pEXTIHandle, AFIO_Handle_t *pAFIOHandle, uint8_t InterType){
 
 	uint8_t positions = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber;
 
@@ -260,7 +263,7 @@ void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value)
  */
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 {
-	pGPIOx->ODR = pGPIOx->ODR ^ (1 << PinNumber); // Same as: pGPIOx->ODR ^= (1 << PinNumber)
+	pGPIOx->ODR = pGPIOx->ODR ^ (1 << PinNumber); // Same as: pGPIOx->ODR ^= (1 << PinNumber) ^ => XOR
 }
 
 
@@ -303,13 +306,13 @@ void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t EnOrDi)
  * @return			None
  * @note 			None
  */
-void GPIO_IRQPriority (uint8_t IRQNumber,uint8_t IRQPriority){
+void GPIO_IRQPriority (uint8_t IRQNumber,uint32_t IRQPriority){
 
 	uint8_t iprx =  IRQNumber/4; // Define which IPR Register you have to use (0-59)
 	uint8_t iprx_section =  IRQNumber%4; // Define the section on the IPR (0-4) * 8 bc each section is 8 bits
-	uint8_t aux =  ((8* iprx_section) + (8 - NO_PR_BITS_IMPLEMENTED));
+	uint8_t aux =  ((8* iprx_section) + (8 - NO_PR_BITS_IMPLEMENTED)); // This is the arrangement done bc the 4 first bits of each section are not implemented.
 
-	*(NVIC_PRIO_BASEADDR + (iprx*4)) |= (IRQPriority <<aux);
+	*(NVIC_PRIO_BASEADDR + (iprx)) |= (IRQPriority <<aux);
 }
 
 /******************************************************************
