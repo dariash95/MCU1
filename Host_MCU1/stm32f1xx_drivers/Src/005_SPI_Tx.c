@@ -11,7 +11,7 @@
 /* Pin settings
  * PA4 -> SPI1_NSS
  * PA5 -> SPI1_SCLK
- * P  -> SPI1_MISO
+ * PA6 -> SPI1_MISO
  * PA7 -> SPI1_MOSI
  * Alternate function: default
  */
@@ -74,9 +74,8 @@ int main (void){
 	SPI_SendData(SPI1, (uint8_t*)user_data, strlen(user_data));
 
 	while(SPI_GetFlagStatus(SPI1,SPI_BUSY_FLAG));
-			/* When the SPI is busy, the flag will be set and the program will hang there until the flag
-			 * is down
-			 */
+	/* When the SPI is busy, the flag will be set and the program will hang there until the flag
+	 * is down */
 
 	SPI_PeripheralControl(SPI1, DISABLE); // Disable SPI. To close the line communication
 

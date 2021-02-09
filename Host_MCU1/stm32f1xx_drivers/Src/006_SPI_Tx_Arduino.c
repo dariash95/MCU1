@@ -1,5 +1,5 @@
 /*
- * 005_SPI_Tx.c
+ * 006_SPI_Tx_Arduino.c
  *
  *  Created on: Jan 22, 2021
  *      Author: Daniela
@@ -12,7 +12,7 @@
 /* Pin settings
  * PA4 -> SPI1_NSS
  * PA5 -> SPI1_SCLK
- * PA6  -> SPI1_MISO
+ * PA6 -> SPI1_MISO
  * PA7 -> SPI1_MOSI
  * Alternate function: default
  */
@@ -26,7 +26,7 @@ void SPI_GPIOInits (void){
 	GPIO_Handle_t SPIPins;
 	SPIPins.pGPIOx = GPIOA;
 
-	// NSS -- Not used in this case
+	// NSS
 	SPIPins.GPIO_PinConfig.GPIO_PinMode = 1; // Input
 	SPIPins.GPIO_PinConfig.GPIO_Config = 2; // Floating Input
 	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_4;
@@ -92,6 +92,7 @@ int main (void){
 
 	while (1) {
 		uint8_t button_value = GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0);
+
 		while(!(button_value));
 		/* When the button is pressed, the statement will be 1 and negated will be zero
 		 * and will come out of the loop and continue to run the program */
@@ -111,8 +112,7 @@ int main (void){
 
 		while(SPI_GetFlagStatus(SPI1, SPI_BUSY_FLAG));
 		/* When the SPI is busy, the flag will be set and the program will hang there until the flag
-		 * is down
-		 */
+		 * is down */
 
 		SPI_PeripheralControl(SPI1, DISABLE); // Disable SPI. To close the line communication
 	}

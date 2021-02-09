@@ -31,9 +31,11 @@ int main (void){
 	gpioLED.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT_SPEED_10;
 	gpioLED.GPIO_PinConfig.GPIO_Config = GPIO_OP_TYPE_PP;
 
+	// GPIO Clock enabling
 	GPIO_PeriClkCtrl(GPIOA,ENABLE); // Clock enable for GPIO Button
 	GPIO_PeriClkCtrl(GPIOC,ENABLE); // Clock enable for GPIO LED
 
+	// GPIO Initialization
 	GPIO_Init(&gpioBtn); // GPIO Button Initialization
 	GPIO_Init(&gpioLED); // GPIO LED Initialization
 
