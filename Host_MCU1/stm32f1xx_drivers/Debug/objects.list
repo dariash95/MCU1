@@ -1,0 +1,6 @@
+"Src/006_SPI_Tx_Arduino.o"
+"Src/syscalls.o"
+"Src/sysmem.o"
+"Startup/startup_stm32f103c8tx.o"
+"drivers/Src/stm32f1xx_gpio.o"
+"drivers/Src/stm32f1xx_spi.o"

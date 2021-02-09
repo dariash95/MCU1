@@ -1,0 +1,20 @@
+10:30:49 **** Incremental Build of configuration Debug for project stm32f1xx_drivers_v2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/004_Button_Interrupt.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers_v2/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004_Button_Interrupt.d" -MT"Src/004_Button_Interrupt.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/004_Button_Interrupt.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers_v2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers_v2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers_v2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers_v2.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers_v2.elf  > "stm32f1xx_drivers_v2.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers_v2.elf  "stm32f1xx_drivers_v2.bin"
+arm-none-eabi-size   stm32f1xx_drivers_v2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2332	      8	   1568	   3908	    f44	stm32f1xx_drivers_v2.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers_v2.list
+Finished building: stm32f1xx_drivers_v2.bin
+ 
+ 
+ 
+
+10:30:50 Build Finished. 0 errors, 0 warnings. (took 1s.279ms)
+

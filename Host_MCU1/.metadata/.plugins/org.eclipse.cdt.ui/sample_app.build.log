@@ -1,0 +1,23 @@
+16:09:41 **** Build of configuration Debug for project sample_app ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "sample_app.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Daniela\Documents\Classes\Embedded_C\MCU1\Host_MCU1\sample_app\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="sample_app.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: sample_app.elf
+ 
+arm-none-eabi-size   sample_app.elf 
+arm-none-eabi-objdump -h -S  sample_app.elf  > "sample_app.list"
+   text	   data	    bss	    dec	    hex	filename
+   5780	    180	   1580	   7540	   1d74	sample_app.elf
+arm-none-eabi-objcopy  -O binary  sample_app.elf  "sample_app.bin"
+Finished building: default.size.stdout
+ 
+Finished building: sample_app.list
+Finished building: sample_app.bin
+ 
+ 
+
+16:09:44 Build Finished. 0 errors, 0 warnings. (took 2s.863ms)
+

@@ -1,0 +1,13 @@
+stm32f1xx_spi.c:20:6:SPI_PeriClkCtrl	16	static
+stm32f1xx_spi.c:49:6:SPI_Init	24	static
+stm32f1xx_spi.c:95:6:SPI_DeInit	16	static
+stm32f1xx_spi.c:113:9:SPI_GetFlagStatus	16	static
+stm32f1xx_spi.c:132:6:SPI_SendData	24	static
+stm32f1xx_spi.c:171:6:SPI_ReceiveData	24	static
+stm32f1xx_spi.c:209:6:SPI_InterHandler	16	static
+stm32f1xx_spi.c:222:6:SPI_IRQConfig	16	static
+stm32f1xx_spi.c:235:6:SPI_IRQPriority	16	static
+stm32f1xx_spi.c:246:6:SPI_IRQHandling	16	static
+stm32f1xx_spi.c:258:6:SPI_PeripheralControl	16	static
+stm32f1xx_spi.c:275:6:SPI_SSIConfig	16	static
+stm32f1xx_spi.c:291:6:SPI_SSOEConfig	16	static

@@ -1,0 +1,20 @@
+16:04:06 **** Incremental Build of configuration Debug for project Hello_World ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:18:2: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  printf("Hello home!\n Quarantine time");
+  ^~~~~~
+../Src/main.c:18:2: warning: incompatible implicit declaration of built-in function 'printf'
+../Src/main.c:18:2: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "Hello_World.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Daniela\Documents\Classes\Embedded_C\MCU1\Host_MCU1\Hello_World\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hello_World.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+c:\st\stm32cubeide_1.2.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610\tools\arm-none-eabi\bin\ld.exe: error: Src/syscalls.o uses VFP register arguments, Hello_World.elf does not
+c:\st\stm32cubeide_1.2.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610\tools\arm-none-eabi\bin\ld.exe: failed to merge target specific data of file Src/syscalls.o
+c:\st\stm32cubeide_1.2.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610\tools\arm-none-eabi\bin\ld.exe: error: Src/sysmem.o uses VFP register arguments, Hello_World.elf does not
+c:\st\stm32cubeide_1.2.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610\tools\arm-none-eabi\bin\ld.exe: failed to merge target specific data of file Src/sysmem.o
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:43: Hello_World.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+16:04:08 Build Failed. 1 errors, 2 warnings. (took 1s.924ms)
+
