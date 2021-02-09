@@ -1,5 +1,0 @@
-"Src/001_LED_Toggle.o"
-"Src/002_LED_Button.o"
-"Src/syscalls.o"
-"Src/sysmem.o"
-"Startup/startup_stm32f103c8tx.o"

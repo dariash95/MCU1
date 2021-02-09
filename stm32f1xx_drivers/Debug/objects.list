@@ -1,5 +1,0 @@
-"Src/004_Button_Interrupt.o"
-"Src/syscalls.o"
-"Src/sysmem.o"
-"Startup/startup_stm32f103c8tx.o"
-"drivers/Src/stm32f1xx_gpio.o"
