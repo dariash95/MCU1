@@ -8,8 +8,13 @@
  */
 
 #include <SPI.h>
+#include<stdint.h>
+#define SPI_SCK  52
+#define SPI_MISO 50
+#define SPI_MOSI 51
+#define SPI_SS   53
 
-const byte led = 9;           // Slave LED digital I/O pin.
+const byte led = 13;           // Slave LED digital I/O pin.
 
 boolean ledState = HIGH;      // LED state flag.
 
@@ -25,8 +30,8 @@ uint8_t board_id[10] = "ARDUINOUNO";
 #define COMMAND_LED_CTRL          0x50
 #define COMMAND_SENSOR_READ       0x51
 #define COMMAND_LED_READ          0x52
-#define COMMAND_PRINT           0x53
-#define COMMAND_ID_READ         0x54
+#define COMMAND_PRINT             0x53
+#define COMMAND_ID_READ           0x54
 
 #define LED_ON     1
 #define LED_OFF    0
@@ -41,11 +46,21 @@ uint8_t board_id[10] = "ARDUINOUNO";
 //Initialize SPI slave.
 void SPI_SlaveInit(void) 
 { 
+ #if 0 
   // Initialize SPI pins.
-  pinMode(SCK, INPUT);
-  pinMode(MOSI, INPUT);
-  pinMode(MISO, OUTPUT);
-  pinMode(SS, INPUT);
+  pinMode(SPI_SCK, INPUT);
+  pinMode(SPI_MOSI, INPUT);
+  pinMode(SPI_MISO, OUTPUT);
+  pinMode(SPI_SS, INPUT);
+  
+  // Enable SPI as slave.
+  SPCR = (1 << SPE);
+ #endif 
+   // Initialize SPI pins.
+  pinMode(SPI_SCK, INPUT);
+  pinMode(SPI_MOSI, INPUT);
+  pinMode(SPI_MISO, OUTPUT);
+  pinMode(SPI_SS, INPUT);
   //make SPI as slave
   
   // Enable SPI as slave.

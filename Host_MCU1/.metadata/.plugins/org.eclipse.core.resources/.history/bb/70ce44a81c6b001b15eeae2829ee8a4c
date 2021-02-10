@@ -1,7 +1,7 @@
 /*
- * 007_SPI_Command_Handling.c
+ * 006_SPI_Tx_Arduino.c
  *
- *  Created on: Feb 9, 2021
+ *  Created on: Jan 22, 2021
  *      Author: Daniela
  */
 
@@ -10,35 +10,13 @@
 #include <stdio.h>
 
 /* Pin settings
- * PA4 -> SPI1_MISO
+ * PA4 -> SPI1_NSS
  * PA5 -> SPI1_SCLK
- * PA6 -> SPI_NSS
+ * PA6 -> SPI1_MISO
  * PA7 -> SPI1_MOSI
  * Alternate function: default
  */
 
-/*                          SPECIFIC MACROS FOR THIS API                                  */
-// COMMAND CODES
-#define COMMAND_LED_CTRL	0x50 // This is the command code that the slave recognizes
-#define COMMAND_SENSOR_READ 0x51
-#define COMMAND_LED_READ	0x52
-#define COMMAND_PRINT		0x53
-#define COMMAND_ID_READ		0x54
-
-#define LED_ON 				1
-#define LED_OFF				0
-
-// Arduino Analog Pins
-#define ANALOG_PIN0			0
-#define ANALOG_PIN1			1
-#define ANALOG_PIN2			2
-#define ANALOG_PIN3			3
-#define ANALOG_PIN4			4
-
-// Arduino LED
-#define LED_PIN				13
-
-/*                                     FUNCTIONS                                          */
 void delay (void){
 	for(uint32_t i=0; i<500000/2; i++);
 }
@@ -48,7 +26,7 @@ void SPI_GPIOInits (void){
 	GPIO_Handle_t SPIPins;
 	SPIPins.pGPIOx = GPIOA;
 
-	// NSS -- Not used in this case
+	// NSS
 	SPIPins.GPIO_PinConfig.GPIO_PinMode = 1; // Input
 	SPIPins.GPIO_PinConfig.GPIO_Config = 2; // Floating Input
 	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_4;
@@ -60,11 +38,11 @@ void SPI_GPIOInits (void){
 	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_5;
 	GPIO_Init(&SPIPins);
 
-	// MISO
+	/*MISO -- Not used in this case
 	SPIPins.GPIO_PinConfig.GPIO_PinMode = 0; // Input
 	SPIPins.GPIO_PinConfig.GPIO_Config = 1; // Floating input
 	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_6;
-	GPIO_Init(&SPIPins);
+	GPIO_Init(&SPIPins); */
 
 	//MOSI
 	SPIPins.GPIO_PinConfig.GPIO_PinMode = 1;
@@ -100,18 +78,9 @@ void GPIO_ButtonInit(void){
 	GPIO_Init(&gpioBtn);
 }
 
-uint8_t SPI_VerifyResponse (uint8_t ackbyte){
-
-	if (ackbyte == 0xf5){
-		// Acknowledged
-		return 1;
-	} else {
-		// Not acknowledged
-		return 0;
-	}
-}
-
 int main (void){
+
+	char user_data[] = "Hello Word";
 
 	GPIO_ButtonInit();
 
@@ -122,10 +91,9 @@ int main (void){
 	SPI_SSOEConfig(SPI1, ENABLE);
 
 	while (1) {
-
 		uint8_t button_value = GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0);
 
-		while((button_value));
+		while(!(button_value));
 		/* When the button is pressed, the statement will be 1 and negated will be zero
 		 * and will come out of the loop and continue to run the program */
 
@@ -134,69 +102,13 @@ int main (void){
 		SPI_PeripheralControl(SPI1, ENABLE); // Enable SPI
 		// NOTE: The SPI must be enabled *after* the initialization
 
-		/*** Send command #1 CMD LED CTRL. You have to send pin number and value ***/
-		uint8_t commandcode = COMMAND_LED_CTRL;
-		SPI_SendData(SPI1, &commandcode, 1);
 
-		// Read the dummy to clear off RXNE
-		uint8_t dummyread;
-		SPI_ReceiveData(SPI1, &dummyread, 1);
+		// First send the info about length
+		uint8_t dataLength = strlen(user_data);
+		SPI_SendData(SPI1, &dataLength, 1);
 
-		// Send some dummy byte to fetch the response from the slave (ACK or NACK)
-		uint8_t dummywrite = 0xff;
-		SPI_SendData(SPI1, &dummywrite, 1);
-
-		// Read the response from the slave
-		uint8_t ackbyte;
-		SPI_ReceiveData(SPI1, &ackbyte, 1);
-
-		// Array of arguments
-		uint8_t args[2]; // args[0] = Pin number, args[1] = Value
-
-		if (SPI_VerifyResponse(ackbyte)){
-			// Send arguments pin number and value
-			args[0] = LED_PIN;
-			args[1] = LED_ON;
-			SPI_SendData(SPI1, args, 2);
-		}
-
-		/*** Send command #2 CMD SENSOR READ. You have to send analog pin number ***/
-		while((button_value));
-
-		delay();
-
-		commandcode = COMMAND_SENSOR_READ;
-		SPI_SendData(SPI1, &commandcode, 1);
-
-		// Read the dummy to clear off RXNE
-		SPI_ReceiveData(SPI1, &dummyread, 1);
-
-		// Send some dummy byte to fetch the response from the slave (ACK or NACK)
-		SPI_SendData(SPI1, &dummywrite, 1);
-
-		// Read the response from the slave
-		SPI_ReceiveData(SPI1, &ackbyte, 1);
-
-		// Array of arguments
-		if (SPI_VerifyResponse(ackbyte)){
-		// Send arguments pin number and value
-			args[0] = ANALOG_PIN0;
-			SPI_SendData(SPI1, args, 1);
-
-			// Read RNXE again
-			SPI_ReceiveData(SPI1, &dummyread, 1);
-
-			// Some delay so teh sensor has time to read
-			delay();
-
-			// Send dummy byte to fetch the response
-			SPI_SendData(SPI1, &dummywrite, 1);
-
-			// Read the value of the sensor
-			uint8_t analog_read;
-			SPI_ReceiveData(SPI1, &analog_read, 1);
-		}
-
+		// The, send the data
+		SPI_SendData(SPI1, (uint8_t*)user_data, dataLength);
 
 		while(SPI_GetFlagStatus(SPI1, SPI_BUSY_FLAG));
 		/* When the SPI is busy, the flag will be set and the program will hang there until the flag
