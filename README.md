@@ -3,10 +3,10 @@ Codes for the course Matering Microcontrollers with Embedded Driver Development
 
 Files guide:
 - stm32f103xx.h: MCU specific header file
-- stm32f1xx_gpio.h: header file for GPIO driver development
-- stm32f1xx_gpio.c: source file for GPIO driver development
-- stm32f1xx_spi.h: header file for SPI driver developmnet
-- stm32f1xx_spi.c: source file for SPI driver developmnet
+- stm32f1xx_gpio.h: header file for GPIO driver development.
+- stm32f1xx_gpio.c: source file for GPIO driver development.
+- stm32f1xx_spi.h: header file for SPI driver development.
+- stm32f1xx_spi.c: source file for SPI driver development.
 
 Applications guide:
 - 001_LED_Toggle.c: 
