@@ -39,6 +39,8 @@
 #define LED_PIN				13
 
 /*                                     FUNCTIONS                                          */
+extern void initialise_monitor_handles(void);
+
 void delay (void){
 	for(uint32_t i=0; i<500000/2; i++);
 }
@@ -111,7 +113,172 @@ uint8_t SPI_VerifyResponse (uint8_t ackbyte){
 	}
 }
 
+/*** Send command #1 CMD LED CTRL. You have to send pin number and value ***/
+void CMD_LED_CTRL (uint8_t commandcode){
+
+	SPI_SendData(SPI1, &commandcode, 1);
+
+	// Read the dummy to clear off RXNE
+	uint8_t dummyread;
+	SPI_ReceiveData(SPI1, &dummyread, 1);
+
+	// Send some dummy byte to fetch the response from the slave (ACK or NACK)
+	uint8_t dummywrite = 0xff;
+	SPI_SendData(SPI1, &dummywrite, 1);
+
+	// Read the response from the slave
+	uint8_t ackbyte;
+	SPI_ReceiveData(SPI1, &ackbyte, 1);
+
+	// Array of arguments
+	uint8_t args[2]; // args[0] = Pin number, args[1] = Value
+
+	if (SPI_VerifyResponse(ackbyte)){
+		// Send arguments pin number and value
+		args[0] = LED_PIN;
+		args[1] = LED_ON;
+		SPI_SendData(SPI1, args, 2);
+	}
+}
+
+/*** Send command #2 CMD SENSOR READ. You have to send analog pin number ***/
+void CMD_SENSOR(uint8_t commandcode){
+
+	SPI_SendData(SPI1, &commandcode, 1);
+
+	// Read the dummy to clear off RXNE
+	uint8_t dummyread;
+	SPI_ReceiveData(SPI1, &dummyread, 1);
+
+	// Send some dummy byte to fetch the response from the slave (ACK or NACK)
+	uint8_t dummywrite = 0xff;
+	SPI_SendData(SPI1, &dummywrite, 1);
+
+	// Read the response from the slave
+	uint8_t ackbyte;
+	SPI_ReceiveData(SPI1, &ackbyte, 1);
+
+	// Array of arguments
+	uint8_t args[1]; // args[0] = Analog pin number
+
+	if (SPI_VerifyResponse(ackbyte)){
+		// Send arguments pin number and value
+		args[0] = ANALOG_PIN0;
+		SPI_SendData(SPI1, args, 1);
+
+		// Read RNXE again
+		SPI_ReceiveData(SPI1, &dummyread, 1);
+
+		// Some delay so the sensor has time to read
+		delay();
+
+		// Send dummy byte to fetch the response
+		SPI_SendData(SPI1, &dummywrite, 1);
+
+		// Read the value of the sensor
+		uint8_t analog_read;
+		SPI_ReceiveData(SPI1, &analog_read, 1);
+	}
+}
+
+void CMD_LED_READ(uint8_t commandcode){
+
+	SPI_SendData(SPI1,&commandcode, 1);
+
+	uint8_t dummyread;
+	SPI_ReceiveData(SPI1, &dummyread, 1);
+
+	uint8_t dummywrite = 0xff;
+	SPI_SendData(SPI1, &dummywrite, 1);
+
+	uint8_t ackbyte;
+	SPI_ReceiveData(SPI1, &ackbyte, 1);
+
+	// Array of arguments
+	uint8_t args[1]; // args[0] = Digital pin number
+
+	if (SPI_VerifyResponse(ackbyte)){
+		// Send arguments pin number and value
+		args[0] = LED_PIN;
+		SPI_SendData(SPI1, args, 1);
+
+		// Read RNXE again
+		SPI_ReceiveData(SPI1, &dummyread, 1);
+
+		// Some delay so the sensor has time to read
+		delay();
+
+		// Send dummy byte to fetch the response
+		SPI_SendData(SPI1, &dummywrite, 1);
+
+		// Read the value of the sensor
+		uint8_t led_status;
+		SPI_ReceiveData(SPI1, &led_status,1);
+	}
+
+}
+
+void CMD_PRINT (uint8_t commandcode){
+
+	SPI_SendData(SPI1,&commandcode, 1);
+
+	uint8_t dummyread;
+	SPI_ReceiveData(SPI1, &dummyread, 1);
+
+	uint8_t dummywrite = 0xff;
+	SPI_SendData(SPI1, &dummywrite, 1);
+
+	uint8_t ackbyte;
+	SPI_ReceiveData(SPI1, &ackbyte, 1);
+
+	uint8_t message[] = "Hello Word";
+	uint8_t args[1];
+
+	if (SPI_VerifyResponse(ackbyte)){
+		args[0] = strlen((char*)message);
+
+		SPI_SendData(SPI1,args,1);
+
+		SPI_ReceiveData(SPI1,&dummyread,1);
+
+		delay();
+
+		for(int i = 0 ; i < args[0] ; i++){
+			SPI_SendData(SPI1,&message[i],1);
+			SPI_ReceiveData(SPI1,&dummyread,1);
+		}
+	}
+}
+
+void CMD_ID (uint8_t commandcode){
+
+	SPI_SendData(SPI1,&commandcode, 1);
+
+	uint8_t dummyread;
+	SPI_ReceiveData(SPI1, &dummyread, 1);
+
+	uint8_t dummywrite = 0xff;
+	SPI_SendData(SPI1, &dummywrite, 1);
+
+	uint8_t ackbyte;
+	SPI_ReceiveData(SPI1, &ackbyte, 1);
+
+	uint8_t id[11];
+
+	if(SPI_VerifyResponse(ackbyte)){
+		for (uint32_t i = 0; i<10; i++){
+			SPI_SendData(SPI1, &dummywrite, 1);
+			SPI_ReceiveData(SPI1, &id[i], 1);
+		}
+		id[10] = '\0';
+	}
+}
+
 int main (void){
+
+	// initialise_monitor_handles();
+
+	// printf("It works!\n");
 
 	GPIO_ButtonInit();
 
@@ -125,82 +292,44 @@ int main (void){
 
 		uint8_t button_value = GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0);
 
+		// Button pressed for the 1st time
 		while((button_value));
-		/* When the button is pressed, the statement will be 1 and negated will be zero
-		 * and will come out of the loop and continue to run the program */
-
 		delay();
 
 		SPI_PeripheralControl(SPI1, ENABLE); // Enable SPI
-		// NOTE: The SPI must be enabled *after* the initialization
 
-		/*** Send command #1 CMD LED CTRL. You have to send pin number and value ***/
-		uint8_t commandcode = COMMAND_LED_CTRL;
-		SPI_SendData(SPI1, &commandcode, 1);
+		// CMD 1: Send command to turn ON/OFF the LED
+		CMD_LED_CTRL(COMMAND_LED_CTRL);
 
-		// Read the dummy to clear off RXNE
-		uint8_t dummyread;
-		SPI_ReceiveData(SPI1, &dummyread, 1);
-
-		// Send some dummy byte to fetch the response from the slave (ACK or NACK)
-		uint8_t dummywrite = 0xff;
-		SPI_SendData(SPI1, &dummywrite, 1);
-
-		// Read the response from the slave
-		uint8_t ackbyte;
-		SPI_ReceiveData(SPI1, &ackbyte, 1);
-
-		// Array of arguments
-		uint8_t args[2]; // args[0] = Pin number, args[1] = Value
-
-		if (SPI_VerifyResponse(ackbyte)){
-			// Send arguments pin number and value
-			args[0] = LED_PIN;
-			args[1] = LED_ON;
-			SPI_SendData(SPI1, args, 2);
-		}
-
-		/*** Send command #2 CMD SENSOR READ. You have to send analog pin number ***/
+		// Button pressed for the 2nd time
 		while((button_value));
-
 		delay();
 
-		commandcode = COMMAND_SENSOR_READ;
-		SPI_SendData(SPI1, &commandcode, 1);
+		// CMD 2: Send command to read sensor
+		CMD_SENSOR(COMMAND_SENSOR_READ);
 
-		// Read the dummy to clear off RXNE
-		SPI_ReceiveData(SPI1, &dummyread, 1);
+		// Button pressed for the 3rd time
+		while((button_value));
+		delay();
 
-		// Send some dummy byte to fetch the response from the slave (ACK or NACK)
-		SPI_SendData(SPI1, &dummywrite, 1);
+		// CMD 3:
+		CMD_LED_READ(COMMAND_LED_READ);
 
-		// Read the response from the slave
-		SPI_ReceiveData(SPI1, &ackbyte, 1);
+		// Button pressed for the 4th time
+		while((button_value));
+		delay();
 
-		// Array of arguments
-		if (SPI_VerifyResponse(ackbyte)){
-		// Send arguments pin number and value
-			args[0] = ANALOG_PIN0;
-			SPI_SendData(SPI1, args, 1);
+		// CMD 4:
+		CMD_PRINT(COMMAND_PRINT);
 
-			// Read RNXE again
-			SPI_ReceiveData(SPI1, &dummyread, 1);
+		// Button pressed for the 5th time
+		while((button_value));
+		delay();
 
-			// Some delay so teh sensor has time to read
-			delay();
-
-			// Send dummy byte to fetch the response
-			SPI_SendData(SPI1, &dummywrite, 1);
-
-			// Read the value of the sensor
-			uint8_t analog_read;
-			SPI_ReceiveData(SPI1, &analog_read, 1);
-		}
-
+		// CMD 5:
+		CMD_ID(COMMAND_ID_READ);
 
 		while(SPI_GetFlagStatus(SPI1, SPI_BUSY_FLAG));
-		/* When the SPI is busy, the flag will be set and the program will hang there until the flag
-		 * is down */
 
 		SPI_PeripheralControl(SPI1, DISABLE); // Disable SPI. To close the line communication
 	}

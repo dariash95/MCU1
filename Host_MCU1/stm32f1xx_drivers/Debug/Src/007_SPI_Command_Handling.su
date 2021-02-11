@@ -1,6 +1,11 @@
-007_SPI_Command_Handling.c:42:6:delay	16	static
-007_SPI_Command_Handling.c:46:6:SPI_GPIOInits	16	static
-007_SPI_Command_Handling.c:76:6:SPI1_Inits	24	static
-007_SPI_Command_Handling.c:91:6:GPIO_ButtonInit	16	static
-007_SPI_Command_Handling.c:103:9:SPI_VerifyResponse	16	static
-007_SPI_Command_Handling.c:114:5:main	24	static
+007_SPI_Command_Handling.c:44:6:delay	16	static
+007_SPI_Command_Handling.c:48:6:SPI_GPIOInits	16	static
+007_SPI_Command_Handling.c:78:6:SPI1_Inits	24	static
+007_SPI_Command_Handling.c:93:6:GPIO_ButtonInit	16	static
+007_SPI_Command_Handling.c:105:9:SPI_VerifyResponse	16	static
+007_SPI_Command_Handling.c:117:6:CMD_LED_CTRL	24	static
+007_SPI_Command_Handling.c:145:6:CMD_SENSOR	24	static
+007_SPI_Command_Handling.c:184:6:CMD_LED_READ	24	static
+007_SPI_Command_Handling.c:221:6:CMD_PRINT	40	static
+007_SPI_Command_Handling.c:253:6:CMD_ID	40	static
+007_SPI_Command_Handling.c:278:5:main	16	static

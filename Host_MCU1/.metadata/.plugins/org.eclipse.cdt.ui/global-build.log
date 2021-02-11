@@ -1269,3 +1269,446 @@ Finished building: stm32f1xx_drivers.bin
  
  
  
+Info: Nothing to build for func_math
+16:33:23 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2640	      8	   1568	   4216	   1078	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Info: Nothing to build for func_math
+16:40:23 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+16:40:24 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.bin
+Finished building: stm32f1xx_drivers.list
+ 
+ 
+16:40:49 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+16:41:27 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+16:42:03 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+16:42:19 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Info: Nothing to build for func_math
+16:44:11 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+../Src/007_SPI_Command_Handling.c:42:8: warning: type defaults to 'int' in declaration of 'initialise_monitor_handles' [-Wimplicit-int]
+ extern initialise_monitor_handles(void);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:44:25 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+16:45:36 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+16:47:35 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+16:50:39 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+16:59:54 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+16:59:55 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+17:01:05 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+17:02:25 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+17:02:26 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+17:07:11 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+17:08:53 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+17:09:12 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6536	    116	   1756	   8408	   20d8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Info: Nothing to build for func_math
+13:14:48 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+13:14:49 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../Src/007_SPI_Command_Handling.c: In function 'main':
+../Src/007_SPI_Command_Handling.c:177:3: error: 'commandcode' undeclared (first use in this function)
+   commandcode = COMMAND_SENSOR_READ;
+   ^~~~~~~~~~~
+../Src/007_SPI_Command_Handling.c:177:3: note: each undeclared identifier is reported only once for each function it appears in
+../Src/007_SPI_Command_Handling.c:181:26: error: 'dummyread' undeclared (first use in this function)
+   SPI_ReceiveData(SPI1, &dummyread, 1);
+                          ^~~~~~~~~
+../Src/007_SPI_Command_Handling.c:184:23: error: 'dummywrite' undeclared (first use in this function); did you mean 'dummyread'?
+   SPI_SendData(SPI1, &dummywrite, 1);
+                       ^~~~~~~~~~
+                       dummyread
+../Src/007_SPI_Command_Handling.c:187:26: error: 'ackbyte' undeclared (first use in this function)
+   SPI_ReceiveData(SPI1, &ackbyte, 1);
+                          ^~~~~~~
+../Src/007_SPI_Command_Handling.c:192:4: error: 'args' undeclared (first use in this function)
+    args[0] = ANALOG_PIN0;
+    ^~~~
+make: *** [Src/subdir.mk:21: Src/007_SPI_Command_Handling.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+13:20:27 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2680	      8	   1568	   4256	   10a0	stm32f1xx_drivers.elf
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.list
+ 
+Finished building: stm32f1xx_drivers.bin
+ 
+Info: Nothing to build for func_math
+13:27:47 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Src/007_SPI_Command_Handling.o: In function `main':
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/Debug/../Src/007_SPI_Command_Handling.c:225: undefined reference to `CMD_LED_READ'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:44: stm32f1xx_drivers.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+13:28:02 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2704	      8	   1568	   4280	   10b8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:05:23 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+16:05:23 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../Src/007_SPI_Command_Handling.c: In function 'CMD_SENSOR':
+../Src/007_SPI_Command_Handling.c:180:26: error: 'status' undeclared (first use in this function); did you mean 'strdup'?
+   SPI_ReceiveData(SPI1, &status, 1);
+                          ^~~~~~
+                          strdup
+../Src/007_SPI_Command_Handling.c:180:26: note: each undeclared identifier is reported only once for each function it appears in
+../Src/007_SPI_Command_Handling.c:179:11: warning: unused variable 'led_status' [-Wunused-variable]
+   uint8_t led_status;
+           ^~~~~~~~~~
+../Src/007_SPI_Command_Handling.c: In function 'CMD_LED_READ':
+../Src/007_SPI_Command_Handling.c:186:15: error: 'SPI' undeclared (first use in this function); did you mean 'SPI1'?
+  SPI_SendData(SPI,&commandcode, 1);
+               ^~~
+               SPI1
+make: *** [Src/subdir.mk:21: Src/007_SPI_Command_Handling.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:05:31 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+../Src/007_SPI_Command_Handling.c: In function 'CMD_LED_READ':
+../Src/007_SPI_Command_Handling.c:186:15: error: 'SPI' undeclared (first use in this function); did you mean 'SPI1'?
+  SPI_SendData(SPI,&commandcode, 1);
+               ^~~
+               SPI1
+../Src/007_SPI_Command_Handling.c:186:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:21: Src/007_SPI_Command_Handling.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:06:43 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+../Src/007_SPI_Command_Handling.c: In function 'CMD_LED_READ':
+../Src/007_SPI_Command_Handling.c:186:15: error: 'SPI' undeclared (first use in this function); did you mean 'SPI1'?
+  SPI_SendData(SPI,&commandcode, 1);
+               ^~~
+               SPI1
+../Src/007_SPI_Command_Handling.c:186:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:21: Src/007_SPI_Command_Handling.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:07:10 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   2868	      8	   1568	   4444	   115c	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+Info: Nothing to build for func_math
+16:29:46 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+../Src/007_SPI_Command_Handling.c: In function 'CMD_PRINT':
+../Src/007_SPI_Command_Handling.c:242:25: error: 'dummy_read' undeclared (first use in this function); did you mean 'dummyread'?
+   SPI_ReceiveData(SPI1,&dummy_read,1);
+                         ^~~~~~~~~~
+                         dummyread
+../Src/007_SPI_Command_Handling.c:242:25: note: each undeclared identifier is reported only once for each function it appears in
+../Src/007_SPI_Command_Handling.c: In function 'CMD_ID':
+../Src/007_SPI_Command_Handling.c:269:8: error: 'i' undeclared (first use in this function); did you mean 'id'?
+   for (i = 0; i<10; i++){
+        ^
+        id
+../Src/007_SPI_Command_Handling.c:266:10: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  uint8_t id[11];
+          ^~
+make: *** [Src/subdir.mk:21: Src/007_SPI_Command_Handling.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:29:57 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+../Src/007_SPI_Command_Handling.c: In function 'CMD_PRINT':
+../Src/007_SPI_Command_Handling.c:248:26: error: 'dummy_read' undeclared (first use in this function); did you mean 'dummyread'?
+    SPI_ReceiveData(SPI1,&dummy_read,1);
+                          ^~~~~~~~~~
+                          dummyread
+../Src/007_SPI_Command_Handling.c:248:26: note: each undeclared identifier is reported only once for each function it appears in
+../Src/007_SPI_Command_Handling.c: In function 'CMD_ID':
+../Src/007_SPI_Command_Handling.c:269:8: error: 'i' undeclared (first use in this function); did you mean 'id'?
+   for (i = 0; i<10; i++){
+        ^
+        id
+../Src/007_SPI_Command_Handling.c:266:10: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  uint8_t id[11];
+          ^~
+make: *** [Src/subdir.mk:21: Src/007_SPI_Command_Handling.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:30:38 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+../Src/007_SPI_Command_Handling.c: In function 'CMD_PRINT':
+../Src/007_SPI_Command_Handling.c:242:25: error: 'dummy_read' undeclared (first use in this function); did you mean 'dummyread'?
+   SPI_ReceiveData(SPI1,&dummy_read,1);
+                         ^~~~~~~~~~
+                         dummyread
+../Src/007_SPI_Command_Handling.c:242:25: note: each undeclared identifier is reported only once for each function it appears in
+../Src/007_SPI_Command_Handling.c: In function 'CMD_ID':
+../Src/007_SPI_Command_Handling.c:269:8: error: 'i' undeclared (first use in this function); did you mean 'id'?
+   for (i = 0; i<10; i++){
+        ^
+        id
+../Src/007_SPI_Command_Handling.c:266:10: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  uint8_t id[11];
+          ^~
+make: *** [Src/subdir.mk:21: Src/007_SPI_Command_Handling.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:30:43 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+../Src/007_SPI_Command_Handling.c: In function 'CMD_ID':
+../Src/007_SPI_Command_Handling.c:269:8: error: 'i' undeclared (first use in this function); did you mean 'id'?
+   for (i = 0; i<10; i++){
+        ^
+        id
+../Src/007_SPI_Command_Handling.c:269:8: note: each undeclared identifier is reported only once for each function it appears in
+../Src/007_SPI_Command_Handling.c:266:10: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  uint8_t id[11];
+          ^~
+make: *** [Src/subdir.mk:21: Src/007_SPI_Command_Handling.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:31:19 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
