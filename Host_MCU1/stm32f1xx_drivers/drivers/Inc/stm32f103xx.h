@@ -11,6 +11,7 @@
 #define INC_STM32F103XX_H_
 
 #include <stdint.h>
+#include <stddef.h>
 
 /*********************** Processor specific macros ******************************/
 
@@ -240,7 +241,10 @@ typedef struct{
 #define IRQ_NO_EXTI3		9
 #define IRQ_NO_EXTI4		10
 #define IRQ_NO_EXTI9_5		23
+#define IRQ_NO_SPI1			35
+#define IRQ_NO_SPI2			36
 #define IRQ_NO_EXTI15_10	40
+#define IRQ_NO_SPI3			51
 
 /* IRQ Priority */
 #define NVIC_PRIO_0			0

@@ -1712,3 +1712,1035 @@ Finished building: stm32f1xx_drivers.bin
  
  
  
+10:59:41 **** Rebuild of configuration Debug for project func_math ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o math.o "..\\math.c" 
+gcc -o func_math.exe main.o math.o 
+10:59:42 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+10:59:43 **** Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+Info: Nothing to build for func_math
+11:48:45 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:309:0,
+                 from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_gpio.h:13,
+                 from ../drivers/Src/stm32f1xx_gpio.c:8:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:30:13: error: duplicate member 'pTxBuffer'
+  uint8_t   *pTxBuffer; // To store the app Rx Buffer address
+             ^~~~~~~~~
+make: *** [drivers/Src/subdir.mk:21: drivers/Src/stm32f1xx_gpio.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:309:0,
+                 from ../Src/007_SPI_Command_Handling.c:8:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:30:13: error: duplicate member 'pTxBuffer'
+  uint8_t   *pTxBuffer; // To store the app Rx Buffer address
+             ^~~~~~~~~
+In file included from ../drivers/Src/stm32f1xx_spi.c:8:0:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:30:13: error: duplicate member 'pTxBuffer'
+  uint8_t   *pTxBuffer; // To store the app Rx Buffer address
+             ^~~~~~~~~
+make: *** [drivers/Src/subdir.mk:23: drivers/Src/stm32f1xx_spi.o] Error 1
+make: *** [Src/subdir.mk:21: Src/007_SPI_Command_Handling.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+11:49:10 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+12:22:51 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_IRQHandling':
+../drivers/Src/stm32f1xx_spi.c:342:3: warning: implicit declaration of function 'SPI_TXE_Interrupt_Handle'; did you mean 'GPIO_InterHandler'? [-Wimplicit-function-declaration]
+   SPI_TXE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_InterHandler
+../drivers/Src/stm32f1xx_spi.c:354:3: warning: implicit declaration of function 'SPI_RXNE_Interrupt_Handle'; did you mean 'GPIO_InterHandler'? [-Wimplicit-function-declaration]
+   SPI_RXNE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_InterHandler
+../drivers/Src/stm32f1xx_spi.c:366:3: warning: implicit declaration of function 'SPI_OVR_Interrupt_Handle'; did you mean 'GPIO_InterHandler'? [-Wimplicit-function-declaration]
+   SPI_OVR_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_InterHandler
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:45:20 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+16:45:22 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_IRQHandling':
+../drivers/Src/stm32f1xx_spi.c:347:3: error: too few arguments to function 'SPI_TXE_Interrupt_Handle'
+   SPI_TXE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:11:13: note: declared here
+ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:359:3: warning: implicit declaration of function 'SPI_RXNE_Interrupt_Handle'; did you mean 'SPI_RXEN_Interrupt_Handle'? [-Wimplicit-function-declaration]
+   SPI_RXNE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   SPI_RXEN_Interrupt_Handle
+../drivers/Src/stm32f1xx_spi.c:371:3: error: too few arguments to function 'SPI_OVR_Interrupt_Handle'
+   SPI_OVR_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:13:13: note: declared here
+ static void SPI_OVR_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:435:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   pSPIxHandle->pSPIx->DR = pSPIxHandle->pTxBuffer;
+                          ^
+../drivers/Src/stm32f1xx_spi.c:445:3: warning: implicit declaration of function 'SPI_ApplicationEventCallback' [-Wimplicit-function-declaration]
+   SPI_ApplicationEventCallback(pSPIxHandle,SPI_EVENT_TX_COMPLETE);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+At top level:
+../drivers/Src/stm32f1xx_spi.c:449:13: warning: 'SPI_RXEN_Interrupt_Handle' defined but not used [-Wunused-function]
+ static void SPI_RXEN_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:23: drivers/Src/stm32f1xx_spi.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:46:17 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_IRQHandling':
+../drivers/Src/stm32f1xx_spi.c:347:3: error: too few arguments to function 'SPI_TXE_Interrupt_Handle'
+   SPI_TXE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:11:13: note: declared here
+ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:359:3: warning: implicit declaration of function 'SPI_RXNE_Interrupt_Handle'; did you mean 'SPI_RXEN_Interrupt_Handle'? [-Wimplicit-function-declaration]
+   SPI_RXNE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   SPI_RXEN_Interrupt_Handle
+../drivers/Src/stm32f1xx_spi.c:371:3: error: too few arguments to function 'SPI_OVR_Interrupt_Handle'
+   SPI_OVR_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:13:13: note: declared here
+ static void SPI_OVR_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:435:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   pSPIxHandle->pSPIx->DR = pSPIxHandle->pTxBuffer;
+                          ^
+At top level:
+../drivers/Src/stm32f1xx_spi.c:449:13: warning: 'SPI_RXEN_Interrupt_Handle' defined but not used [-Wunused-function]
+ static void SPI_RXEN_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:23: drivers/Src/stm32f1xx_spi.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:46:45 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_IRQHandling':
+../drivers/Src/stm32f1xx_spi.c:347:3: error: too few arguments to function 'SPI_TXE_Interrupt_Handle'
+   SPI_TXE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:11:13: note: declared here
+ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:359:3: warning: implicit declaration of function 'SPI_RXNE_Interrupt_Handle'; did you mean 'SPI_RXEN_Interrupt_Handle'? [-Wimplicit-function-declaration]
+   SPI_RXNE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   SPI_RXEN_Interrupt_Handle
+../drivers/Src/stm32f1xx_spi.c:371:3: error: too few arguments to function 'SPI_OVR_Interrupt_Handle'
+   SPI_OVR_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:13:13: note: declared here
+ static void SPI_OVR_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:435:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   pSPIxHandle->pSPIx->DR = pSPIxHandle->pTxBuffer;
+                          ^
+../drivers/Src/stm32f1xx_spi.c: At top level:
+../drivers/Src/stm32f1xx_spi.c:12:13: warning: 'SPI_RXEN_Interrupt_Handle' declared 'static' but never defined [-Wunused-function]
+ static void SPI_RXEN_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:13:13: warning: 'SPI_OVR_Interrupt_Handle' used but never defined
+ static void SPI_OVR_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:23: drivers/Src/stm32f1xx_spi.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:47:04 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_IRQHandling':
+../drivers/Src/stm32f1xx_spi.c:347:3: error: too few arguments to function 'SPI_TXE_Interrupt_Handle'
+   SPI_TXE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:11:13: note: declared here
+ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:359:3: warning: implicit declaration of function 'SPI_RXNE_Interrupt_Handle'; did you mean 'SPI_TXE_Interrupt_Handle'? [-Wimplicit-function-declaration]
+   SPI_RXNE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   SPI_TXE_Interrupt_Handle
+../drivers/Src/stm32f1xx_spi.c:371:3: warning: implicit declaration of function 'SPI_OVR_Interrupt_Handle'; did you mean 'SPI_TXE_Interrupt_Handle'? [-Wimplicit-function-declaration]
+   SPI_OVR_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+   SPI_TXE_Interrupt_Handle
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:435:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   pSPIxHandle->pSPIx->DR = pSPIxHandle->pTxBuffer;
+                          ^
+make: *** [drivers/Src/subdir.mk:23: drivers/Src/stm32f1xx_spi.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:47:40 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_IRQHandling':
+../drivers/Src/stm32f1xx_spi.c:347:3: error: too few arguments to function 'SPI_TXE_Interrupt_Handle'
+   SPI_TXE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:11:13: note: declared here
+ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:359:3: warning: implicit declaration of function 'SPI_RXNE_Interrupt_Handle'; did you mean 'SPI_TXE_Interrupt_Handle'? [-Wimplicit-function-declaration]
+   SPI_RXNE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   SPI_TXE_Interrupt_Handle
+../drivers/Src/stm32f1xx_spi.c:371:3: warning: implicit declaration of function 'SPI_OVR_Interrupt_Handle'; did you mean 'SPI_TXE_Interrupt_Handle'? [-Wimplicit-function-declaration]
+   SPI_OVR_Interrupt_Handle(pSPIxHandle);
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+   SPI_TXE_Interrupt_Handle
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:435:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   pSPIxHandle->pSPIx->DR = pSPIxHandle->pTxBuffer;
+                          ^
+make: *** [drivers/Src/subdir.mk:23: drivers/Src/stm32f1xx_spi.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:48:29 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_IRQHandling':
+../drivers/Src/stm32f1xx_spi.c:347:3: error: too few arguments to function 'SPI_TXE_Interrupt_Handle'
+   SPI_TXE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:11:13: note: declared here
+ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c:359:3: warning: implicit declaration of function 'SPI_RXNE_Interrupt_Handle'; did you mean 'SPI_TXE_Interrupt_Handle'? [-Wimplicit-function-declaration]
+   SPI_RXNE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   SPI_TXE_Interrupt_Handle
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:435:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   pSPIxHandle->pSPIx->DR = pSPIxHandle->pTxBuffer;
+                          ^
+make: *** [drivers/Src/subdir.mk:23: drivers/Src/stm32f1xx_spi.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+16:48:53 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_IRQHandling':
+../drivers/Src/stm32f1xx_spi.c:359:3: warning: implicit declaration of function 'SPI_RXNE_Interrupt_Handle'; did you mean 'SPI_TXE_Interrupt_Handle'? [-Wimplicit-function-declaration]
+   SPI_RXNE_Interrupt_Handle();
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   SPI_TXE_Interrupt_Handle
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:435:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   pSPIxHandle->pSPIx->DR = pSPIxHandle->pTxBuffer;
+                          ^
+At top level:
+../drivers/Src/stm32f1xx_spi.c:426:13: warning: 'SPI_TXE_Interrupt_Handle' defined but not used [-Wunused-function]
+ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+Info: Nothing to build for func_math
+16:49:08 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:435:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   pSPIxHandle->pSPIx->DR = pSPIxHandle->pTxBuffer;
+                          ^
+At top level:
+../drivers/Src/stm32f1xx_spi.c:426:13: warning: 'SPI_TXE_Interrupt_Handle' defined but not used [-Wunused-function]
+ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:24:23 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+16:24:24 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../drivers/Src/stm32f1xx_spi.c:426:13: warning: 'SPI_TXE_Interrupt_Handle' defined but not used [-Wunused-function]
+ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+Info: Nothing to build for func_math
+16:25:28 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_IRQHandling':
+../drivers/Src/stm32f1xx_spi.c:347:28: warning: passing argument 1 of 'SPI_TXE_Interrupt_Handle' from incompatible pointer type [-Wincompatible-pointer-types]
+   SPI_TXE_Interrupt_Handle(&pSPIxHandle);
+                            ^
+../drivers/Src/stm32f1xx_spi.c:11:13: note: expected 'SPI_Handle_t * {aka struct <anonymous> *}' but argument is of type 'SPI_Handle_t ** {aka struct <anonymous> **}'
+ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:25:49 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:30:18 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_IRQHandling':
+../drivers/Src/stm32f1xx_spi.c:359:3: warning: implicit declaration of function 'SPI_RXNE_Interrupt_Handle'; did you mean 'SPI_RXEN_Interrupt_Handle'? [-Wimplicit-function-declaration]
+   SPI_RXNE_Interrupt_Handle(pSPIxHandle);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   SPI_RXEN_Interrupt_Handle
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:445:3: warning: implicit declaration of function 'SPI_ApplicationEventCallback' [-Wimplicit-function-declaration]
+   SPI_ApplicationEventCallback(pSPIxHandle,SPI_EVENT_TX_COMPLETE);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+At top level:
+../drivers/Src/stm32f1xx_spi.c:449:13: warning: 'SPI_RXEN_Interrupt_Handle' defined but not used [-Wunused-function]
+ static void SPI_RXEN_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:31:30 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:445:3: warning: implicit declaration of function 'SPI_ApplicationEventCallback' [-Wimplicit-function-declaration]
+   SPI_ApplicationEventCallback(pSPIxHandle,SPI_EVENT_TX_COMPLETE);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:32:21 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:445:3: warning: implicit declaration of function 'SPI_ApplicationEventCallback' [-Wimplicit-function-declaration]
+   SPI_ApplicationEventCallback(pSPIxHandle,SPI_EVENT_TX_COMPLETE);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:32:59 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:445:3: warning: implicit declaration of function 'SPI_ApplicationEventCallback' [-Wimplicit-function-declaration]
+   SPI_ApplicationEventCallback(pSPIxHandle, SPI_EVENT_TX_COMPLETE);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:37:59 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:445:3: warning: implicit declaration of function 'SPI_ApplicationEventCallback' [-Wimplicit-function-declaration]
+   SPI_ApplicationEventCallback(pSPIxHandle, SPI_EVENT_TX_COMPLETE);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_OVR_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:475:10: warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+  uint8_t temp;
+          ^~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:47:29 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+../drivers/Src/stm32f1xx_spi.c: In function 'SPI_TXE_Interrupt_Handle':
+../drivers/Src/stm32f1xx_spi.c:442:3: warning: implicit declaration of function 'SPI_ApplicationEventCallback' [-Wimplicit-function-declaration]
+   SPI_ApplicationEventCallback(pSPIxHandle, SPI_EVENT_TX_COMPLETE);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+16:51:52 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/007_SPI_Command_Handling.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/007_SPI_Command_Handling.d" -MT"Src/007_SPI_Command_Handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007_SPI_Command_Handling.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3296	      8	   1568	   4872	   1308	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+17:14:43 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'Slave_GPIO_InterruptPinInit':
+../Src/008_SPI_Interrupts.c:94:44: error: 'GPIO_PIN_NO_6' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  spiIntPin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_6;
+                                            ^~~~~~~~~~~~~
+                                            GPIO_PIN_6
+../Src/008_SPI_Interrupts.c:94:44: note: each undeclared identifier is reported only once for each function it appears in
+../Src/008_SPI_Interrupts.c:95:42: error: 'GPIO_MODE_IT_FT' undeclared (first use in this function); did you mean 'GPIO_MODE_IN'?
+  spiIntPin.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IT_FT;
+                                          ^~~~~~~~~~~~~~~
+                                          GPIO_MODE_IN
+../Src/008_SPI_Interrupts.c:96:27: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinSpeed'; did you mean 'GPIO_PinMode'?
+  spiIntPin.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_LOW;
+                           ^~~~~~~~~~~~~
+                           GPIO_PinMode
+../Src/008_SPI_Interrupts.c:96:43: error: 'GPIO_SPEED_LOW' undeclared (first use in this function); did you mean 'SPI_CPOL_LOW'?
+  spiIntPin.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_LOW;
+                                           ^~~~~~~~~~~~~~
+                                           SPI_CPOL_LOW
+../Src/008_SPI_Interrupts.c:97:27: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinPuPdControl'; did you mean 'GPIO_PinNumber'?
+  spiIntPin.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
+                           ^~~~~~~~~~~~~~~~~~~
+                           GPIO_PinNumber
+../Src/008_SPI_Interrupts.c:97:49: error: 'GPIO_PIN_PU' undeclared (first use in this function); did you mean 'GPIO_PIN_14'?
+  spiIntPin.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
+                                                 ^~~~~~~~~~~
+                                                 GPIO_PIN_14
+../Src/008_SPI_Interrupts.c:101:2: warning: implicit declaration of function 'GPIO_IRQPriorityConfig'; did you mean 'GPIO_IRQPriority'? [-Wimplicit-function-declaration]
+  GPIO_IRQPriorityConfig(IRQ_NO_EXTI9_5,NVIC_IRQ_PRI15);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  GPIO_IRQPriority
+../Src/008_SPI_Interrupts.c:101:40: error: 'NVIC_IRQ_PRI15' undeclared (first use in this function); did you mean 'NVIC_ICER1'?
+  GPIO_IRQPriorityConfig(IRQ_NO_EXTI9_5,NVIC_IRQ_PRI15);
+                                        ^~~~~~~~~~~~~~
+                                        NVIC_ICER1
+../Src/008_SPI_Interrupts.c:102:2: warning: implicit declaration of function 'GPIO_IRQInterruptConfig'; did you mean 'GPIO_IRQConfig'? [-Wimplicit-function-declaration]
+  GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5,ENABLE);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+  GPIO_IRQConfig
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:128:2: warning: implicit declaration of function 'SPI_IRQInterruptConfig'; did you mean 'SPI_IRQConfig'? [-Wimplicit-function-declaration]
+  SPI_IRQInterruptConfig(IRQ_NO_SPI1,ENABLE);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  SPI_IRQConfig
+../Src/008_SPI_Interrupts.c:145:12: warning: implicit declaration of function 'SPI_SendDataIT'; did you mean 'SPI_SendData'? [-Wimplicit-function-declaration]
+    while ( SPI_SendDataIT(&SPI2handle,&dummy,1) == SPI_BUSY_IN_TX);
+            ^~~~~~~~~~~~~~
+            SPI_SendData
+../Src/008_SPI_Interrupts.c:145:28: error: 'SPI2handle' undeclared (first use in this function); did you mean 'SPI1Handle'?
+    while ( SPI_SendDataIT(&SPI2handle,&dummy,1) == SPI_BUSY_IN_TX);
+                            ^~~~~~~~~~
+                            SPI1Handle
+../Src/008_SPI_Interrupts.c:146:12: warning: implicit declaration of function 'SPI_ReceiveDataIT'; did you mean 'SPI_ReceiveData'? [-Wimplicit-function-declaration]
+    while ( SPI_ReceiveDataIT(&SPI2handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+            ^~~~~~~~~~~~~~~~~
+            SPI_ReceiveData
+../Src/008_SPI_Interrupts.c: In function 'SPI_ApplicationEventCallback':
+../Src/008_SPI_Interrupts.c:180:14: error: 'SPI_EVENT_RX_CMPLT' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+  if(AppEv == SPI_EVENT_RX_CMPLT)
+              ^~~~~~~~~~~~~~~~~~
+              SPI_EVENT_RX_COMPLETE
+../Src/008_SPI_Interrupts.c: In function 'EXTI9_5_IRQHandler':
+../Src/008_SPI_Interrupts.c:195:19: error: 'GPIO_PIN_NO_6' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  GPIO_IRQHandling(GPIO_PIN_NO_6);
+                   ^~~~~~~~~~~~~
+                   GPIO_PIN_6
+make: *** [Src/subdir.mk:26: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+17:20:21 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'Slave_GPIO_InterruptPinInit':
+../Src/008_SPI_Interrupts.c:95:2: error: 'SPIPIntPin' undeclared (first use in this function); did you mean 'SPIIntPin'?
+  SPIPIntPin.GPIO_PinConfig.GPIO_Config = 1; // Floating input
+  ^~~~~~~~~~
+  SPIIntPin
+../Src/008_SPI_Interrupts.c:95:2: note: each undeclared identifier is reported only once for each function it appears in
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:126:2: warning: implicit declaration of function 'SPI_IRQInterruptConfig'; did you mean 'SPI_IRQConfig'? [-Wimplicit-function-declaration]
+  SPI_IRQInterruptConfig(IRQ_NO_SPI1,ENABLE);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  SPI_IRQConfig
+../Src/008_SPI_Interrupts.c:134:3: warning: implicit declaration of function 'GPIO_IRQInterruptConfig'; did you mean 'GPIO_IRQConfig'? [-Wimplicit-function-declaration]
+   GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5,DISABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_IRQConfig
+../Src/008_SPI_Interrupts.c:143:12: warning: implicit declaration of function 'SPI_SendDataIT'; did you mean 'SPI_SendData'? [-Wimplicit-function-declaration]
+    while ( SPI_SendDataIT(&SPI2handle,&dummy,1) == SPI_BUSY_IN_TX);
+            ^~~~~~~~~~~~~~
+            SPI_SendData
+../Src/008_SPI_Interrupts.c:143:28: error: 'SPI2handle' undeclared (first use in this function); did you mean 'SPI1Handle'?
+    while ( SPI_SendDataIT(&SPI2handle,&dummy,1) == SPI_BUSY_IN_TX);
+                            ^~~~~~~~~~
+                            SPI1Handle
+../Src/008_SPI_Interrupts.c:144:12: warning: implicit declaration of function 'SPI_ReceiveDataIT'; did you mean 'SPI_ReceiveData'? [-Wimplicit-function-declaration]
+    while ( SPI_ReceiveDataIT(&SPI2handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+            ^~~~~~~~~~~~~~~~~
+            SPI_ReceiveData
+../Src/008_SPI_Interrupts.c: In function 'SPI_ApplicationEventCallback':
+../Src/008_SPI_Interrupts.c:178:14: error: 'SPI_EVENT_RX_CMPLT' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+  if(AppEv == SPI_EVENT_RX_CMPLT)
+              ^~~~~~~~~~~~~~~~~~
+              SPI_EVENT_RX_COMPLETE
+../Src/008_SPI_Interrupts.c: In function 'EXTI9_5_IRQHandler':
+../Src/008_SPI_Interrupts.c:193:19: error: 'GPIO_PIN_NO_6' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  GPIO_IRQHandling(GPIO_PIN_NO_6);
+                   ^~~~~~~~~~~~~
+                   GPIO_PIN_6
+make: *** [Src/subdir.mk:26: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+17:20:38 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:126:2: warning: implicit declaration of function 'SPI_IRQInterruptConfig'; did you mean 'SPI_IRQConfig'? [-Wimplicit-function-declaration]
+  SPI_IRQInterruptConfig(IRQ_NO_SPI1,ENABLE);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  SPI_IRQConfig
+../Src/008_SPI_Interrupts.c:134:3: warning: implicit declaration of function 'GPIO_IRQInterruptConfig'; did you mean 'GPIO_IRQConfig'? [-Wimplicit-function-declaration]
+   GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5,DISABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_IRQConfig
+../Src/008_SPI_Interrupts.c:143:12: warning: implicit declaration of function 'SPI_SendDataIT'; did you mean 'SPI_SendData'? [-Wimplicit-function-declaration]
+    while ( SPI_SendDataIT(&SPI2handle,&dummy,1) == SPI_BUSY_IN_TX);
+            ^~~~~~~~~~~~~~
+            SPI_SendData
+../Src/008_SPI_Interrupts.c:143:28: error: 'SPI2handle' undeclared (first use in this function); did you mean 'SPI1Handle'?
+    while ( SPI_SendDataIT(&SPI2handle,&dummy,1) == SPI_BUSY_IN_TX);
+                            ^~~~~~~~~~
+                            SPI1Handle
+../Src/008_SPI_Interrupts.c:143:28: note: each undeclared identifier is reported only once for each function it appears in
+../Src/008_SPI_Interrupts.c:144:12: warning: implicit declaration of function 'SPI_ReceiveDataIT'; did you mean 'SPI_ReceiveData'? [-Wimplicit-function-declaration]
+    while ( SPI_ReceiveDataIT(&SPI2handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+            ^~~~~~~~~~~~~~~~~
+            SPI_ReceiveData
+../Src/008_SPI_Interrupts.c: In function 'SPI_ApplicationEventCallback':
+../Src/008_SPI_Interrupts.c:178:14: error: 'SPI_EVENT_RX_CMPLT' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+  if(AppEv == SPI_EVENT_RX_CMPLT)
+              ^~~~~~~~~~~~~~~~~~
+              SPI_EVENT_RX_COMPLETE
+../Src/008_SPI_Interrupts.c: In function 'EXTI9_5_IRQHandler':
+../Src/008_SPI_Interrupts.c:193:19: error: 'GPIO_PIN_NO_6' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  GPIO_IRQHandling(GPIO_PIN_NO_6);
+                   ^~~~~~~~~~~~~
+                   GPIO_PIN_6
+make: *** [Src/subdir.mk:26: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+17:22:01 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:134:3: warning: implicit declaration of function 'GPIO_IRQInterruptConfig'; did you mean 'GPIO_IRQConfig'? [-Wimplicit-function-declaration]
+   GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5,DISABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_IRQConfig
+../Src/008_SPI_Interrupts.c:143:12: warning: implicit declaration of function 'SPI_SendDataIT'; did you mean 'SPI_SendData'? [-Wimplicit-function-declaration]
+    while ( SPI_SendDataIT(&SPI2handle,&dummy,1) == SPI_BUSY_IN_TX);
+            ^~~~~~~~~~~~~~
+            SPI_SendData
+../Src/008_SPI_Interrupts.c:143:28: error: 'SPI2handle' undeclared (first use in this function); did you mean 'SPI1Handle'?
+    while ( SPI_SendDataIT(&SPI2handle,&dummy,1) == SPI_BUSY_IN_TX);
+                            ^~~~~~~~~~
+                            SPI1Handle
+../Src/008_SPI_Interrupts.c:143:28: note: each undeclared identifier is reported only once for each function it appears in
+../Src/008_SPI_Interrupts.c:144:12: warning: implicit declaration of function 'SPI_ReceiveDataIT'; did you mean 'SPI_ReceiveData'? [-Wimplicit-function-declaration]
+    while ( SPI_ReceiveDataIT(&SPI2handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+            ^~~~~~~~~~~~~~~~~
+            SPI_ReceiveData
+../Src/008_SPI_Interrupts.c: In function 'SPI_ApplicationEventCallback':
+../Src/008_SPI_Interrupts.c:178:14: error: 'SPI_EVENT_RX_CMPLT' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+  if(AppEv == SPI_EVENT_RX_CMPLT)
+              ^~~~~~~~~~~~~~~~~~
+              SPI_EVENT_RX_COMPLETE
+../Src/008_SPI_Interrupts.c: In function 'EXTI9_5_IRQHandler':
+../Src/008_SPI_Interrupts.c:193:19: error: 'GPIO_PIN_NO_6' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  GPIO_IRQHandling(GPIO_PIN_NO_6);
+                   ^~~~~~~~~~~~~
+                   GPIO_PIN_6
+make: *** [Src/subdir.mk:26: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+17:22:58 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:134:3: warning: implicit declaration of function 'GPIO_IRQInterruptConfig'; did you mean 'GPIO_IRQConfig'? [-Wimplicit-function-declaration]
+   GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5,DISABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_IRQConfig
+../Src/008_SPI_Interrupts.c:143:31: error: 'SPI1handle' undeclared (first use in this function); did you mean 'SPI1Handle'?
+    while (SPI_SendData_Inter(&SPI1handle,&dummy,1) == SPI_BUSY_IN_TX);
+                               ^~~~~~~~~~
+                               SPI1Handle
+../Src/008_SPI_Interrupts.c:143:31: note: each undeclared identifier is reported only once for each function it appears in
+../Src/008_SPI_Interrupts.c:144:46: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while ( SPI_ReceiveData_Inter(&SPI1Handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+                                              ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:310:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:103:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+../Src/008_SPI_Interrupts.c: In function 'SPI_ApplicationEventCallback':
+../Src/008_SPI_Interrupts.c:178:14: error: 'SPI_EVENT_RX_CMPLT' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+  if(AppEv == SPI_EVENT_RX_CMPLT)
+              ^~~~~~~~~~~~~~~~~~
+              SPI_EVENT_RX_COMPLETE
+../Src/008_SPI_Interrupts.c: In function 'EXTI9_5_IRQHandler':
+../Src/008_SPI_Interrupts.c:193:19: error: 'GPIO_PIN_NO_6' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  GPIO_IRQHandling(GPIO_PIN_NO_6);
+                   ^~~~~~~~~~~~~
+                   GPIO_PIN_6
+make: *** [Src/subdir.mk:26: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+17:23:12 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:134:3: warning: implicit declaration of function 'GPIO_IRQInterruptConfig'; did you mean 'GPIO_IRQConfig'? [-Wimplicit-function-declaration]
+   GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5,DISABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_IRQConfig
+../Src/008_SPI_Interrupts.c:144:46: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while ( SPI_ReceiveData_Inter(&SPI1Handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+                                              ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:310:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:103:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+../Src/008_SPI_Interrupts.c: In function 'SPI_ApplicationEventCallback':
+../Src/008_SPI_Interrupts.c:178:14: error: 'SPI_EVENT_RX_CMPLT' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+  if(AppEv == SPI_EVENT_RX_CMPLT)
+              ^~~~~~~~~~~~~~~~~~
+              SPI_EVENT_RX_COMPLETE
+../Src/008_SPI_Interrupts.c:178:14: note: each undeclared identifier is reported only once for each function it appears in
+../Src/008_SPI_Interrupts.c: In function 'EXTI9_5_IRQHandler':
+../Src/008_SPI_Interrupts.c:193:19: error: 'GPIO_PIN_NO_6' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  GPIO_IRQHandling(GPIO_PIN_NO_6);
+                   ^~~~~~~~~~~~~
+                   GPIO_PIN_6
+make: *** [Src/subdir.mk:26: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+17:24:05 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:144:45: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+                                             ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:310:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:103:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+../Src/008_SPI_Interrupts.c:158:3: warning: implicit declaration of function 'GPIO_IRQInterruptConfig'; did you mean 'GPIO_IRQConfig'? [-Wimplicit-function-declaration]
+   GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5,ENABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_IRQConfig
+../Src/008_SPI_Interrupts.c: In function 'SPI_ApplicationEventCallback':
+../Src/008_SPI_Interrupts.c:178:14: error: 'SPI_EVENT_RX_CMPLT' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+  if(AppEv == SPI_EVENT_RX_CMPLT)
+              ^~~~~~~~~~~~~~~~~~
+              SPI_EVENT_RX_COMPLETE
+../Src/008_SPI_Interrupts.c:178:14: note: each undeclared identifier is reported only once for each function it appears in
+../Src/008_SPI_Interrupts.c: In function 'EXTI9_5_IRQHandler':
+../Src/008_SPI_Interrupts.c:193:19: error: 'GPIO_PIN_NO_6' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  GPIO_IRQHandling(GPIO_PIN_NO_6);
+                   ^~~~~~~~~~~~~
+                   GPIO_PIN_6
+make: *** [Src/subdir.mk:26: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+17:24:25 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:144:45: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+                                             ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:310:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:103:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+../Src/008_SPI_Interrupts.c:158:3: warning: implicit declaration of function 'GPIO_IRQInterruptConfig'; did you mean 'GPIO_IRQConfig'? [-Wimplicit-function-declaration]
+   GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5,ENABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_IRQConfig
+../Src/008_SPI_Interrupts.c: In function 'SPI_ApplicationEventCallback':
+../Src/008_SPI_Interrupts.c:178:14: error: 'SPI_EVENT_RX_CMPLT' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+  if(AppEv == SPI_EVENT_RX_CMPLT)
+              ^~~~~~~~~~~~~~~~~~
+              SPI_EVENT_RX_COMPLETE
+../Src/008_SPI_Interrupts.c:178:14: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:26: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+17:25:07 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:144:45: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+                                             ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:310:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:103:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+../Src/008_SPI_Interrupts.c:158:3: warning: implicit declaration of function 'GPIO_IRQInterruptConfig'; did you mean 'GPIO_IRQConfig'? [-Wimplicit-function-declaration]
+   GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5,ENABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_IRQConfig
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Src/008_SPI_Interrupts.o: In function `delay':
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/Debug/../Src/008_SPI_Interrupts.c:34: multiple definition of `delay'
+Src/007_SPI_Command_Handling.o:C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/Debug/../Src/007_SPI_Command_Handling.c:44: first defined here
+Src/008_SPI_Interrupts.o: In function `SPI_GPIOInits':
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/Debug/../Src/008_SPI_Interrupts.c:40: multiple definition of `SPI_GPIOInits'
+Src/007_SPI_Command_Handling.o:C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/Debug/../Src/007_SPI_Command_Handling.c:48: first defined here
+Src/008_SPI_Interrupts.o: In function `main':
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/Debug/../Src/008_SPI_Interrupts.c:106: multiple definition of `main'
+Src/007_SPI_Command_Handling.o:C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/Debug/../Src/007_SPI_Command_Handling.c:277: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:44: stm32f1xx_drivers.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+17:25:27 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+17:25:28 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:144:45: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+                                             ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:310:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:103:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+../Src/008_SPI_Interrupts.c:158:3: warning: implicit declaration of function 'GPIO_IRQInterruptConfig'; did you mean 'GPIO_IRQConfig'? [-Wimplicit-function-declaration]
+   GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5,ENABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   GPIO_IRQConfig
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Src/008_SPI_Interrupts.o: In function `main':
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/Debug/../Src/008_SPI_Interrupts.c:158: undefined reference to `GPIO_IRQInterruptConfig'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:44: stm32f1xx_drivers.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+17:25:56 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:144:45: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+                                             ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:310:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:103:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8256	    108	   2276	  10640	   2990	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.bin
+Finished building: stm32f1xx_drivers.list
+ 
+ 
+Info: Nothing to build for func_math
+17:31:08 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:152:45: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle,&ReadByte,1) == SPI_BUSY_IN_RX );
+                                             ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:310:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:103:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8620	    108	   2276	  11004	   2afc	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 
+Info: Nothing to build for func_math
+17:32:42 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:149:46: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle, &ReadByte, 1) == SPI_BUSY_IN_RX );
+                                              ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:310:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:103:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8620	    108	   2276	  11004	   2afc	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.bin
+Finished building: stm32f1xx_drivers.list
+ 
+ 
+ 
