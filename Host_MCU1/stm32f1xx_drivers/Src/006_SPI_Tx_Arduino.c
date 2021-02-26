@@ -102,7 +102,6 @@ int main (void){
 		SPI_PeripheralControl(SPI1, ENABLE); // Enable SPI
 		// NOTE: The SPI must be enabled *after* the initialization
 
-
 		// First send the info about length
 		uint8_t dataLength = strlen(user_data);
 		SPI_SendData(SPI1, &dataLength, 1);

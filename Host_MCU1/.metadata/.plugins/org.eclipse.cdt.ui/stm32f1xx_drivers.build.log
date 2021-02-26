@@ -1,10 +1,32 @@
-17:58:52 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+17:12:56 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:145:46: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle, &ReadByte, 1) == SPI_BUSY_IN_RX);
+                                              ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:310:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:102:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
 arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
    text	   data	    bss	    dec	    hex	filename
-   7160	    120	   1752	   9032	   2348	stm32f1xx_drivers.elf
+   8636	    112	   2280	  11028	   2b14	stm32f1xx_drivers.elf
 Finished building: default.size.stdout
  
+Finished building: stm32f1xx_drivers.list
+ 
+Finished building: stm32f1xx_drivers.bin
+ 
 
-17:58:54 Build Finished. 0 errors, 0 warnings. (took 1s.367ms)
+17:12:59 Build Finished. 0 errors, 1 warnings. (took 3s.172ms)
 

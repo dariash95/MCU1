@@ -31,21 +31,13 @@ int main (void){
 	gpioLED.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT_SPEED_10;
 	gpioLED.GPIO_PinConfig.GPIO_Config = GPIO_OP_TYPE_PP;
 
-	// GPIO Clock enabling
 	GPIO_PeriClkCtrl(GPIOA,ENABLE); // Clock enable for GPIO Button
 	GPIO_PeriClkCtrl(GPIOC,ENABLE); // Clock enable for GPIO LED
 
-	// GPIO Initialization
 	GPIO_Init(&gpioBtn); // GPIO Button Initialization
 	GPIO_Init(&gpioLED); // GPIO LED Initialization
 
-	// Button interrupt configuration
-	EXTI_Handle_t BtnInter;
-	BtnInter.pEXTIx = EXTI;
-
-	AFIO_Handle_t AFIOBtn;
-	AFIOBtn.pAFIOx = AFIO;
-	GPIO_InterHandler(&gpioBtn, &BtnInter, &AFIOBtn, INTER_FALLING_EDGE); //Trigger Interrupt in the falling edge
+	GPIO_InterHandler(&gpioBtn, INTER_FALLING_EDGE); //Trigger Interrupt in the falling edge */
 
 	// IRQ Configuration
 	GPIO_IRQPriority(IRQ_NO_EXTI9_5, NVIC_PRIO_15);

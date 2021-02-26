@@ -9,7 +9,7 @@
 
 /* 			  Private helpers functions	prototypes    				*/
 static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
-static void SPI_RXEN_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
+static void SPI_RXNE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
 static void SPI_OVR_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
 
 /* 					APIs Function Implementation 					*/
@@ -64,12 +64,12 @@ void SPI_Init(SPI_Handle_t *pSPIxHandle){
 
 	// Configuration of the Bus
 	if (pSPIxHandle->SPI_Config.SPI_BusConfig == SPI_BUS_CONFIG_FD){
-		temp &= ~(1 << SPI_CR1_BIDIMODE);
+		temp &= ~(1 << SPI_CR1_BIDIMODE); // BIDI mode clear
 	} else if (pSPIxHandle->SPI_Config.SPI_BusConfig == SPI_BUS_CONFIG_HD){
 		temp |= (1 << SPI_CR1_BIDIMODE);
 	} else if (pSPIxHandle->SPI_Config.SPI_BusConfig == SPI_BUS_CONFIG_SIMPLEX_RSONLY){
-		temp &= ~(1 << SPI_CR1_BIDIMODE);
-		temp |= (1 << SPI_CR1_RXONLY);
+		temp &= ~(1 << SPI_CR1_BIDIMODE); // BIDI mode clear
+		temp |= (1 << SPI_CR1_RXONLY); // RXONLY set
 	}
 
 	// Configuration of the clock speed
@@ -87,7 +87,7 @@ void SPI_Init(SPI_Handle_t *pSPIxHandle){
 	// Configuration of the SSM
 	temp |= (pSPIxHandle->SPI_Config.SPI_SSM << SPI_CR1_SSM);
 
-	pSPIxHandle->pSPIx->CR1 = temp;
+	pSPIxHandle->pSPIx->CR1 = temp; // Here yoo can use = bc al the bit-fields are already configured
 }
 
 /******************************************************************
@@ -118,10 +118,10 @@ void SPI_DeInit(SPI_RegDef_t *pSPIx){
 uint8_t SPI_GetFlagStatus(SPI_RegDef_t *pSPIx, uint32_t FlagName){
 
 	if(pSPIx->SR & FlagName){ // while(!(pSPIx->SR & (1 << 1)));
-		return FLAG_SET; // When the bit TXE is one in that register
+		return FLAG_SET; // When the bit is one in that register
 	}
 
-	return FLAG_RESET;
+	return FLAG_RESET; // The programs loops in this state until it changes and the flag is set
  }
 
 /******************************************************************
@@ -214,7 +214,7 @@ void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t len){
  */
 uint8_t SPI_SendData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pTxBuffer, uint32_t len){
 
-	uint8_t state = pSPIHandle->TxState;
+	uint8_t state = pSPIHandle->TxState; // Fetch state
 
 	if (state != SPI_BUSY_IN_TX){
 		// Save the Tx Buffer address and length in some global variables
@@ -254,7 +254,7 @@ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint
 		// Mark the SPI state as busy in transmission so that no other code cab take over the same SPI peripheral until transmission is over
 		pSPIHandle->RxState = SPI_BUSY_IN_RX;
 
-		// Enable TXEIE control bit to get an interrupt whenever TXE flag is set
+		// Enable RXEIE control bit to get an interrupt whenever RXE flag is set
 		pSPIHandle->pSPIx->CR2 |= (1 << SPI_CR2_RXNEIE);
 
 		// Data transmission will be handled by the ISR code
@@ -262,19 +262,6 @@ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint
 
 	return state;
 }
-
-/**********************
- * @func			InterHandling(Interrupt handling)
- * @brief			This functions configures the interrupts
- * @param [in]		Port
- * @param [in]		Type of interrupt
- * @param [in]		Enable or disable
- * @return			None
- * @note 			None
- */
-//void SPI_InterHandler(SPI_Handle_t *pSPIHandle, uint8_t InterType){
-
-// }
 
 /******************************************************************
  * @func			SPI_IRQConfig (SPI IRQ Configuration)
@@ -326,7 +313,7 @@ void SPI_IRQPriority (uint8_t IRQNumber,uint32_t IRQPriority){
 
 /******************************************************************
  * @func			SPI_IRQHandling (SPI IRQ Handling)
- * @brief			This functions process the interrupt
+ * @brief			This functions process the interrupt and check what tirggers it to proceed
  * @param [in]		SPI handle
  * @return			None
  * @note 			None
@@ -347,30 +334,27 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIxHandle){
 		SPI_TXE_Interrupt_Handle(pSPIxHandle);
 	}
 
-	// Check RXE
-	temp1 = pSPIxHandle->pSPIx->SR & (1 << SPI_SR_RXNE); // Access the TXE in SR to check the value
-	// if TXE is set, temp1 = 1. If TXE is reset, temp1 = 0
+	// Check RXNE
+	temp1 = pSPIxHandle->pSPIx->SR & (1 << SPI_SR_RXNE);
 	temp2 = pSPIxHandle->pSPIx->CR2 & (1 << SPI_CR2_RXNEIE);
 
 
-	// If both temp1 and temp2 = 1, then the interrupt was triggered bc of RXE flag
+	// If both temp1 and temp2 = 1, then the interrupt was triggered bc of RXNE flag
 	if (temp1 && temp2){
-		// Handle RXE
-		SPI_RXEN_Interrupt_Handle(pSPIxHandle);
+		// Handle RXNE
+		SPI_RXNE_Interrupt_Handle(pSPIxHandle);
 	}
 
 	// Check OVR
-	temp1 = pSPIxHandle->pSPIx->SR & (1 << SPI_SR_OVR); // Access the TXE in SR to check the value
-	// if TXE is set, temp1 = 1. If TXE is reset, temp1 = 0
+	temp1 = pSPIxHandle->pSPIx->SR & (1 << SPI_SR_OVR);
 	temp2 = pSPIxHandle->pSPIx->CR2 & (1 << SPI_CR2_ERRIE);
 
 
-	// If both temp1 and temp2 = 1, then the interrupt was triggered bc of RXE flag
+	// If both temp1 and temp2 = 1, then the interrupt was triggered bc of OVR flag
 	if (temp1 && temp2){
 		// Handle RXE
 		SPI_OVR_Interrupt_Handle(pSPIxHandle);
 	}
-
 }
 
 /******************************************************************
@@ -391,7 +375,7 @@ void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi){
 
 /******************************************************************
  * @func			SPI_SSIConfig (SPI SSI Configuration)
- * @brief			This functions enables/disables SPI *after* the parameters initialization
+ * @brief			This functions enables/disables SSI parameters
  * @param [in]		Base Address of the SPI Peripheral
  * @param [in]		Enable/Disable Macros
  * @return			None
@@ -443,7 +427,7 @@ static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
 	}
 }
 
-static void SPI_RXEN_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
+static void SPI_RXNE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
 
 	if(pSPIxHandle->pSPIx->CR1 & (1 << SPI_CR1_DFF)){
 		pSPIxHandle->pSPIx->DR = *((uint16_t*)pSPIxHandle->pRxBuffer); // Dereference the pointer to get the data
@@ -472,7 +456,7 @@ static void SPI_OVR_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
 		temp = pSPIxHandle->pSPIx->SR;
 	}
 
-	(void)temp; // To avoid the warning that the avariable is not being used
+	(void)temp; // To avoid the warning that the variable is not being used
 
 	// Inform application
 	SPI_ApplicationEventCallback(pSPIxHandle,SPI_EVENT_OVR_COMPLETE);
@@ -502,7 +486,8 @@ void SPI_CloseReception(SPI_Handle_t *pSPIxHandle){
 	pSPIxHandle ->RxState = SPI_READY;
 }
 
+/* In each application this application will be override according to perform some action  */
 __attribute__((weak)) void SPI_ApplicationEventCallback (SPI_Handle_t *pSPIxHandle, uint8_t AppEv){
 	// This is a weak implementation. The application can override this function
-	// We did this to correct a warning, but I have no idea
+
 }

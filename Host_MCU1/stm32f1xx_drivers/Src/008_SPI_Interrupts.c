@@ -85,23 +85,18 @@ void SPI_Inits(void){
 /*This function configures the gpio pin over which SPI peripheral issues data available interrupt */
 void Slave_GPIO_InterruptPinInit(void){
 
-	GPIO_Handle_t gpioBtn; // Variable for the GPIO Handle
-	memset(&gpioBtn, 0, sizeof(gpioBtn)); // Set value to 0
+	GPIO_Handle_t SPI_Inter_Pin; // Variable for the GPIO Handle
+	memset(&SPI_Inter_Pin, 0, sizeof(SPI_Inter_Pin)); // Set value to 0
 
 	// GPIO Button Configuration
-	gpioBtn.pGPIOx = GPIOA; // Initialize variable and select port
-	gpioBtn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_7;
-	gpioBtn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN ;
-	gpioBtn.GPIO_PinConfig.GPIO_Config = GPIO_IN_TYPE_PP;
-	GPIO_Init(&gpioBtn);
+	SPI_Inter_Pin.pGPIOx = GPIOA; // Initialize variable and select port
+	SPI_Inter_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_7;
+	SPI_Inter_Pin.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN ;
+	SPI_Inter_Pin.GPIO_PinConfig.GPIO_Config = GPIO_IN_TYPE_PP;
+	GPIO_Init(&SPI_Inter_Pin);
 
 	// Button interrupt configuration
-	EXTI_Handle_t BtnInter;
-	BtnInter.pEXTIx = EXTI;
-
-	AFIO_Handle_t AFIOBtn;
-	AFIOBtn.pAFIOx = AFIO;
-	GPIO_InterHandler(&gpioBtn, &BtnInter, &AFIOBtn, INTER_FALLING_EDGE); //Trigger Interrupt in the falling edge
+	GPIO_InterHandler(&SPI_Inter_Pin, INTER_FALLING_EDGE); //Trigger Interrupt in the falling edge
 
 	GPIO_IRQPriority(IRQ_NO_EXTI9_5, NVIC_PRIO_15);
 	GPIO_IRQConfig(IRQ_NO_EXTI9_5, ENABLE);
@@ -112,7 +107,7 @@ int main(void){
 
 	uint8_t dummy = 0xff;
 
-	Slave_GPIO_InterruptPinInit(); // Initializes PD6 to deliver the interrupt
+	Slave_GPIO_InterruptPinInit(); // Initializes pin to deliver the interrupt
 
 	//this function is used to initialize the GPIO pins to behave as SPI2 pins
 	SPI_GPIOInits();
@@ -128,7 +123,7 @@ int main(void){
 	*/
 	SPI_SSOEConfig(SPI1,ENABLE);
 
-	SPI_IRQConfig(IRQ_NO_SPI1,ENABLE);
+	SPI_IRQConfig(IRQ_NO_SPI1,ENABLE); // Enable interrupts for SPI
 
 	while(1){
 
@@ -136,7 +131,7 @@ int main(void){
 
 		while(!dataAvailable); //wait till data available interrupt from transmitter device(slave)
 
-		GPIO_IRQConfig(IRQ_NO_EXTI9_5,DISABLE);
+		GPIO_IRQConfig(IRQ_NO_EXTI9_5,DISABLE); // Interrupts are disable while the communication happens
 
 		//enable the SPI1 peripheral
 		SPI_PeripheralControl(SPI1,ENABLE);
@@ -146,7 +141,12 @@ int main(void){
 		{
 			/* fetch the data from the SPI peripheral byte by byte in interrupt mode */
 			while (SPI_SendData_Inter(&SPI1Handle, &dummy, 1) == SPI_BUSY_IN_TX);
-			while (SPI_ReceiveData_Inter(&SPI1Handle, &ReadByte, 1) == SPI_BUSY_IN_RX );
+			// While the device is sending data (Busy in Tx, the program is going to stay in this loop
+			while (SPI_ReceiveData_Inter(&SPI1Handle, &ReadByte, 1) == SPI_BUSY_IN_RX);
+			/* - While the device is receiving data (Busy in Rx, the program is going to stay in this loop
+			   - The data is read byte by byte
+			   - When the functions completes execution, the program executes SPI1_IRQHandler
+			*/
 		}
 
 
@@ -181,7 +181,7 @@ void SPI_ApplicationEventCallback(SPI_Handle_t *pSPIHandle,uint8_t AppEv)
 	if(AppEv == SPI_EVENT_RX_COMPLETE)
 	{
 				RcvBuff[i++] = ReadByte;
-				if(ReadByte == '\0' || ( i == MAX_LEN)){
+				if(ReadByte == '\0' || ( i == MAX_LEN)){ // Receives data until it encounter \0 or the length of data is max
 					rcvStop = 1;
 					RcvBuff[i-1] = '\0';
 					i = 0;

@@ -24,7 +24,7 @@ typedef struct {
 
 // Handle structure for SPIx Peripheral
 typedef struct{
-	SPI_RegDef_t	*pSPIx; 	// Pointer to hold the base address of the SPIx
+	SPI_RegDef_t	*pSPIx; 	// Pointer to hold the base address of the SPIx (1,2,3)
 	SPI_Config_t	SPI_Config; // Holds pin configuration settings
 	uint8_t 		*pTxBuffer; // To store the app Tx Buffer address
 	uint8_t 		*pRxBuffer; // To store the app Rx Buffer address
@@ -93,7 +93,6 @@ void SPI_PeriClkCtrl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
 // Initialize/De-initialize the SPI
 void SPI_Init(SPI_Handle_t *pSPIxHandle);
 void SPI_DeInit(SPI_RegDef_t *pSPIx);
-
 
 // Data send and receive
 void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t len);

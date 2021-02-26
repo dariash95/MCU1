@@ -159,22 +159,21 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
  * @return			None
  * @note 			None
  */
-void GPIO_InterHandler(GPIO_Handle_t *pGPIOHandle, EXTI_Handle_t *pEXTIHandle, AFIO_Handle_t *pAFIOHandle, uint8_t InterType){
+void GPIO_InterHandler(GPIO_Handle_t *pGPIOHandle, uint8_t InterType){
 
 	uint8_t positions = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber;
 
-
 	if (InterType == 1){ //Rising edge detection
-		pEXTIHandle->pEXTIx->RTSR = 1 << positions;
-		pEXTIHandle->pEXTIx->FTSR = ~(1 << positions); // Disable falling edge
+		EXTI->RTSR |= (1 << positions);
+		EXTI->FTSR &= ~(1 << positions); // Disable falling edge
 
 	} else if (InterType ==2) { //Falling edge detection
-		pEXTIHandle->pEXTIx->FTSR = 1 << positions;
-		pEXTIHandle->pEXTIx->RTSR = ~(1 << positions); // Disable rising edge
+		EXTI->FTSR |= (1 << positions);
+		EXTI->RTSR &= ~(1 << positions); // Disable rising edge
 
 	} else { //Detection for both edges
-		pEXTIHandle->pEXTIx->FTSR = 1 << positions;
-		pEXTIHandle->pEXTIx->RTSR = 1 << positions;
+		EXTI->FTSR |= (1 << positions);
+		EXTI->RTSR |= (1 << positions);
 	}
 
 	// Configure the GPIO port selection in AFIO_EXTICR
@@ -184,10 +183,10 @@ void GPIO_InterHandler(GPIO_Handle_t *pGPIOHandle, EXTI_Handle_t *pEXTIHandle, A
 	uint8_t aux = temp2*4;
 
 	AFIO_PCLK_EN(); // RCC enable for AFIO
-	pAFIOHandle->pAFIOx->EXTICR[temp1] = portcode << aux;
+	AFIO->EXTICR[temp1] = portcode << aux;
 
 	// Enable the EXTI Interrupt delivery using IMR
-	pEXTIHandle->pEXTIx->IMR = 1 << positions;
+	EXTI->IMR |= (1 << positions);
 }
 
 // Data read or write
