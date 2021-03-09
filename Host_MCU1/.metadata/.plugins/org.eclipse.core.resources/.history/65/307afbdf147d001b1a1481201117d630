@@ -358,6 +358,8 @@ typedef struct{
 #define	I2C_CCR_DUTY		14
 #define	I2C_CCR_FS			15
 
+
+
 #include "stm32f1xx_gpio.h"
 #include "stm32f1xx_spi.h"
 #include "stm32f1xx_i2c.h"

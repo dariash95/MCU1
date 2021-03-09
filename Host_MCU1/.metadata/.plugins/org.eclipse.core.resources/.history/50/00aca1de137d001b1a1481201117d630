@@ -85,6 +85,7 @@ typedef struct{
 #define SPI_EVENT_OVR_COMPLETE			3
 
 /*					APIs Supported by this driver 					*/
+
 // Enable/Disable peripheral clock
 void SPI_PeriClkCtrl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
 

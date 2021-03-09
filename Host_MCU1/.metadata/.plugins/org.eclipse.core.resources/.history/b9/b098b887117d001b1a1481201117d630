@@ -1,0 +1,13 @@
+/*
+ * stm32f1xx_i2c.h
+ *
+ *  Created on: Mar 4, 2021
+ *      Author: Daniela
+ */
+
+#ifndef INC_STM32F1XX_I2C_H_
+#define INC_STM32F1XX_I2C_H_
+
+
+
+#endif /* INC_STM32F1XX_I2C_H_ */
