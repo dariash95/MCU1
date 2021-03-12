@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  15 .debug_ranges 00000180  00000000  00000000  00022230  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  000026ce  00000000  00000000  000223b0  2**0
+ 16 .debug_macro  00002856  00000000  00000000  000223b0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00001457  00000000  00000000  00024a7e  2**0
+ 17 .debug_line   00001490  00000000  00000000  00024c06  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    00009e45  00000000  00000000  00025ed5  2**0
+ 18 .debug_str    0000a34d  00000000  00000000  00026096  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0002fd1a  2**0
+ 19 .comment      0000007b  00000000  00000000  000303e3  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001154  00000000  00000000  0002fd98  2**2
+ 20 .debug_frame  00001154  00000000  00000000  00030460  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -447,7 +447,7 @@ void SPI_ApplicationEventCallback(SPI_Handle_t *pSPIHandle,uint8_t AppEv)
  8000360:	b2d1      	uxtb	r1, r2
  8000362:	4a10      	ldr	r2, [pc, #64]	; (80003a4 <SPI_ApplicationEventCallback+0x64>)
  8000364:	54d1      	strb	r1, [r2, r3]
-				if(ReadByte == '\0' || ( i == MAX_LEN)){ // Recieves data until it encounter \0 or the length of data is max
+				if(ReadByte == '\0' || ( i == MAX_LEN)){ // Receives data until it encounter \0 or the length of data is max
  8000366:	4b0e      	ldr	r3, [pc, #56]	; (80003a0 <SPI_ApplicationEventCallback+0x60>)
  8000368:	781b      	ldrb	r3, [r3, #0]
  800036a:	b2db      	uxtb	r3, r3
@@ -2039,7 +2039,7 @@ void SPI_IRQConfig(uint8_t IRQNumber, uint8_t EnOrDi){
  8000d20:	e000e188 	.word	0xe000e188
 
 08000d24 <SPI_IRQHandling>:
- * @brief			This functions process the interrupt
+ * @brief			This functions process the interrupt and check what tirggers it to proceed
  * @param [in]		SPI handle
  * @return			None
  * @note 			None
@@ -2145,7 +2145,6 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIxHandle){
  8000db0:	6878      	ldr	r0, [r7, #4]
  8000db2:	f000 f8c0 	bl	8000f36 <SPI_OVR_Interrupt_Handle>
 	}
-
 }
  8000db6:	bf00      	nop
  8000db8:	3710      	adds	r7, #16
@@ -2434,7 +2433,7 @@ static void SPI_OVR_Interrupt_Handle(SPI_Handle_t *pSPIxHandle){
  8000f54:	73fb      	strb	r3, [r7, #15]
 	}
 
-	(void)temp; // To avoid the warning that the avariable is not being used
+	(void)temp; // To avoid the warning that the variable is not being used
 
 	// Inform application
 	SPI_ApplicationEventCallback(pSPIxHandle,SPI_EVENT_OVR_COMPLETE);

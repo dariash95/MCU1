@@ -149,7 +149,7 @@ typedef struct{
 	volatile uint32_t SR2;		// I2C Status Register 2					Offset 0x18
 	volatile uint32_t CCR;		// I2C Clock Control Register				Offset 0x1C
 	volatile uint32_t TRISE;	// I2C TRISE Register						Offset 0x20
-}I2C_Reg_Def_t;
+}I2C_RegDef_t;
 
 /* GPIO Peripherals Definitions: Peripheral base address typecasted to GPIO_RegDef_t */
 #define GPIOA						((GPIO_RegDef_t*)GPIOA_BASEADDR)
@@ -240,6 +240,10 @@ typedef struct{
 #define SPI1_REG_RESET()			do {(RCC->APB2RSTR|=(1 << 13)); (RCC->APB2RSTR &= ~(1 << 13));} while (0)
 #define SPI2_REG_RESET()			do {(RCC->APB1RSTR|=(1 << 15)); (RCC->APB2RSTR &= ~(1 << 15));} while (0)
 #define SPI3_REG_RESET()			do {(RCC->APB1RSTR|=(1 << 16)); (RCC->APB2RSTR &= ~(1 << 16));} while (0)
+
+/* Macros to reset SPIx Peripherals */
+#define I2C1_REG_RESET()			do {(RCC->APB2RSTR|=(1 << 21)); (RCC->APB2RSTR &= ~(1 << 21));} while (0)
+#define I2C2_REG_RESET()			do {(RCC->APB1RSTR|=(1 << 22)); (RCC->APB2RSTR &= ~(1 << 22));} while (0)
 
 /* Macro to get a portcode given GPIOx base address*/ //If x==GPIOA, then return 0, else
 #define GPIO_BASEADDR_TO_CODE(x)	((x == GPIOA) ? 0 :\

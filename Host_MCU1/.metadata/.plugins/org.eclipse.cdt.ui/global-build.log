@@ -323,3 +323,990 @@ Finished building: stm32f1xx_drivers.list
  
 Finished building: stm32f1xx_drivers.bin
  
+12:26:36 **** Rebuild of configuration Debug for project func_math ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o math.o "..\\math.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+gcc -o func_math.exe main.o math.o 
+12:26:41 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+12:26:43 **** Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_gpio.h:13,
+                 from ../drivers/Src/stm32f1xx_gpio.c:8:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:58:22: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                      ^~~~~~~~~~~~
+                      I2C_Reg_Def_t
+In file included from ../drivers/Src/stm32f1xx_i2c.c:8:0:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:58:22: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                      ^~~~~~~~~~~~
+                      I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:62:17: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
+                 ^~~~~~~~~~~~
+                 I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:62:17: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
+                 ^~~~~~~~~~~~
+                 I2C_Reg_Def_t
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:11,
+                 from ../drivers/Src/stm32f1xx_spi.c:8:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:58:22: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                      ^~~~~~~~~~~~
+                      I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:62:17: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
+                 ^~~~~~~~~~~~
+                 I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:72:28: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                            ^~~~~~~~~~~~
+                            I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:72:28: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                            ^~~~~~~~~~~~
+                            I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:72:28: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                            ^~~~~~~~~~~~
+                            I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:73:27: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
+                           ^~~~~~~~~~~~
+                           I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:73:27: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
+                           ^~~~~~~~~~~~
+                           I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:73:27: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
+                           ^~~~~~~~~~~~
+                           I2C_Reg_Def_t
+../drivers/Src/stm32f1xx_i2c.c:46:22: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi){
+                      ^~~~~~~~~~~~
+                      I2C_Reg_Def_t
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:87:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:94:3: error: 'ahb_prescaler' undeclared (first use in this function); did you mean 'ahb1_prescaler'?
+   ahb_prescaler = 1;
+   ^~~~~~~~~~~~~
+   ahb1_prescaler
+../drivers/Src/stm32f1xx_i2c.c:94:3: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:115:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:87:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:116:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_Init':
+../drivers/Src/stm32f1xx_i2c.c:157:7: error: 'I2C_Config' undeclared (first use in this function); did you mean 'I2C_Config_t'?
+   if (I2C_Config.I2C_FMDutyCycle == I2C_FM_DUTYCLYCLE_2){
+       ^~~~~~~~~~
+       I2C_Config_t
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:175:17: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_DeInit(I2C_RegDef_t *pI2Cx){
+                 ^~~~~~~~~~~~
+                 I2C_Reg_Def_t
+../drivers/Src/stm32f1xx_i2c.c:191:27: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName){
+                           ^~~~~~~~~~~~
+                           I2C_Reg_Def_t
+make: *** [drivers/Src/subdir.mk:28: drivers/Src/stm32f1xx_spi.o] Error 1
+make: *** Waiting for unfinished jobs....
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterSendData':
+../drivers/Src/stm32f1xx_i2c.c:216:10: warning: implicit declaration of function 'I2C_GetFlagStatus'; did you mean 'SPI_GetFlagStatus'? [-Wimplicit-function-declaration]
+  while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_SB_FLAG)));
+          ^~~~~~~~~~~~~~~~~
+          SPI_GetFlagStatus
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/stm32f1xx_gpio.o] Error 1
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:223:13: error: redefinition of 'I2C_GenerateStartCondition'
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:25:13: note: previous definition of 'I2C_GenerateStartCondition' was here
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:285:28: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi){
+                            ^~~~~~~~~~~~
+                            I2C_Reg_Def_t
+../drivers/Src/stm32f1xx_i2c.c:223:13: warning: 'I2C_GenerateStartCondition' defined but not used [-Wunused-function]
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:58:22: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                      ^~~~~~~~~~~~
+                      I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:62:17: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
+                 ^~~~~~~~~~~~
+                 I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:72:28: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                            ^~~~~~~~~~~~
+                            I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:73:27: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
+                           ^~~~~~~~~~~~
+                           I2C_Reg_Def_t
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:145:46: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle, &ReadByte, 1) == SPI_BUSY_IN_RX);
+                                              ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:362:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:100:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:18: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:39:46 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_gpio.h:13,
+                 from ../drivers/Src/stm32f1xx_gpio.c:8:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:58:22: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                      ^~~~~~~~~~~~
+                      I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:62:17: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
+                 ^~~~~~~~~~~~
+                 I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:72:28: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                            ^~~~~~~~~~~~
+                            I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:73:27: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
+                           ^~~~~~~~~~~~
+                           I2C_Reg_Def_t
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/stm32f1xx_gpio.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from ../drivers/Src/stm32f1xx_i2c.c:8:0:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:58:22: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                      ^~~~~~~~~~~~
+                      I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:62:17: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
+                 ^~~~~~~~~~~~
+                 I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:72:28: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                            ^~~~~~~~~~~~
+                            I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:73:27: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
+                           ^~~~~~~~~~~~
+                           I2C_Reg_Def_t
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_ClearAddrFlag':
+../drivers/Src/stm32f1xx_i2c.c:59:11: error: redefinition of 'dummyRead'
+  uint32_t dummyRead = pI2Cx->SR2;
+           ^~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:11,
+                 from ../drivers/Src/stm32f1xx_spi.c:8:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:58:22: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                      ^~~~~~~~~~~~
+                      I2C_Reg_Def_t
+../drivers/Src/stm32f1xx_i2c.c:58:11: note: previous definition of 'dummyRead' was here
+  uint32_t dummyRead = pI2Cx->SR1;
+           ^~~~~~~~~
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:62:17: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
+                 ^~~~~~~~~~~~
+                 I2C_Reg_Def_t
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:74:22: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi){
+                      ^~~~~~~~~~~~
+                      I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:72:28: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                            ^~~~~~~~~~~~
+                            I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:73:27: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
+                           ^~~~~~~~~~~~
+                           I2C_Reg_Def_t
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:115:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:122:3: error: 'ahb_prescaler' undeclared (first use in this function); did you mean 'ahb1_prescaler'?
+   ahb_prescaler = 1;
+   ^~~~~~~~~~~~~
+   ahb1_prescaler
+../drivers/Src/stm32f1xx_i2c.c:122:3: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:143:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:144:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:143:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_Init':
+../drivers/Src/stm32f1xx_i2c.c:185:7: error: 'I2C_Config' undeclared (first use in this function); did you mean 'I2C_Config_t'?
+   if (I2C_Config.I2C_FMDutyCycle == I2C_FM_DUTYCLYCLE_2){
+       ^~~~~~~~~~
+       I2C_Config_t
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:203:17: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_DeInit(I2C_RegDef_t *pI2Cx){
+                 ^~~~~~~~~~~~
+                 I2C_Reg_Def_t
+../drivers/Src/stm32f1xx_i2c.c:219:27: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName){
+                           ^~~~~~~~~~~~
+                           I2C_Reg_Def_t
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterSendData':
+../drivers/Src/stm32f1xx_i2c.c:244:10: warning: implicit declaration of function 'I2C_GetFlagStatus'; did you mean 'SPI_GetFlagStatus'? [-Wimplicit-function-declaration]
+  while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_SB_FLAG)));
+          ^~~~~~~~~~~~~~~~~
+          SPI_GetFlagStatus
+../drivers/Src/stm32f1xx_i2c.c:253:20: error: 'I2CxHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  I2C_ClearAddrFlag(I2CxHandle->pI2Cx);
+                    ^~~~~~~~~~
+                    pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:258:13: error: redefinition of 'I2C_GenerateStartCondition'
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:26:13: note: previous definition of 'I2C_GenerateStartCondition' was here
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:320:28: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi){
+                            ^~~~~~~~~~~~
+                            I2C_Reg_Def_t
+make: *** [drivers/Src/subdir.mk:28: drivers/Src/stm32f1xx_spi.o] Error 1
+../drivers/Src/stm32f1xx_i2c.c:258:13: warning: 'I2C_GenerateStartCondition' defined but not used [-Wunused-function]
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:58:22: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                      ^~~~~~~~~~~~
+                      I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:62:17: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
+                 ^~~~~~~~~~~~
+                 I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:72:28: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+                            ^~~~~~~~~~~~
+                            I2C_Reg_Def_t
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:73:27: error: unknown type name 'I2C_RegDef_t'; did you mean 'I2C_Reg_Def_t'?
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
+                           ^~~~~~~~~~~~
+                           I2C_Reg_Def_t
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:145:46: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle, &ReadByte, 1) == SPI_BUSY_IN_RX);
+                                              ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:362:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:100:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:18: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:41:00 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_gpio.h:13,
+                 from ../drivers/Src/stm32f1xx_gpio.c:8:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:23:2: error: unknown type name 'I2C_Reg_Def_t'
+  I2C_Reg_Def_t *pI2Cx;
+  ^~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/stm32f1xx_gpio.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from ../drivers/Src/stm32f1xx_i2c.c:8:0:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:23:2: error: unknown type name 'I2C_Reg_Def_t'
+  I2C_Reg_Def_t *pI2Cx;
+  ^~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:13:40: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx);
+                                        ^~~~~~~~~~~~~
+                                        I2C_RegDef_t
+../drivers/Src/stm32f1xx_i2c.c:14:37: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_ExecuteAddressPhase(I2C_Reg_Def_t *pI2Cx, uint8_t SlaveAddr);
+                                     ^~~~~~~~~~~~~
+                                     I2C_RegDef_t
+../drivers/Src/stm32f1xx_i2c.c:15:31: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_ClearAddrFlag(I2C_Reg_Def_t *pI2Cx);
+                               ^~~~~~~~~~~~~
+                               I2C_RegDef_t
+../drivers/Src/stm32f1xx_i2c.c:26:40: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+                                        ^~~~~~~~~~~~~
+                                        I2C_RegDef_t
+../drivers/Src/stm32f1xx_i2c.c:41:37: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_ExecuteAddressPhase(I2C_Reg_Def_t *pI2Cx, uint8_t SlaveAddr){
+                                     ^~~~~~~~~~~~~
+                                     I2C_RegDef_t
+../drivers/Src/stm32f1xx_i2c.c:56:31: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_ClearAddrFlag(I2C_Reg_Def_t *pI2Cx){
+                               ^~~~~~~~~~~~~
+                               I2C_RegDef_t
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:115:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:122:3: error: 'ahb_prescaler' undeclared (first use in this function); did you mean 'ahb1_prescaler'?
+   ahb_prescaler = 1;
+   ^~~~~~~~~~~~~
+   ahb1_prescaler
+../drivers/Src/stm32f1xx_i2c.c:122:3: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:143:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:144:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:11,
+                 from ../drivers/Src/stm32f1xx_spi.c:8:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:23:2: error: unknown type name 'I2C_Reg_Def_t'
+  I2C_Reg_Def_t *pI2Cx;
+  ^~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:143:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_Init':
+../drivers/Src/stm32f1xx_i2c.c:160:20: error: request for member 'CR1' in something not a structure or union
+  pI2CxHandle->pI2Cx->CR1 = temp;
+                    ^~
+../drivers/Src/stm32f1xx_i2c.c:165:20: error: request for member 'CR2' in something not a structure or union
+  pI2CxHandle->pI2Cx->CR2 = (temp & 0x3F); // To mask the rest of the bits
+                    ^~
+../drivers/Src/stm32f1xx_i2c.c:170:20: error: request for member 'OAR1' in something not a structure or union
+  pI2CxHandle->pI2Cx->OAR1 = temp;
+                    ^~
+../drivers/Src/stm32f1xx_i2c.c:185:7: error: 'I2C_Config' undeclared (first use in this function); did you mean 'I2C_Config_t'?
+   if (I2C_Config.I2C_FMDutyCycle == I2C_FM_DUTYCLYCLE_2){
+       ^~~~~~~~~~
+       I2C_Config_t
+../drivers/Src/stm32f1xx_i2c.c:193:20: error: request for member 'CCR' in something not a structure or union
+  pI2CxHandle->pI2Cx->CCR = temp;
+                    ^~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_DeInit':
+../drivers/Src/stm32f1xx_i2c.c:205:3: warning: implicit declaration of function 'I2C1_REG_RESET'; did you mean 'SPI1_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C1_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI1_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c:207:3: warning: implicit declaration of function 'I2C2_REG_RESET'; did you mean 'SPI2_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C2_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI2_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterSendData':
+../drivers/Src/stm32f1xx_i2c.c:241:2: warning: implicit declaration of function 'I2C_GenerateStartCondition' [-Wimplicit-function-declaration]
+  I2C_GenerateStartCondition(pI2CxHandle->pI2Cx);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:244:28: warning: passing argument 1 of 'I2C_GetFlagStatus' from incompatible pointer type [-Wincompatible-pointer-types]
+  while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_SB_FLAG)));
+                            ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:219:9: note: expected 'I2C_RegDef_t * {aka struct <anonymous> *}' but argument is of type 'int *'
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName){
+         ^~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:28: drivers/Src/stm32f1xx_spi.o] Error 1
+../drivers/Src/stm32f1xx_i2c.c:247:2: warning: implicit declaration of function 'I2C_ExecuteAddressPhase' [-Wimplicit-function-declaration]
+  I2C_ExecuteAddressPhase(pI2CxHandle->pI2Cx, SlaveAddr);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:250:28: warning: passing argument 1 of 'I2C_GetFlagStatus' from incompatible pointer type [-Wincompatible-pointer-types]
+  while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_ADDR_FLAG)));
+                            ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:219:9: note: expected 'I2C_RegDef_t * {aka struct <anonymous> *}' but argument is of type 'int *'
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName){
+         ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:253:2: warning: implicit declaration of function 'I2C_ClearAddrFlag'; did you mean 'SPI_ClearOVRFlag'? [-Wimplicit-function-declaration]
+  I2C_ClearAddrFlag(I2CxHandle->pI2Cx);
+  ^~~~~~~~~~~~~~~~~
+  SPI_ClearOVRFlag
+../drivers/Src/stm32f1xx_i2c.c:253:20: error: 'I2CxHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  I2C_ClearAddrFlag(I2CxHandle->pI2Cx);
+                    ^~~~~~~~~~
+                    pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:258:40: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+                                        ^~~~~~~~~~~~~
+                                        I2C_RegDef_t
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:23:2: error: unknown type name 'I2C_Reg_Def_t'
+  I2C_Reg_Def_t *pI2Cx;
+  ^~~~~~~~~~~~~
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:145:46: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle, &ReadByte, 1) == SPI_BUSY_IN_RX);
+                                              ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:362:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:100:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:18: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:41:58 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_gpio.h:13,
+                 from ../drivers/Src/stm32f1xx_gpio.c:8:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:23:2: error: unknown type name 'I2C_Reg_Def_t'
+  I2C_Reg_Def_t *pI2Cx;
+  ^~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/stm32f1xx_gpio.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from ../drivers/Src/stm32f1xx_i2c.c:8:0:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:23:2: error: unknown type name 'I2C_Reg_Def_t'
+  I2C_Reg_Def_t *pI2Cx;
+  ^~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_ClearAddrFlag':
+../drivers/Src/stm32f1xx_i2c.c:59:11: error: redefinition of 'dummyRead'
+  uint32_t dummyRead = pI2Cx->SR2;
+           ^~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:58:11: note: previous definition of 'dummyRead' was here
+  uint32_t dummyRead = pI2Cx->SR1;
+           ^~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:115:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:122:3: error: 'ahb_prescaler' undeclared (first use in this function); did you mean 'ahb1_prescaler'?
+   ahb_prescaler = 1;
+   ^~~~~~~~~~~~~
+   ahb1_prescaler
+../drivers/Src/stm32f1xx_i2c.c:122:3: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:143:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:144:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:143:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_Init':
+../drivers/Src/stm32f1xx_i2c.c:160:20: error: request for member 'CR1' in something not a structure or union
+  pI2CxHandle->pI2Cx->CR1 = temp;
+                    ^~
+../drivers/Src/stm32f1xx_i2c.c:165:20: error: request for member 'CR2' in something not a structure or union
+  pI2CxHandle->pI2Cx->CR2 = (temp & 0x3F); // To mask the rest of the bits
+                    ^~
+../drivers/Src/stm32f1xx_i2c.c:170:20: error: request for member 'OAR1' in something not a structure or union
+  pI2CxHandle->pI2Cx->OAR1 = temp;
+                    ^~
+../drivers/Src/stm32f1xx_i2c.c:185:7: error: 'I2C_Config' undeclared (first use in this function); did you mean 'I2C_Config_t'?
+   if (I2C_Config.I2C_FMDutyCycle == I2C_FM_DUTYCLYCLE_2){
+       ^~~~~~~~~~
+       I2C_Config_t
+../drivers/Src/stm32f1xx_i2c.c:193:20: error: request for member 'CCR' in something not a structure or union
+  pI2CxHandle->pI2Cx->CCR = temp;
+                    ^~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_DeInit':
+../drivers/Src/stm32f1xx_i2c.c:205:3: warning: implicit declaration of function 'I2C1_REG_RESET'; did you mean 'SPI1_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C1_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI1_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c:207:3: warning: implicit declaration of function 'I2C2_REG_RESET'; did you mean 'SPI2_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C2_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI2_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterSendData':
+../drivers/Src/stm32f1xx_i2c.c:241:29: warning: passing argument 1 of 'I2C_GenerateStartCondition' from incompatible pointer type [-Wincompatible-pointer-types]
+  I2C_GenerateStartCondition(pI2CxHandle->pI2Cx);
+                             ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:26:13: note: expected 'I2C_RegDef_t * {aka struct <anonymous> *}' but argument is of type 'int *'
+ static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:244:28: warning: passing argument 1 of 'I2C_GetFlagStatus' from incompatible pointer type [-Wincompatible-pointer-types]
+  while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_SB_FLAG)));
+                            ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:219:9: note: expected 'I2C_RegDef_t * {aka struct <anonymous> *}' but argument is of type 'int *'
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName){
+         ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:247:26: warning: passing argument 1 of 'I2C_ExecuteAddressPhase' from incompatible pointer type [-Wincompatible-pointer-types]
+  I2C_ExecuteAddressPhase(pI2CxHandle->pI2Cx, SlaveAddr);
+                          ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:41:13: note: expected 'I2C_RegDef_t * {aka struct <anonymous> *}' but argument is of type 'int *'
+ static void I2C_ExecuteAddressPhase(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr){
+             ^~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:250:28: warning: passing argument 1 of 'I2C_GetFlagStatus' from incompatible pointer type [-Wincompatible-pointer-types]
+  while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_ADDR_FLAG)));
+                            ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:219:9: note: expected 'I2C_RegDef_t * {aka struct <anonymous> *}' but argument is of type 'int *'
+ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName){
+         ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:253:20: error: 'I2CxHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  I2C_ClearAddrFlag(I2CxHandle->pI2Cx);
+                    ^~~~~~~~~~
+                    pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:258:40: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+                                        ^~~~~~~~~~~~~
+                                        I2C_RegDef_t
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:11,
+                 from ../drivers/Src/stm32f1xx_spi.c:8:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:23:2: error: unknown type name 'I2C_Reg_Def_t'
+  I2C_Reg_Def_t *pI2Cx;
+  ^~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:28: drivers/Src/stm32f1xx_spi.o] Error 1
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:363:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:23:2: error: unknown type name 'I2C_Reg_Def_t'
+  I2C_Reg_Def_t *pI2Cx;
+  ^~~~~~~~~~~~~
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:145:46: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle, &ReadByte, 1) == SPI_BUSY_IN_RX);
+                                              ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:362:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:100:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:18: Src/008_SPI_Interrupts.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:42:30 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_ClearAddrFlag':
+../drivers/Src/stm32f1xx_i2c.c:59:11: error: redefinition of 'dummyRead'
+  uint32_t dummyRead = pI2Cx->SR2;
+           ^~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:58:11: note: previous definition of 'dummyRead' was here
+  uint32_t dummyRead = pI2Cx->SR1;
+           ^~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:115:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:122:3: error: 'ahb_prescaler' undeclared (first use in this function); did you mean 'ahb1_prescaler'?
+   ahb_prescaler = 1;
+   ^~~~~~~~~~~~~
+   ahb1_prescaler
+../drivers/Src/stm32f1xx_i2c.c:122:3: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:143:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:144:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:143:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_Init':
+../drivers/Src/stm32f1xx_i2c.c:185:7: error: 'I2C_Config' undeclared (first use in this function); did you mean 'I2C_Config_t'?
+   if (I2C_Config.I2C_FMDutyCycle == I2C_FM_DUTYCLYCLE_2){
+       ^~~~~~~~~~
+       I2C_Config_t
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_DeInit':
+../drivers/Src/stm32f1xx_i2c.c:205:3: warning: implicit declaration of function 'I2C1_REG_RESET'; did you mean 'SPI1_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C1_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI1_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c:207:3: warning: implicit declaration of function 'I2C2_REG_RESET'; did you mean 'SPI2_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C2_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI2_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterSendData':
+../drivers/Src/stm32f1xx_i2c.c:253:20: error: 'I2CxHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  I2C_ClearAddrFlag(I2CxHandle->pI2Cx);
+                    ^~~~~~~~~~
+                    pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:258:40: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+                                        ^~~~~~~~~~~~~
+                                        I2C_RegDef_t
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:145:46: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle, &ReadByte, 1) == SPI_BUSY_IN_RX);
+                                              ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:362:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:100:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:43:07 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:115:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:122:3: error: 'ahb_prescaler' undeclared (first use in this function); did you mean 'ahb1_prescaler'?
+   ahb_prescaler = 1;
+   ^~~~~~~~~~~~~
+   ahb1_prescaler
+../drivers/Src/stm32f1xx_i2c.c:122:3: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:143:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:144:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:143:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_Init':
+../drivers/Src/stm32f1xx_i2c.c:185:7: error: 'I2C_Config' undeclared (first use in this function); did you mean 'I2C_Config_t'?
+   if (I2C_Config.I2C_FMDutyCycle == I2C_FM_DUTYCLYCLE_2){
+       ^~~~~~~~~~
+       I2C_Config_t
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_DeInit':
+../drivers/Src/stm32f1xx_i2c.c:205:3: warning: implicit declaration of function 'I2C1_REG_RESET'; did you mean 'SPI1_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C1_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI1_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c:207:3: warning: implicit declaration of function 'I2C2_REG_RESET'; did you mean 'SPI2_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C2_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI2_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterSendData':
+../drivers/Src/stm32f1xx_i2c.c:253:20: error: 'I2CxHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  I2C_ClearAddrFlag(I2CxHandle->pI2Cx);
+                    ^~~~~~~~~~
+                    pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:258:40: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+                                        ^~~~~~~~~~~~~
+                                        I2C_RegDef_t
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:43:41 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:115:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:143:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:144:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:143:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_Init':
+../drivers/Src/stm32f1xx_i2c.c:185:7: error: 'I2C_Config' undeclared (first use in this function); did you mean 'I2C_Config_t'?
+   if (I2C_Config.I2C_FMDutyCycle == I2C_FM_DUTYCLYCLE_2){
+       ^~~~~~~~~~
+       I2C_Config_t
+../drivers/Src/stm32f1xx_i2c.c:185:7: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_DeInit':
+../drivers/Src/stm32f1xx_i2c.c:205:3: warning: implicit declaration of function 'I2C1_REG_RESET'; did you mean 'SPI1_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C1_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI1_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c:207:3: warning: implicit declaration of function 'I2C2_REG_RESET'; did you mean 'SPI2_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C2_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI2_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterSendData':
+../drivers/Src/stm32f1xx_i2c.c:253:20: error: 'I2CxHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  I2C_ClearAddrFlag(I2CxHandle->pI2Cx);
+                    ^~~~~~~~~~
+                    pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:258:40: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+                                        ^~~~~~~~~~~~~
+                                        I2C_RegDef_t
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:44:27 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:115:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:143:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:144:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:143:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_DeInit':
+../drivers/Src/stm32f1xx_i2c.c:205:3: warning: implicit declaration of function 'I2C1_REG_RESET'; did you mean 'SPI1_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C1_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI1_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c:207:3: warning: implicit declaration of function 'I2C2_REG_RESET'; did you mean 'SPI2_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C2_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI2_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterSendData':
+../drivers/Src/stm32f1xx_i2c.c:253:20: error: 'I2CxHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  I2C_ClearAddrFlag(I2CxHandle->pI2Cx);
+                    ^~~~~~~~~~
+                    pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c:253:20: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:258:40: error: unknown type name 'I2C_Reg_Def_t'; did you mean 'I2C_RegDef_t'?
+ static void I2C_GenerateStartCondition(I2C_Reg_Def_t *pI2Cx){
+                                        ^~~~~~~~~~~~~
+                                        I2C_RegDef_t
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:45:12 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:115:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:143:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:144:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:143:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_DeInit':
+../drivers/Src/stm32f1xx_i2c.c:205:3: warning: implicit declaration of function 'I2C1_REG_RESET'; did you mean 'SPI1_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C1_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI1_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c:207:3: warning: implicit declaration of function 'I2C2_REG_RESET'; did you mean 'SPI2_REG_RESET'? [-Wimplicit-function-declaration]
+   I2C2_REG_RESET();
+   ^~~~~~~~~~~~~~
+   SPI2_REG_RESET
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:258:13: error: redefinition of 'I2C_GenerateStartCondition'
+ static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:26:13: note: previous definition of 'I2C_GenerateStartCondition' was here
+ static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:258:13: warning: 'I2C_GenerateStartCondition' defined but not used [-Wunused-function]
+ static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:48:26 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc "../Src/008_SPI_Interrupts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_Interrupts.d" -MT"Src/008_SPI_Interrupts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_Interrupts.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:115:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:143:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:144:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:143:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:258:13: error: redefinition of 'I2C_GenerateStartCondition'
+ static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:26:13: note: previous definition of 'I2C_GenerateStartCondition' was here
+ static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:258:13: warning: 'I2C_GenerateStartCondition' defined but not used [-Wunused-function]
+ static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx){
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Src/008_SPI_Interrupts.c: In function 'main':
+../Src/008_SPI_Interrupts.c:145:46: warning: passing argument 2 of 'SPI_ReceiveData_Inter' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    while (SPI_ReceiveData_Inter(&SPI1Handle, &ReadByte, 1) == SPI_BUSY_IN_RX);
+                                              ^
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:366:0,
+                 from ../Src/008_SPI_Interrupts.c:18:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_spi.h:100:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'volatile char *'
+ uint8_t SPI_ReceiveData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t len);
+         ^~~~~~~~~~~~~~~~~~~~~
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:48:51 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:115:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:143:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:115:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:144:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:143:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:55:17 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPCLK1Value':
+../drivers/Src/stm32f1xx_i2c.c:129:12: warning: implicit declaration of function 'RCC_GetPLLOutputClock' [-Wimplicit-function-declaration]
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: At top level:
+../drivers/Src/stm32f1xx_i2c.c:157:10: error: conflicting types for 'RCC_GetPLLOutputClock'
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:129:12: note: previous implicit declaration of 'RCC_GetPLLOutputClock' was here
+   sysclk = RCC_GetPLLOutputClock();
+            ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'RCC_GetPLLOutputClock':
+../drivers/Src/stm32f1xx_i2c.c:158:2: warning: 'return' with no value, in function returning non-void
+  return;
+  ^~~~~~
+../drivers/Src/stm32f1xx_i2c.c:157:10: note: declared here
+ uint32_t RCC_GetPLLOutputClock(void){
+          ^~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+12:58:58 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   8636	    112	   2280	  11028	   2b14	stm32f1xx_drivers.elf
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.bin
+ 
+Finished building: stm32f1xx_drivers.list
+ 

@@ -10,7 +10,70 @@
 uint16_t AHB1_Prescaler[8] = {2,4,8,16,64,128,256,512};
 uint16_t APB1_Prescaler[4] = {2,4,8,16};
 
+static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx);
+static void I2C_ExecuteAddressPhase(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr);
+static void I2C_ClearAddrFlag(I2C_RegDef_t *pI2Cx);
+static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx);
 
+/* 				Private Function Implementation 			       */
+
+/******************************************************************
+ * @func			2C_GenerateStartCondition (I2C Generate START condition)
+ * @brief			This functions generates the start condition
+ * @param [in]		Base Address of the I2C Peripheral
+ * @return			None
+ * @note 			None
+ */
+static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx){
+
+	pI2Cx->CR1 |= (1 << I2C_CR1_START);
+
+}
+
+/******************************************************************
+ * @func			I2C_ExecuteAddressPhase (I2C execute address phase)
+ * @brief			This functions sends the slave address via I2C and
+ * 					read/write bit.
+ * @param [in]		Base Address of the I2C Peripheral
+ * @param [in]		Slave address
+ * @return			None
+ * @note 			None
+ */
+static void I2C_ExecuteAddressPhase(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr){
+
+	SlaveAddr = SlaveAddr << 1;
+	SlaveAddr &= ~(1); // Set 0 to write
+	pI2Cx->DR = SlaveAddr;
+}
+
+/******************************************************************
+ * @func			I2C_ClearAddrFlag (I2C clear ADDR flag)
+ * @brief			This functions clears ADDR flag by reading SR1 and SR2
+ * @param [in]		Base Address of the I2C Peripheral
+ * @param [in]		Slave address
+ * @return			None
+ * @note 			None
+ */
+static void I2C_ClearAddrFlag(I2C_RegDef_t *pI2Cx){
+
+	uint32_t dummyRead = pI2Cx->SR1;
+	dummyRead = pI2Cx->SR2;
+	(void) dummyRead;
+
+}
+
+/******************************************************************
+ * @func			2C_GenerateStopCondition (I2C Generate STOP condition)
+ * @brief			This functions generates the stop condition
+ * @param [in]		Base Address of the I2C Peripheral
+ * @return			None
+ * @note 			None
+ */
+static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx){
+
+	pI2Cx->CR1 |= (1 << I2C_CR1_STOP);
+
+}
 
 /* 					APIs Function Implementation 					*/
 
@@ -62,15 +125,13 @@ uint32_t RCC_GetPCLK1Value (void){
 		sysclk = 16000000;
 	} else if (clksrc == 1){
 		sysclk = 8000000;
-	} else if (clksrc == 2){
-		sysclk = RCC_GetPLLOutputClock();
 	}
 
 	// AHB Prescaler: Defined on register CFGR
 	temp = (RCC ->CFGR >> 4) & 0xF;
 
 	if (temp < 8){
-		ahb_prescaler = 1;
+		ahb1_prescaler = 1;
 	} else {
 		ahb1_prescaler = AHB1_Prescaler[temp-8];
 		/* Example: temp = 9 -> 1001 -> [1] -> 9-8 */
@@ -88,11 +149,6 @@ uint32_t RCC_GetPCLK1Value (void){
 	pclk1 = (sysclk/ahb1_prescaler)/apb1_prescaler;
 
 	return pclk1;
-}
-
-// Not used in this course
-uint32_t RCC_GetPLLOutputClock(void){
-	return;
 }
 
 /******************************************************************
@@ -133,7 +189,7 @@ void I2C_Init(I2C_Handle_t *pI2CxHandle){
 		temp |= (1 << 15);
 		temp |= (pI2CxHandle->I2C_Config.I2C_FMDutyCycle << 14);
 
-		if (I2C_Config.I2C_FMDutyCycle == I2C_FM_DUTYCLYCLE_2){
+		if (pI2CxHandle->I2C_Config.I2C_FMDutyCycle == I2C_FM_DUTYCLYCLE_2){
 			ccr_value = RCC_GetPCLK1Value()/(3*pI2CxHandle->I2C_Config.I2C_SCLSpeed);
 		} else {
 			ccr_value = RCC_GetPCLK1Value()/(25*pI2CxHandle->I2C_Config.I2C_SCLSpeed);
@@ -158,6 +214,68 @@ void I2C_DeInit(I2C_RegDef_t *pI2Cx){
 		I2C2_REG_RESET();
 	}
 }
+
+/******************************************************************
+ * @func			SPI_GetFlagStatus (SPI get flag status)
+ * @brief			This functions sends data via SPI
+ * @param [in]		Base Address of the SPI
+ * @param [in]		Requested flag
+ * @return			None
+ * @note
+ */
+uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName){
+
+	if(pI2Cx->SR1 & FlagName){
+		return FLAG_SET; // When the bit is one in that register
+	}
+
+	return FLAG_RESET; // The programs loops in this state until it changes and the flag is set
+ }
+
+/******************************************************************
+ * @func			I2C_MasterSendData (I2C Master send data)
+ * @brief			This functions controls master to send data
+ * @param [in]		I2C Handle
+ * @param [in]		Tx Buffer
+ * @param [in]		Length
+ * @param [in]		Slave address
+ * @return			None
+ * @note 			None
+ */
+void I2C_MasterSendData(I2C_Handle_t *pI2CxHandle, uint8_t *pTxBuffer, uint8_t length, uint8_t SlaveAddr){
+
+	// Generate start condition
+	I2C_GenerateStartCondition(pI2CxHandle->pI2Cx);
+
+	// Confirm that the START generation is completed by checking the SB flag in the in the SR1 register
+	while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_SB_FLAG)));
+
+	// Send the address of the slave with the R/NW bit
+	I2C_ExecuteAddressPhase(pI2CxHandle->pI2Cx, SlaveAddr);
+
+	// Confirm that address phase is completed by checking the ADDR flag in the SR1 register
+	while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_ADDR_FLAG)));
+
+	// Clear ADDR flag
+	I2C_ClearAddrFlag(pI2CxHandle->pI2Cx);
+
+	// Send data until length = 0
+	while (length > 0){
+		while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_TXE_FLAG)));
+		pI2CxHandle->pI2Cx->DR = *pTxBuffer;
+		pTxBuffer ++;
+		length--;
+	}
+
+	// When length = 0, Wait for TXE = 1 and BFT = 1 before generating the STOP condition
+	while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_TXE_FLAG)));
+	while(!(I2C_GetFlagStatus(pI2CxHandle->pI2Cx, I2C_BTF_FLAG)));
+
+	// Generate STOP condition
+	I2C_GenerateStopCondition(pI2CxHandle->pI2Cx);
+
+}
+
 
 /******************************************************************
  * @func			I2C_IRQConfig (I2C IRQ Configuration)

@@ -20,7 +20,7 @@ typedef struct{
 
 // Handle structure for I2Cx Peripheral
 typedef struct{
-	I2C_Reg_Def_t *pI2Cx;
+	I2C_RegDef_t *pI2Cx;
 	I2C_Config_t I2C_Config;
 }I2C_Handle_t;
 
@@ -38,6 +38,21 @@ typedef struct{
 #define I2C_FM_DUTYCLYCLE_2		0
 #define I2C_FM_DUTYCLYCLE_16_9	1
 
+/*                 Flag related status definitions                  */
+#define I2C_TXE_FLAG 			(1 << I2C_SR1_TXE)
+#define I2C_RXE_FLAG			(1 << I2C_SR1_RXNE)
+#define I2C_SB_FLAG				(1 << I2C_SR1_SB)
+#define I2C_ADDR_FLAG			(1 << I2C_SR1_ADDR)
+#define I2C_ADDR10_FLAG			(1 << I2C_SR1_ADD10)
+#define I2C_BTF_FLAG			(1 << I2C_SR1_BTF)
+#define I2C_STOPF_FLAG			(1 << I2C_SR1_STOPF)
+#define I2C_BERR_FLAG			(1 << I2C_SR1_BERR)
+#define I2C_ARLO_FLAG			(1 << I2C_SR1_ARLO)
+#define I2C_AF_FLAG				(1 << I2C_SR1_AF)
+#define I2C_OVR_FLAG			(1 << I2C_SR1_OVR)
+#define I2C_TIMEOUT_FLAG		(1 << I2C_SR1_TIMEOUT)
+
+
 /*					APIs Supported by this driver 					*/
 // Enable/Disable peripheral clock
 void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
@@ -45,6 +60,9 @@ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
 // Initialize/De-initialize the I2C
 void I2C_Init(I2C_Handle_t *pI2CxHandle);
 void I2C_DeInit(I2C_RegDef_t *pI2Cx);
+
+// Master send data
+void I2C_MasterSendData(I2C_Handle_t *pI2CxHandle, uint8_t *pTxBuffer, uint8_t length, uint8_t SlaveAddr);
 
 // IQR configuration and handling
 void I2C_IRQConfig(uint8_t IRQNumber, uint8_t EnOrDi);									// To set IRQ Number
