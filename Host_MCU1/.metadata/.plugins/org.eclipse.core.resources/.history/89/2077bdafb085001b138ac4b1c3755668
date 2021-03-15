@@ -198,20 +198,6 @@ void I2C_Init(I2C_Handle_t *pI2CxHandle){
 	}
 
 	pI2CxHandle->pI2Cx->CCR = temp;
-
-	// TRISE configuration
-
-	if(pI2CxHandle->I2C_Config.I2C_SCLSpeed <= I2C_CLK_SPEED_SM){
-		// Standard mode
-
-		temp = (RCC_GetPCLK1Value()/ 1000000U) + 1; // This formula comes from the reference manual
-
-	} else {
-		// Fast mode
-		temp = (RCC_GetPCLK1Value()*300/ 1000000U) + 1;
-	}
-
-	pI2CxHandle->pI2Cx->TRISE = (temp & 0x3F);
 }
 
 /******************************************************************
