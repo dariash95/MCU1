@@ -34,13 +34,12 @@ Applications guide:
   - Working correctly.
     
 - 007_SPI_Command_Handling.c:
-  - Sends a gruop of commands to the Arduino and it responds accordingly.
-  Commands:
-  - 1: LED control
-  - 2: Sensor read
-  - 3: LED status read
-  - 4: Print message
-  - 5: Arduinon id
+  - Sends a group of commands to the Arduino and it responds accordingly.
+    - 1: LED control
+    - 2: Sensor read
+    - 3: LED status read
+    - 4: Print message
+    - 5: Arduinon id
  - Working correctly.
   
   
