@@ -9,9 +9,9 @@
 
 #include <SPI.h>
 #include<stdint.h>
-#define SPI_SCK  52
 #define SPI_MISO 50
 #define SPI_MOSI 51
+#define SPI_SCK  52
 #define SPI_SS   53
 
 const byte led = 13;           // Slave LED digital I/O pin.

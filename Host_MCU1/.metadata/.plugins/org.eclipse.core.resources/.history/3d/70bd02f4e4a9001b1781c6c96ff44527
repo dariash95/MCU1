@@ -137,7 +137,7 @@ void CMD_LED_CTRL (uint8_t commandcode){
 		args[0] = LED_PIN;
 		args[1] = LED_ON;
 		SPI_SendData(SPI1, args, 2);
-		printf("Control LED executed\n");
+		printf("Control LED executed");
 	}
 }
 
@@ -179,7 +179,7 @@ void CMD_SENSOR(uint8_t commandcode){
 		uint8_t analog_read;
 		SPI_ReceiveData(SPI1, &analog_read, 1);
 		printf("Value read: %d\n", analog_read);
-		printf("Sensor read executed\n");
+		printf("Sensor read executed");
 	}
 }
 
@@ -217,7 +217,7 @@ void CMD_LED_READ(uint8_t commandcode){
 		uint8_t led_status;
 		SPI_ReceiveData(SPI1, &led_status,1);
 		printf("Value read: %d\n", led_status);
-		printf("Sensor LED executed\n");
+		printf("Sensor LED executed");
 	}
 
 }
@@ -250,8 +250,8 @@ void CMD_PRINT (uint8_t commandcode){
 		for(int i = 0 ; i < args[0] ; i++){
 			SPI_SendData(SPI1,&message[i],1);
 			SPI_ReceiveData(SPI1,&dummyread,1);
+			printf("Print executed");
 		}
-		printf("Print executed\n");
 	}
 }
 
@@ -278,7 +278,7 @@ void CMD_ID (uint8_t commandcode){
 		id[10] = '\0';
 
 		printf("ID: %d\n", id);
-		printf("Print ID executed\n");
+		printf("Print ID executed");
 	}
 }
 
@@ -303,6 +303,7 @@ int main (void){
 	while (1) {
 
 		uint8_t button_value = GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0);
+
 		// Button pressed for the 1st time
 		while((button_value));
 		delay();

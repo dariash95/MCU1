@@ -303,6 +303,7 @@ int main (void){
 	while (1) {
 
 		uint8_t button_value = GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0);
+
 		// Button pressed for the 1st time
 		while((button_value));
 		delay();

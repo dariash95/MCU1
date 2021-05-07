@@ -312,6 +312,7 @@ int main (void){
 		// CMD 1: Send command to turn ON/OFF the LED
 		CMD_LED_CTRL(COMMAND_LED_CTRL);
 
+		uint8_t button_value = GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0);
 		// Button pressed for the 2nd time
 		while((button_value));
 		delay();
@@ -319,6 +320,7 @@ int main (void){
 		// CMD 2: Send command to read sensor
 		CMD_SENSOR(COMMAND_SENSOR_READ);
 
+		uint8_t button_value = GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0);
 		// Button pressed for the 3rd time
 		while((button_value));
 		delay();
@@ -326,6 +328,7 @@ int main (void){
 		// CMD 3:
 		CMD_LED_READ(COMMAND_LED_READ);
 
+		uint8_t button_value = GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0);
 		// Button pressed for the 4th time
 		while((button_value));
 		delay();
@@ -333,6 +336,7 @@ int main (void){
 		// CMD 4:
 		CMD_PRINT(COMMAND_PRINT);
 
+		uint8_t button_value = GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0);
 		// Button pressed for the 5th time
 		while((button_value));
 		delay();

@@ -250,8 +250,8 @@ void CMD_PRINT (uint8_t commandcode){
 		for(int i = 0 ; i < args[0] ; i++){
 			SPI_SendData(SPI1,&message[i],1);
 			SPI_ReceiveData(SPI1,&dummyread,1);
+			printf("Print executed\n");
 		}
-		printf("Print executed\n");
 	}
 }
 
@@ -275,7 +275,7 @@ void CMD_ID (uint8_t commandcode){
 			SPI_SendData(SPI1, &dummywrite, 1);
 			SPI_ReceiveData(SPI1, &id[i], 1);
 		}
-		id[10] = '\0';
+		id[11] = '\0';
 
 		printf("ID: %d\n", id);
 		printf("Print ID executed\n");
@@ -303,6 +303,7 @@ int main (void){
 	while (1) {
 
 		uint8_t button_value = GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0);
+
 		// Button pressed for the 1st time
 		while((button_value));
 		delay();
