@@ -27,10 +27,11 @@ Applications guide:
  
 - 005_SPI_Tx.c:
   Sends "Hello World" via SPI
-  Not tested.
+  Working correctly.
   
 - 006_SPI_Tx_Arduino.c:
   Sends "Hello World" via SPI using STM32 as master and Arduino as slave.
+  Working correctly.
     
 - 007_SPI_Command_Handling.c:
   Sends a gruop of commands to the Arduino and it responds accordingly.
@@ -40,7 +41,7 @@ Applications guide:
   - 3: LED status read
   - 4: Print message
   - 5: Arduinon id
-  To be tested. Working for command 1
+ Working correctly.
   
   
 
