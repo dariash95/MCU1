@@ -40,7 +40,7 @@ Applications guide:
     - 3: LED status read
     - 4: Print message
     - 5: Arduinon id
- - Working correctly.
+  - Working correctly.
   
   
 
