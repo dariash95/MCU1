@@ -22,8 +22,8 @@ Applications guide:
   - Working correctly.
   
 - 004_Button_Interrupt.c:
- - Turns ON and OFF a LED using an external button using interruptions.
- - Working correctly but needs confirmation.
+  - Turns ON and OFF a LED using an external button using interruptions.
+  - Working correctly but needs confirmation.
  
 - 005_SPI_Tx.c:
   - Sends "Hello World" via SPI
