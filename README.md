@@ -10,38 +10,38 @@ Files guide:
 
 Applications guide:
 - 001_LED_Toggle.c: 
-  For LED toggling.
-  Working correctly.
+  - For LED toggling.
+  - Working correctly.
  
 - 002_LED_Button.c:
-  Turns ON and OFF a LED using an in-board button.
-  Working correctly.
+  - Turns ON and OFF a LED using an in-board button.
+  - Working correctly.
  
 - 003_LED_Button_ext.c:
-  Turns ON and OFF a LED using an external button.
-  Working correctly.
+  - Turns ON and OFF a LED using an external button.
+  - Working correctly.
   
 - 004_Button_Interrupt.c:
- Turns ON and OFF a LED using an external button using interruptions.
- Working correctly but needs confirmation.
+ - Turns ON and OFF a LED using an external button using interruptions.
+ - Working correctly but needs confirmation.
  
 - 005_SPI_Tx.c:
-  Sends "Hello World" via SPI
-  Working correctly.
+  - Sends "Hello World" via SPI
+  - Working correctly.
   
 - 006_SPI_Tx_Arduino.c:
-  Sends "Hello World" via SPI using STM32 as master and Arduino as slave.
-  Working correctly.
+  - Sends "Hello World" via SPI using STM32 as master and Arduino as slave.
+  - Working correctly.
     
 - 007_SPI_Command_Handling.c:
-  Sends a gruop of commands to the Arduino and it responds accordingly.
+  - Sends a gruop of commands to the Arduino and it responds accordingly.
   Commands:
   - 1: LED control
   - 2: Sensor read
   - 3: LED status read
   - 4: Print message
   - 5: Arduinon id
- Working correctly.
+ - Working correctly.
   
   
 
