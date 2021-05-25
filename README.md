@@ -41,6 +41,15 @@ Applications guide:
     - 4: Print message
     - 5: Arduinon id
   - Working correctly.
+
+- 008_SPI_Interrupts.c:
+  - Sends a message to the Arduino implementing interrupts.
+  - Not working. Stays in a infinite loop when trying to send the message. Cause is unknown. 
+
+- 009_Master_Tx_Testing.c:
+  - Sends a message to the Arduino Via I2C.
+  - Not working. Stays in a infinite loop when trying to send the message. Master mode is not activated due to some issue with the microcontroller.
+  - Issue can be fixed following procedure in the errata but "Ain't nobody got time for that".
   
   
 
