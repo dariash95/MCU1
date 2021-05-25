@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;stm32f1xx_drivers/Src/009_SPI_Interrupts.c&apos;" deleteContents="false" description="Delete resource &apos;stm32f1xx_drivers/Src/009_SPI_Interrupts.c&apos;" element1="/stm32f1xx_drivers/Src/009_SPI_Interrupts.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1621441709006"/>
+</session>

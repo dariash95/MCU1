@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;stm32f1xx_drivers/Src/008_SPI_Interrupts2.c&apos; to &apos;009_SPI_Interrupts.c&apos;" description="Rename resource &apos;008_SPI_Interrupts2.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/008_SPI_Interrupts2.c" name="009_SPI_Interrupts.c" stamp="1620752017036" updateReferences="true"/>
+</session>

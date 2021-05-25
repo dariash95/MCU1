@@ -8,6 +8,9 @@
 #include"stm32f1xx_spi.h"
 
 /* 			  Private helpers functions	prototypes    				*/
+/* These functions are private which means that only work in the scope of this file
+ * The key word static denotes that they are private
+ */
 static void SPI_TXE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
 static void SPI_RXNE_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
 static void SPI_OVR_Interrupt_Handle(SPI_Handle_t *pSPIxHandle);
@@ -204,7 +207,7 @@ void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t len){
 
 /******************************************************************
  * @func			SPI_SendData_Inter (SPI send data using Interrupts)
- * @brief			This functions sends data via SPI using interrupts
+ * @brief			This functions enables TXEIE to trigger the interrupt
  * @param [in]		SPI Handle
  * @param [in]		Buffer to store the data that is going to be sent
  * @param [in]		Length of the buffer in bytes
@@ -221,7 +224,7 @@ uint8_t SPI_SendData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pTxBuffer, uint32_
 		pSPIHandle->pTxBuffer = pTxBuffer;
 		pSPIHandle->TxLen = len;
 
-		// Mark the SPI state as busy in transmission so that no other code cab take over the same SPI peripheral until transmission is over
+		// Mark the SPI state as busy in transmission so that no other code can take over the same SPI peripheral until transmission is over
 		pSPIHandle->TxState = SPI_BUSY_IN_TX;
 
 		// Enable TXEIE control bit to get an interrupt whenever TXE flag is set
@@ -235,7 +238,7 @@ uint8_t SPI_SendData_Inter(SPI_Handle_t *pSPIHandle, uint8_t *pTxBuffer, uint32_
 
 /******************************************************************
  * @func			SPI_ReceiveData_Inter (SPI ReceiveData using Interrupts)
- * @brief			This functions receives data via SPI using interrupts
+ * @brief			This functions enables RXNEIE to trigger the interrupt
  * @param [in]		SPI Handle
  * @param [in]		Pointer to the buffer containing the data that is going to be received
  * @param [in]		Length of the buffer in bytes
@@ -473,7 +476,7 @@ void SPI_ClearOVRFlag(SPI_RegDef_t *pSPIx){
 void SPI_CloseTransmission(SPI_Handle_t *pSPIxHandle){
 
 	pSPIxHandle->pSPIx->CR2 &= ~(1 << SPI_CR2_TXNEIE); // This prevents interrupts from TXE flag
-	pSPIxHandle->pTxBuffer = NULL;
+	pSPIxHandle->pTxBuffer = NULL; // Reset buffers
 	pSPIxHandle->TxLen = 0;
 	pSPIxHandle ->TxState = SPI_READY;
 }
@@ -486,7 +489,7 @@ void SPI_CloseReception(SPI_Handle_t *pSPIxHandle){
 	pSPIxHandle ->RxState = SPI_READY;
 }
 
-/* In each application this application will be override according to perform some action  */
+/* In each application this function will be override according to perform some action  */
 __attribute__((weak)) void SPI_ApplicationEventCallback (SPI_Handle_t *pSPIxHandle, uint8_t AppEv){
 	// This is a weak implementation. The application can override this function
 

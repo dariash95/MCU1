@@ -1,4 +1,4 @@
-/*
+	/*
  * stm32f1xx_i2c.c
  *
  *  Created on: Mar 4, 2021
@@ -161,6 +161,9 @@ uint32_t RCC_GetPCLK1Value (void){
 void I2C_Init(I2C_Handle_t *pI2CxHandle){
 
 	uint32_t temp = 0;
+
+	// Enable clock for I2C peripheral
+	I2C_PeriClkCtrl(pI2CxHandle->pI2Cx, ENABLE);
 
 	// Configuration of ACK bit
 	temp |= (pI2CxHandle->I2C_Config.I2C_ACKControl << 10);
@@ -352,5 +355,26 @@ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi){
 		pI2Cx->CR1 |= (1 << I2C_CR1_PE);
 	} else {
 		pI2Cx->CR1 &= ~(1 << I2C_CR1_PE);
+	}
+}
+
+/******************************************************************
+ * @func			I2C_ManageAcking (I2C Manage acking)
+ * @brief			This functions set ACK bit to one, once PE=1
+ * @param [in]		Base Address of the I2C Peripheral
+ * @param [in]		Enable/Disable Macros
+ * @return			None
+ * @note 			None
+ */
+void I2C_ManageAcking(I2C_RegDef_t *pI2Cx, uint8_t EnorDi)
+{
+	if(EnorDi == I2C_ACK_ENABLE)
+	{
+		//enable the ack
+		pI2Cx->CR1 |= ( 1 << I2C_CR1_ACK);
+	}else
+	{
+		//disable the ack
+		pI2Cx->CR1 &= ~( 1 << I2C_CR1_ACK);
 	}
 }

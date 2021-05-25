@@ -42,7 +42,7 @@ void SPI_GPIOInits(void){
 	SPIPins.pGPIOx = GPIOA;
 
 	// NSS -- Not used in this case
-	SPIPins.GPIO_PinConfig.GPIO_PinMode = 1; // Input
+	SPIPins.GPIO_PinConfig.GPIO_PinMode = 1;
 	SPIPins.GPIO_PinConfig.GPIO_Config = 2; // Floating Input
 	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_4;
 	GPIO_Init(&SPIPins);
@@ -88,11 +88,11 @@ void Slave_GPIO_InterruptPinInit(void){
 	GPIO_Handle_t SPI_Inter_Pin; // Variable for the GPIO Handle
 	memset(&SPI_Inter_Pin, 0, sizeof(SPI_Inter_Pin)); // Set value to 0
 
-	// GPIO Button Configuration
 	SPI_Inter_Pin.pGPIOx = GPIOA; // Initialize variable and select port
-	SPI_Inter_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_7;
+	SPI_Inter_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_9;
 	SPI_Inter_Pin.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN ;
 	SPI_Inter_Pin.GPIO_PinConfig.GPIO_Config = GPIO_IN_TYPE_PP;
+	GPIO_PeriClkCtrl(GPIOA,ENABLE);
 	GPIO_Init(&SPI_Inter_Pin);
 
 	// Button interrupt configuration
@@ -102,18 +102,25 @@ void Slave_GPIO_InterruptPinInit(void){
 	GPIO_IRQConfig(IRQ_NO_EXTI9_5, ENABLE);
 }
 
+extern void initialise_monitor_handles(void);
 
 int main(void){
+
+	initialise_monitor_handles();
+	printf("It works!\n");
 
 	uint8_t dummy = 0xff;
 
 	Slave_GPIO_InterruptPinInit(); // Initializes pin to deliver the interrupt
+	printf("Interrupt pin initialized\n");
 
 	//this function is used to initialize the GPIO pins to behave as SPI2 pins
 	SPI_GPIOInits();
 
+
 	//This function is used to initialize the SPI2 peripheral parameters
 	SPI_Inits();
+	printf("SPI initialized\n");
 
 	/*
 	* making SSOE 1 does NSS output enable.
@@ -130,6 +137,7 @@ int main(void){
 		rcvStop = 0;
 
 		while(!dataAvailable); //wait till data available interrupt from transmitter device(slave)
+		printf("Bloop\n");
 
 		GPIO_IRQConfig(IRQ_NO_EXTI9_5,DISABLE); // Interrupts are disable while the communication happens
 
@@ -193,6 +201,6 @@ void SPI_ApplicationEventCallback(SPI_Handle_t *pSPIHandle,uint8_t AppEv)
 /* Slave data available interrupt handler */
 void EXTI9_5_IRQHandler(void)
 {
-	GPIO_IRQHandling(GPIO_PIN_6);
+	GPIO_IRQHandling(GPIO_PIN_9);
 	dataAvailable = 1;
 }
