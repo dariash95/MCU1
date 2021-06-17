@@ -18,6 +18,7 @@ typedef struct
 	uint8_t GPIO_PinNumber; // 0-15
 	uint8_t GPIO_PinMode;	// Possible values @ GPIO Pin possible modes
 	uint8_t GPIO_Config;	// Possible values @ GPIO Pin possible output modes and @ GPIO Pin possible input modes
+	uint8_t GPIO_ODRValue;  // High or low
 }GPIO_PinConfig_t;
 
 // Handle structure for a GPIO Pin
@@ -75,6 +76,7 @@ void GPIO_PeriClkCtrl(GPIO_RegDef_t *pGPIOx, uint8_t EnOrDi);
 // Initialize/De-initialize the GPIO
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
 void GPIO_DeInit(GPIO_RegDef_t *pGPIOx); 												// Input: GPIO Base address of the port that is going to be reset
+void GPIO_AltFunc_Init(GPIO_Handle_t *pGPIOHandle);
 
 // Data read or write
 uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);				// Read from pin. Output 0/1

@@ -22,6 +22,14 @@ typedef struct{
 typedef struct{
 	I2C_RegDef_t *pI2Cx;
 	I2C_Config_t I2C_Config;
+	uint8_t *pTxBuffer;			// To store Tx buffer address
+	uint8_t *pRxBuffer;			// To store Rx buffer address
+	uint32_t TxLen;				// To store Tx length
+	uint32_t RxLen;				// To store Rx length
+	uint8_t TxRxState;			// To store communication state
+	uint8_t devAddr;			// To store slave device address
+	uint32_t RxSize;			// To store Rx size
+	uint8_t Sr;					// To repeated start value
 }I2C_Handle_t;
 
 /* 							Macros  								*/
@@ -38,9 +46,30 @@ typedef struct{
 #define I2C_FM_DUTYCLYCLE_2		0
 #define I2C_FM_DUTYCLYCLE_16_9	1
 
+// Repeated start
+#define I2C_NO_SR 0
+#define I2C_SR	  1
+
+// I2C application states
+#define I2C_READY		0
+#define I2C_BUSY_IN_TX	1
+#define I2C_BUSY_IN_RX	2
+
+// I2C events
+#define I2C_EV_TX_COMPLETE	0
+#define I2C_EV_RX_COMPLETE	1
+#define I2C_EV_STOP			2
+
+// I2C errors
+#define I2C_ERROR_BERR		0
+#define I2C_ERROR_ARLO		1
+#define I2C_ERROR_AF		2
+#define I2C_ERROR_OVR		3
+#define I2C_ERROR_TIMEOUT	4
+
 /*                 Flag related status definitions                  */
 #define I2C_TXE_FLAG 			(1 << I2C_SR1_TXE)
-#define I2C_RXE_FLAG			(1 << I2C_SR1_RXNE)
+#define I2C_RXNE_FLAG			(1 << I2C_SR1_RXNE)
 #define I2C_SB_FLAG				(1 << I2C_SR1_SB)
 #define I2C_ADDR_FLAG			(1 << I2C_SR1_ADDR)
 #define I2C_ADDR10_FLAG			(1 << I2C_SR1_ADD10)
@@ -61,12 +90,22 @@ void I2C_PeriClkCtrl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
 void I2C_Init(I2C_Handle_t *pI2CxHandle);
 void I2C_DeInit(I2C_RegDef_t *pI2Cx);
 
-// Master send data
-void I2C_MasterSendData(I2C_Handle_t *pI2CxHandle, uint8_t *pTxBuffer, uint8_t length, uint8_t SlaveAddr);
+// Master send and receive data
+void I2C_MasterSendData(I2C_Handle_t *pI2CxHandle, uint8_t *pTxBuffer, uint8_t length, uint8_t SlaveAddr, uint8_t Sr);
+void I2C_MasterReceiveData(I2C_Handle_t *pI2CxHandle, uint8_t *pRxBuffer, uint8_t length, uint8_t SlaveAddr, uint8_t Sr);
+
+//// Master send and receive data with interrupts
+uint8_t I2C_MasterSendDataIT(I2C_Handle_t *pI2CxHandle, uint8_t *pTxBuffer, uint8_t length, uint8_t SlaveAddr, uint8_t Sr);
+uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t *pI2CxHandle, uint8_t *pRxBuffer, uint8_t length, uint8_t SlaveAddr, uint8_t Sr);
+void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+void I2C_CloseReceiveData (I2C_Handle_t *pI2CxHandle);
 
 // IQR configuration and handling
 void I2C_IRQConfig(uint8_t IRQNumber, uint8_t EnOrDi);									// To set IRQ Number
 void I2C_IRQPriority (uint8_t IRQNumber,uint32_t IRQPriority);							// To set the priority in IRQ
+void I2C_EV_IRQHandling(I2C_Handle_t *pI2CxHandle);
+void I2C_ER_IRQHandling(I2C_Handle_t *pI2CxHandle);
+
 
 // Other APIs
 void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);

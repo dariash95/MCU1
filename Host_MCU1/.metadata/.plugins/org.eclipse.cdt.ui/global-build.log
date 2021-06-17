@@ -1,240 +1,219 @@
-15:04:40 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+17:14:19 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
-../Src/009_Master_Tx_Testing.c: In function 'main':
-../Src/009_Master_Tx_Testing.c:75:22: error: 'I2C1Handle' undeclared (first use in this function); did you mean 'I2C_Handle_t'?
-  I2C_MasterSendData(&I2C1Handle,some_data,strlen((char*)some_data),SLAVE_ADDR);
-                      ^~~~~~~~~~
-                      I2C_Handle_t
-../Src/009_Master_Tx_Testing.c:75:22: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Src/subdir.mk:18: Src/009_Master_Tx_Testing.o] Error 1
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:591:6: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+      I2C_CloseSendData();
+      ^~~~~~~~~~~~~~~~~
+      I2C_MasterSendData
+../drivers/Src/stm32f1xx_i2c.c:594:48: error: 'I2C_EV_COMPLETE' undeclared (first use in this function)
+      I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_COMPLETE);
+                                                ^~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:594:48: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c:625:1: error: expected declaration or statement at end of input
+ }
+ ^
+At top level:
+../drivers/Src/stm32f1xx_i2c.c:623:6: warning: 'I2C_ER_IRQHandling' defined but not used [-Wunused-function]
+ void I2C_ER_IRQHandling(I2C_Handle_t *pI2CxHandle){
+      ^~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
-15:05:14 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+17:14:52 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-   text	   data	    bss	    dec	    hex	filename
-   2540	     40	   1568	   4148	   1034	stm32f1xx_drivers.elf
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-Finished building: default.size.stdout
- 
-Finished building: stm32f1xx_drivers.list
- 
-Finished building: stm32f1xx_drivers.bin
- 
-15:07:50 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:591:6: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+      I2C_CloseSendData();
+      ^~~~~~~~~~~~~~~~~
+      I2C_MasterSendData
+../drivers/Src/stm32f1xx_i2c.c:594:48: error: 'I2C_EV_COMPLETE' undeclared (first use in this function)
+      I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_COMPLETE);
+                                                ^~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:594:48: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:32:42 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2648	     40	   1568	   4256	   10a0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
- 
- 
- 
-15:09:13 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2696	     40	   1568	   4304	   10d0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
- 
- 
- 
-15:11:29 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2696	     40	   1568	   4304	   10d0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-15:14:17 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2696	     44	   1564	   4304	   10d0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
- 
- 
- 
-15:15:00 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2696	     44	   1564	   4304	   10d0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-15:15:29 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2696	     44	   1564	   4304	   10d0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-15:15:57 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2696	     44	   1564	   4304	   10d0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-13:36:38 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:591:6: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+      I2C_CloseSendData();
+      ^~~~~~~~~~~~~~~~~
+      I2C_MasterSendData
+../drivers/Src/stm32f1xx_i2c.c:594:48: error: 'I2C_EV_COMPLETE' undeclared (first use in this function)
+      I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_COMPLETE);
+                                                ^~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:594:48: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c:613:45: error: 'I2C_EV_STOP' undeclared (first use in this function); did you mean 'I2C_CR1_STOP'?
+   I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_STOP);
+                                             ^~~~~~~~~~~
+                                             I2C_CR1_STOP
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+Info: Nothing to build for func_math
+09:39:32 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 clean 
 rm -rf *
  
-13:36:40 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+09:39:33 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
 arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-   text	   data	    bss	    dec	    hex	filename
-   2696	     44	   1564	   4304	   10d0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
- 
- 
-13:41:50 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+arm-none-eabi-gcc "../Src/010_Master_Rx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010_Master_Rx_Testing.d" -MT"Src/010_Master_Rx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010_Master_Rx_Testing.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterSendData':
+../drivers/Src/stm32f1xx_i2c.c:319:20: warning: passing argument 1 of 'I2C_ClearAddrFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+  I2C_ClearAddrFlag(pI2CxHandle->pI2Cx);
+                    ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:74:13: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_RegDef_t * {aka struct <anonymous> *}'
+ static void I2C_ClearAddrFlag(I2C_Handle_t *pI2CxHandle){
+             ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterReceiveData':
+../drivers/Src/stm32f1xx_i2c.c:370:21: warning: passing argument 1 of 'I2C_ClearAddrFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+   I2C_ClearAddrFlag(pI2CxHandle->pI2Cx);
+                     ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:74:13: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_RegDef_t * {aka struct <anonymous> *}'
+ static void I2C_ClearAddrFlag(I2C_Handle_t *pI2CxHandle){
+             ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:384:21: warning: passing argument 1 of 'I2C_ClearAddrFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+   I2C_ClearAddrFlag(pI2CxHandle->pI2Cx);
+                     ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:74:13: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_RegDef_t * {aka struct <anonymous> *}'
+ static void I2C_ClearAddrFlag(I2C_Handle_t *pI2CxHandle){
+             ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterHandleRXNEIT':
+../drivers/Src/stm32f1xx_i2c.c:600:3: warning: implicit declaration of function 'I2C_CloseReceiveData'; did you mean 'I2C_MasterReceiveData'? [-Wimplicit-function-declaration]
+   I2C_CloseReceiveData();
+   ^~~~~~~~~~~~~~~~~~~~
+   I2C_MasterReceiveData
+../drivers/Src/stm32f1xx_i2c.c:603:45: error: 'I2C_EV_RX_COMPLETE' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+   I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_RX_COMPLETE);
+                                             ^~~~~~~~~~~~~~~~~~
+                                             SPI_EVENT_RX_COMPLETE
+../drivers/Src/stm32f1xx_i2c.c:603:45: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:638:21: warning: passing argument 1 of 'I2C_ClearAddrFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+   I2C_ClearAddrFlag(pI2CxHandle->pI2Cx);
+                     ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:74:13: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_RegDef_t * {aka struct <anonymous> *}'
+ static void I2C_ClearAddrFlag(I2C_Handle_t *pI2CxHandle){
+             ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:660:6: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+      I2C_CloseSendData();
+      ^~~~~~~~~~~~~~~~~
+      I2C_MasterSendData
+../drivers/Src/stm32f1xx_i2c.c:663:48: error: 'I2C_EV_COMPLETE' undeclared (first use in this function)
+      I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_COMPLETE);
+                                                ^~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:682:45: error: 'I2C_EV_STOP' undeclared (first use in this function); did you mean 'I2C_CR1_STOP'?
+   I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_STOP);
+                                             ^~~~~~~~~~~
+                                             I2C_CR1_STOP
+../drivers/Src/stm32f1xx_i2c.c:709:28: error: 'I2CxHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+     I2C_MasterHandleRXNEIT(I2CxHandle);
+                            ^~~~~~~~~~
+                            pI2CxHandle
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:39:59 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2696	     44	   1564	   4304	   10d0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-14:27:48 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterSendData':
+../drivers/Src/stm32f1xx_i2c.c:319:20: warning: passing argument 1 of 'I2C_ClearAddrFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+  I2C_ClearAddrFlag(pI2CxHandle->pI2Cx);
+                    ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:74:13: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_RegDef_t * {aka struct <anonymous> *}'
+ static void I2C_ClearAddrFlag(I2C_Handle_t *pI2CxHandle){
+             ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterReceiveData':
+../drivers/Src/stm32f1xx_i2c.c:370:21: warning: passing argument 1 of 'I2C_ClearAddrFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+   I2C_ClearAddrFlag(pI2CxHandle->pI2Cx);
+                     ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:74:13: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_RegDef_t * {aka struct <anonymous> *}'
+ static void I2C_ClearAddrFlag(I2C_Handle_t *pI2CxHandle){
+             ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:384:21: warning: passing argument 1 of 'I2C_ClearAddrFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+   I2C_ClearAddrFlag(pI2CxHandle->pI2Cx);
+                     ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:74:13: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_RegDef_t * {aka struct <anonymous> *}'
+ static void I2C_ClearAddrFlag(I2C_Handle_t *pI2CxHandle){
+             ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterHandleRXNEIT':
+../drivers/Src/stm32f1xx_i2c.c:600:3: warning: implicit declaration of function 'I2C_CloseReceiveData'; did you mean 'I2C_MasterReceiveData'? [-Wimplicit-function-declaration]
+   I2C_CloseReceiveData();
+   ^~~~~~~~~~~~~~~~~~~~
+   I2C_MasterReceiveData
+../drivers/Src/stm32f1xx_i2c.c:603:45: error: 'I2C_EV_RX_COMPLETE' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+   I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_RX_COMPLETE);
+                                             ^~~~~~~~~~~~~~~~~~
+                                             SPI_EVENT_RX_COMPLETE
+../drivers/Src/stm32f1xx_i2c.c:603:45: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:638:21: warning: passing argument 1 of 'I2C_ClearAddrFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+   I2C_ClearAddrFlag(pI2CxHandle->pI2Cx);
+                     ^~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:74:13: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_RegDef_t * {aka struct <anonymous> *}'
+ static void I2C_ClearAddrFlag(I2C_Handle_t *pI2CxHandle){
+             ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:660:6: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+      I2C_CloseSendData();
+      ^~~~~~~~~~~~~~~~~
+      I2C_MasterSendData
+../drivers/Src/stm32f1xx_i2c.c:663:48: error: 'I2C_EV_COMPLETE' undeclared (first use in this function)
+      I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_COMPLETE);
+                                                ^~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:682:45: error: 'I2C_EV_STOP' undeclared (first use in this function); did you mean 'I2C_CR1_STOP'?
+   I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_STOP);
+                                             ^~~~~~~~~~~
+                                             I2C_CR1_STOP
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:43:24 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
- 
- 
- 
-14:29:00 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-14:37:32 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-14:37:59 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-14:39:58 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-14:40:09 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-14:43:32 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-14:50:40 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-15:01:59 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-15:32:28 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-15:35:09 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-13:14:03 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 clean 
-rm -rf *
- 
-13:14:05 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterHandleRXNEIT':
+../drivers/Src/stm32f1xx_i2c.c:600:3: warning: implicit declaration of function 'I2C_CloseReceiveData'; did you mean 'I2C_MasterReceiveData'? [-Wimplicit-function-declaration]
+   I2C_CloseReceiveData();
+   ^~~~~~~~~~~~~~~~~~~~
+   I2C_MasterReceiveData
+../drivers/Src/stm32f1xx_i2c.c:603:45: error: 'I2C_EV_RX_COMPLETE' undeclared (first use in this function); did you mean 'SPI_EVENT_RX_COMPLETE'?
+   I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_RX_COMPLETE);
+                                             ^~~~~~~~~~~~~~~~~~
+                                             SPI_EVENT_RX_COMPLETE
+../drivers/Src/stm32f1xx_i2c.c:603:45: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:660:6: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+      I2C_CloseSendData();
+      ^~~~~~~~~~~~~~~~~
+      I2C_MasterSendData
+../drivers/Src/stm32f1xx_i2c.c:663:48: error: 'I2C_EV_COMPLETE' undeclared (first use in this function)
+      I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_COMPLETE);
+                                                ^~~~~~~~~~~~~~~
+../drivers/Src/stm32f1xx_i2c.c:682:45: error: 'I2C_EV_STOP' undeclared (first use in this function); did you mean 'I2C_CR1_STOP'?
+   I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_STOP);
+                                             ^~~~~~~~~~~
+                                             I2C_CR1_STOP
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:49:37 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
+arm-none-eabi-gcc "../Src/010_Master_Rx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010_Master_Rx_Testing.d" -MT"Src/010_Master_Rx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010_Master_Rx_Testing.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_MasterHandleRXNEIT':
+../drivers/Src/stm32f1xx_i2c.c:600:3: warning: implicit declaration of function 'I2C_CloseReceiveData'; did you mean 'I2C_MasterReceiveData'? [-Wimplicit-function-declaration]
+   I2C_CloseReceiveData();
+   ^~~~~~~~~~~~~~~~~~~~
+   I2C_MasterReceiveData
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:660:6: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+      I2C_CloseSendData();
+      ^~~~~~~~~~~~~~~~~
+      I2C_MasterSendData
 arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f1xx_drivers.elf
  
@@ -242,147 +221,19 @@ arm-none-eabi-size   stm32f1xx_drivers.elf
 arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
 arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
    text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
+   8584	    144	   1824	  10552	   2938	stm32f1xx_drivers.elf
 Finished building: default.size.stdout
  
-Finished building: stm32f1xx_drivers.list
 Finished building: stm32f1xx_drivers.bin
- 
- 
-13:20:21 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2712	     44	   1580	   4336	   10f0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
 Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
  
  
- 
-13:24:17 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2696	     44	   1580	   4320	   10e0	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
- 
- 
- 
-14:24:02 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
- 
- 
- 
-14:24:19 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-14:33:49 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2720	     44	   1580	   4344	   10f8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
- 
- 
- 
-14:35:46 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2720	     44	   1580	   4344	   10f8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-14:37:29 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2720	     44	   1580	   4344	   10f8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-14:52:39 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2704	     44	   1580	   4328	   10e8	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
- 
- 
- 
-15:01:56 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
-../Src/009_Master_Tx_Testing.c: In function 'main':
-../Src/009_Master_Tx_Testing.c:79:2: warning: implicit declaration of function 'I2C_ManageAcking' [-Wimplicit-function-declaration]
-  I2C_ManageAcking(I2C1, I2C_ACK_ENABLE);
-  ^~~~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f1xx_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2768	     44	   1580	   4392	   1128	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.list
-Finished building: stm32f1xx_drivers.bin
- 
- 
- 
-15:02:28 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+10:02:12 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
+arm-none-eabi-gcc "../Src/010_Master_Rx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010_Master_Rx_Testing.d" -MT"Src/010_Master_Rx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010_Master_Rx_Testing.o"
 arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f1xx_drivers.elf
  
@@ -390,26 +241,19 @@ arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
 arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
 arm-none-eabi-size   stm32f1xx_drivers.elf 
    text	   data	    bss	    dec	    hex	filename
-   2768	     44	   1580	   4392	   1128	stm32f1xx_drivers.elf
+   8584	    144	   1824	  10552	   2938	stm32f1xx_drivers.elf
 Finished building: default.size.stdout
 Finished building: stm32f1xx_drivers.list
 Finished building: stm32f1xx_drivers.bin
  
  
  
-15:05:27 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 all 
-arm-none-eabi-size   stm32f1xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2768	     44	   1580	   4392	   1128	stm32f1xx_drivers.elf
-Finished building: default.size.stdout
- 
-15:23:41 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+10:03:55 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
+arm-none-eabi-gcc "../Src/010_Master_Rx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010_Master_Rx_Testing.d" -MT"Src/010_Master_Rx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010_Master_Rx_Testing.o"
 arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f1xx_drivers.elf
  
@@ -417,35 +261,101 @@ arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
 arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
 arm-none-eabi-size   stm32f1xx_drivers.elf 
    text	   data	    bss	    dec	    hex	filename
-   2768	     44	   1580	   4392	   1128	stm32f1xx_drivers.elf
+   8584	    144	   1824	  10552	   2938	stm32f1xx_drivers.elf
 Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.list
 Finished building: stm32f1xx_drivers.bin
+Finished building: stm32f1xx_drivers.list
  
  
  
-10:53:43 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
-make -j8 clean 
-rm -rf *
- 
-10:53:45 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+10:16:40 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
 arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
-arm-none-eabi-gcc "../Src/009_Master_Tx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009_Master_Tx_Testing.d" -MT"Src/009_Master_Tx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_Master_Tx_Testing.o"
+arm-none-eabi-gcc "../Src/010_Master_Rx_Testing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010_Master_Rx_Testing.d" -MT"Src/010_Master_Rx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010_Master_Rx_Testing.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:753:11: error: 'pI2CHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  temp2 = (pI2CHandle->pI2Cx->CR2) & ( 1 << I2C_CR2_ITERREN);
+           ^~~~~~~~~~
+           pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c:753:11: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:17:50 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:753:11: error: 'pI2xCHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  temp2 = (pI2xCHandle->pI2Cx->CR2) & ( 1 << I2C_CR2_ITERREN);
+           ^~~~~~~~~~~
+           pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c:753:11: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f1xx_i2c.c:783:11: error: 'pI2CHandle' undeclared (first use in this function); did you mean 'pI2xCHandle'?
+  temp1 = (pI2CHandle->pI2Cx->SR1) & ( 1 << I2C_SR1_AF);
+           ^~~~~~~~~~
+           pI2xCHandle
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:18:07 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:753:11: error: 'pI2xCHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  temp2 = (pI2xCHandle->pI2Cx->CR2) & ( 1 << I2C_CR2_ITERREN);
+           ^~~~~~~~~~~
+           pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c:753:11: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:18:22 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:757:11: error: 'pI2xCHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  temp1 = (pI2xCHandle->pI2Cx->SR1) & ( 1<< I2C_SR1_BERR);
+           ^~~~~~~~~~~
+           pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c:757:11: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:18:34 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:765:32: error: 'pI2xCHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+   I2C_ApplicationEventCallback(pI2xCHandle,I2C_ERROR_BERR);
+                                ^~~~~~~~~~~
+                                pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c:765:32: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:18:47 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:769:11: error: 'pI2xCHandle' undeclared (first use in this function); did you mean 'pI2CxHandle'?
+  temp1 = (pI2xCHandle->pI2Cx->SR1) & ( 1 << I2C_SR1_ARLO );
+           ^~~~~~~~~~~
+           pI2CxHandle
+../drivers/Src/stm32f1xx_i2c.c:769:11: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:19:02 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
 arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f1xx_drivers.elf
  
-arm-none-eabi-size   stm32f1xx_drivers.elf 
 arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
 arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
    text	   data	    bss	    dec	    hex	filename
-   2612	     44	   1580	   4236	   108c	stm32f1xx_drivers.elf
+   8584	    144	   1824	  10552	   2938	stm32f1xx_drivers.elf
 Finished building: default.size.stdout
- 
-Finished building: stm32f1xx_drivers.list
 Finished building: stm32f1xx_drivers.bin
+Finished building: stm32f1xx_drivers.list
+ 
  
  

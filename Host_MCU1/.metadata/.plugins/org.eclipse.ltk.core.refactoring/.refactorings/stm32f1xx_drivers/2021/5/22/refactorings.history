@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;stm32f1xx_drivers/Src/009_Master_Tx_Testing2.c&apos; to &apos;Errata_fix.c&apos;" description="Rename resource &apos;009_Master_Tx_Testing2.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/009_Master_Tx_Testing2.c" name="Errata_fix.c" stamp="1621961217008" updateReferences="true"/>
+</session>

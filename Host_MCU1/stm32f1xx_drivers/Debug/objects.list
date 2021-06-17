@@ -1,4 +1,4 @@
-"Src/009_Master_Tx_Testing.o"
+"Src/010_Master_Rx_Testing.o"
 "Startup/startup_stm32f103c8tx.o"
 "drivers/Src/stm32f1xx_gpio.o"
 "drivers/Src/stm32f1xx_i2c.o"

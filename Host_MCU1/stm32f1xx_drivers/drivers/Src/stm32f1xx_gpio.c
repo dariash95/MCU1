@@ -117,10 +117,11 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 		temp_config = 0;
 	}
 
-	// Configuration of the Alternate Functions
-	if ((pGPIOHandle->GPIO_PinConfig.GPIO_PinMode = ALT_FUNC_OP_TYPE_PP) | (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode = ALT_FUNC_OP_TYPE_OD)){
+}
 
-	}
+void GPIO_AltFunc_Init(GPIO_Handle_t *pGPIOHandle){
+	uint16_t aux_odr = pGPIOHandle->GPIO_PinConfig.GPIO_ODRValue;
+	pGPIOHandle->pGPIOx->ODR |= aux_odr;
 }
 
 /******************************************************************
