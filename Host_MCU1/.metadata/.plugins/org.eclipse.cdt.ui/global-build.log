@@ -359,3 +359,247 @@ Finished building: stm32f1xx_drivers.list
  
  
  
+17:09:40 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+17:09:41 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/011_Master_Rx_Testing_IT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011_Master_Rx_Testing_IT.d" -MT"Src/011_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_Master_Rx_Testing_IT.o"
+../Src/011_Master_Rx_Testing_IT.c: In function 'I2C1_EV_IRQHandler':
+../Src/011_Master_Rx_Testing_IT.c:120:22: error: 'I2C1Handling' undeclared (first use in this function); did you mean 'I2C1Handle'?
+  I2C1_EV_IRQHandler(&I2C1Handling);
+                      ^~~~~~~~~~~~
+                      I2C1Handle
+../Src/011_Master_Rx_Testing_IT.c:120:22: note: each undeclared identifier is reported only once for each function it appears in
+../Src/011_Master_Rx_Testing_IT.c:120:2: error: too many arguments to function 'I2C1_EV_IRQHandler'
+  I2C1_EV_IRQHandler(&I2C1Handling);
+  ^~~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:119:6: note: declared here
+ void I2C1_EV_IRQHandler (void){
+      ^~~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c: In function 'I2C1_ER_IRQHandler':
+../Src/011_Master_Rx_Testing_IT.c:125:22: error: 'I2C1Handling' undeclared (first use in this function); did you mean 'I2C1Handle'?
+  I2C1_ER_IRQHandler(&I2C1Handling);
+                      ^~~~~~~~~~~~
+                      I2C1Handle
+../Src/011_Master_Rx_Testing_IT.c:125:2: error: too many arguments to function 'I2C1_ER_IRQHandler'
+  I2C1_ER_IRQHandler(&I2C1Handling);
+  ^~~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:124:6: note: declared here
+ void I2C1_ER_IRQHandler (void){
+      ^~~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c: In function 'I2C_ApplicationEventCallback':
+../Src/011_Master_Rx_Testing_IT.c:138:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:148:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:158:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:168:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:178:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:18: Src/011_Master_Rx_Testing_IT.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:10:24 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/011_Master_Rx_Testing_IT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011_Master_Rx_Testing_IT.d" -MT"Src/011_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_Master_Rx_Testing_IT.o"
+../Src/011_Master_Rx_Testing_IT.c: In function 'I2C1_EV_IRQHandler':
+../Src/011_Master_Rx_Testing_IT.c:120:2: error: too many arguments to function 'I2C1_EV_IRQHandler'
+  I2C1_EV_IRQHandler(&I2C1Handle);
+  ^~~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:119:6: note: declared here
+ void I2C1_EV_IRQHandler (void){
+      ^~~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c: In function 'I2C1_ER_IRQHandler':
+../Src/011_Master_Rx_Testing_IT.c:125:2: error: too many arguments to function 'I2C1_ER_IRQHandler'
+  I2C1_ER_IRQHandler(&I2C1Handle);
+  ^~~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:124:6: note: declared here
+ void I2C1_ER_IRQHandler (void){
+      ^~~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c: In function 'I2C_ApplicationEventCallback':
+../Src/011_Master_Rx_Testing_IT.c:138:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:148:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:158:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:168:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:178:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:18: Src/011_Master_Rx_Testing_IT.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:12:05 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/011_Master_Rx_Testing_IT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011_Master_Rx_Testing_IT.d" -MT"Src/011_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_Master_Rx_Testing_IT.o"
+../Src/011_Master_Rx_Testing_IT.c: In function 'I2C_ApplicationEventCallback':
+../Src/011_Master_Rx_Testing_IT.c:138:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:148:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:158:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:168:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+../Src/011_Master_Rx_Testing_IT.c:178:21: error: incompatible type for argument 1 of 'I2C_CloseSendData'
+   I2C_CloseSendData(I2C1Handle);
+                     ^~~~~~~~~~
+In file included from C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f103xx.h:371:0,
+                 from ../Src/011_Master_Rx_Testing_IT.c:10:
+C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc/stm32f1xx_i2c.h:100:6: note: expected 'I2C_Handle_t * {aka struct <anonymous> *}' but argument is of type 'I2C_Handle_t {aka struct <anonymous>}'
+ void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
+      ^~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:18: Src/011_Master_Rx_Testing_IT.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:14:00 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/011_Master_Rx_Testing_IT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011_Master_Rx_Testing_IT.d" -MT"Src/011_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_Master_Rx_Testing_IT.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9940	    144	   1824	  11908	   2e84	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.bin
+Finished building: stm32f1xx_drivers.list
+ 
+ 
+17:15:18 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/011_Master_Rx_Testing_IT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011_Master_Rx_Testing_IT.d" -MT"Src/011_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_Master_Rx_Testing_IT.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9936	    144	   1824	  11904	   2e80	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.bin
+Finished building: stm32f1xx_drivers.list
+ 
+ 
+ 
+17:19:53 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/011_Master_Rx_Testing_IT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011_Master_Rx_Testing_IT.d" -MT"Src/011_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_Master_Rx_Testing_IT.o"
+../Src/011_Master_Rx_Testing_IT.c: In function 'I2C_ApplicationEventCallback':
+../Src/011_Master_Rx_Testing_IT.c:139:12: error: 'TRUE' undeclared (first use in this function)
+   rxComp = TRUE;
+            ^~~~
+../Src/011_Master_Rx_Testing_IT.c:139:12: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:18: Src/011_Master_Rx_Testing_IT.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:20:08 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/011_Master_Rx_Testing_IT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011_Master_Rx_Testing_IT.d" -MT"Src/011_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_Master_Rx_Testing_IT.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9964	    144	   1832	  11940	   2ea4	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.bin
+Finished building: stm32f1xx_drivers.list
+ 
+ 
+ 
