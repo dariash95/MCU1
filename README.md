@@ -46,10 +46,16 @@ Applications guide:
   - Sends a message to the Arduino implementing interrupts.
   - Not working. Stays in a infinite loop when trying to send the message. Cause is unknown. 
 
-- 009_Master_Tx_Testing.c:
+- 009_I2C_Master_Tx_Testing.c:
   - Sends a message to the Arduino via I2C.
   - Not working. Stays in a infinite loop when trying to send the message. Master mode is not activated due to some issue with the microcontroller.
   - Issue can be fixed following procedure in the errata but "Ain't nobody got time for that".
-  
-  
 
+- 010_I2C_Master_Rx_Testing.c:
+  - Receives a message from the Arduino via I2C.
+  - Not tested.
+ 
+- 011_I2C_Master_Tx_Testing_IT.c:
+  - Sends and receives a message from the Arduino via I2C.
+  - Not tested.
+  
