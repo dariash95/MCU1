@@ -58,4 +58,9 @@ Applications guide:
 - 011_I2C_Master_Tx_Testing_IT.c:
   - Sends and receives a message from the Arduino via I2C.
   - Not tested.
+
+- 012_I2C_Slave_Tx_String.c:
+  - MCU acts as slave and Arduino acts as master.
+  - A message is sent from MCU and retrieved by the Arduino.
+  - Not tested.
   
