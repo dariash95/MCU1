@@ -54,9 +54,8 @@ Applications guide:
 - 010_I2C_Master_Rx_Testing.c:
   - Receives a message from the Arduino via I2C.
   - Not tested.
+ 
+- 011_I2C_Master_Tx_Testing_IT.c:
+  - Sends and receives a message from the Arduino via I2C.
+  - Not tested.
   
- - 011_I2C_Master_Rx_Testing_IT.c:
-  - Sends and receives a message to and from the Arduino via I2C.
-  - Not tested. 
-  
-
