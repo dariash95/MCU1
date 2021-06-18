@@ -50,6 +50,13 @@ Applications guide:
   - Sends a message to the Arduino via I2C.
   - Not working. Stays in a infinite loop when trying to send the message. Master mode is not activated due to some issue with the microcontroller.
   - Issue can be fixed following procedure in the errata but "Ain't nobody got time for that".
+
+- 010_Master_Rx_Testing.c:
+  - Receives a message from the Arduino via I2C.
+  - Not tested.
   
+ - 011_Master_Rx_Testing_IT.c:
+  - Sends and receives a message to and from the Arduino via I2C.
+  - Not tested. 
   
 
