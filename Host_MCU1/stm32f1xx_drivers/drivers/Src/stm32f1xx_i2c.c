@@ -424,6 +424,7 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CxHandle, uint8_t *pRxBuffer, uint8_
  * @param [in]		Length
  * @param [in]		Slave address
  * @param [in]		Repeated start condition
+ * @param [out]		I2C status
  * @return			None
  * @note 			None
  */
@@ -449,7 +450,6 @@ uint8_t I2C_MasterSendDataIT(I2C_Handle_t *pI2CxHandle, uint8_t *pTxBuffer, uint
 
 		//Implement the code to enable ITERREN Control Bit
 		pI2CxHandle->pI2Cx->CR2 |= ( 1 << I2C_CR2_ITERREN);
-
 	}
 
 	return busystate;
@@ -463,6 +463,7 @@ uint8_t I2C_MasterSendDataIT(I2C_Handle_t *pI2CxHandle, uint8_t *pTxBuffer, uint
  * @param [in]		Length
  * @param [in]		Slave address
  * @param [in]		Repeated start condition
+ * @param [out]		I2C status
  * @return			None
  * @note 			None
  */
@@ -787,7 +788,7 @@ void I2C_CloseReceiveData (I2C_Handle_t *pI2CxHandle){
 
 /******************************************************************
  * @func			I2C_CloseSendData (I2C Close Send Data)
- * @brief			This functions closes communication after the MCU is done transmiting data
+ * @brief			This functions closes communication after the MCU is done transmitting data
  * @param [in]		I2C Handle
  * @return			None
  * @note 			None
