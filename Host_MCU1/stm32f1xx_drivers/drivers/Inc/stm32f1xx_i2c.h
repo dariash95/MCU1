@@ -56,9 +56,11 @@ typedef struct{
 #define I2C_BUSY_IN_RX	2
 
 // I2C events
-#define I2C_EV_TX_COMPLETE	0
-#define I2C_EV_RX_COMPLETE	1
-#define I2C_EV_STOP			2
+#define I2C_EV_TX_COMPLETE		0
+#define I2C_EV_RX_COMPLETE		1
+#define I2C_EV_STOP				2
+#define I2C_EV_DATA_REQUEST 	3 	// In slave mode
+#define I2C_EV_DATA_RECEIVED	4 	// In slave mode
 
 // I2C errors
 #define I2C_ERROR_BERR		0
@@ -100,18 +102,21 @@ uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t *pI2CxHandle, uint8_t *pRxBuffer, u
 void I2C_CloseSendData (I2C_Handle_t *pI2CxHandle);
 void I2C_CloseReceiveData (I2C_Handle_t *pI2CxHandle);
 
+void I2C_SlaveSendData(I2C_RegDef_t *pI2Cx, uint8_t data);
+uint8_t I2C_SlaveReceiveData(I2C_RegDef_t *pI2Cx);
+
 // IQR configuration and handling
 void I2C_IRQConfig(uint8_t IRQNumber, uint8_t EnOrDi);									// To set IRQ Number
 void I2C_IRQPriority (uint8_t IRQNumber,uint32_t IRQPriority);							// To set the priority in IRQ
 void I2C_EV_IRQHandling(I2C_Handle_t *pI2CxHandle);
 void I2C_ER_IRQHandling(I2C_Handle_t *pI2CxHandle);
 
-
 // Other APIs
 void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
 uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
 void I2C_ManageAcking(I2C_RegDef_t *pI2Cx, uint8_t EnorDi);
 void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx);
+void I2C_SlaveManageCallbackEvents(I2C_RegDef_t *pI2Cx, uint8_t EnorDi);
 
 // Application callback
 void I2C_ApplicationEventCallback (I2C_Handle_t *pI2CxHandle, uint8_t AppEv);

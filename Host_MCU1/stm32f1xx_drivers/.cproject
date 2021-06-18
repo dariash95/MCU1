@@ -87,12 +87,12 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.1531002172" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.906774981.720485831" name="010_Master_Rx_Testing.c" rcbsApplicability="disable" resourcePath="Src/010_Master_Rx_Testing.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.631103713.2060955298">
-						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.631103713.2060955298" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.631103713"/>
+					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.906774981.1395042413" name="012_Slave_Tx_String.c" rcbsApplicability="disable" resourcePath="Src/012_Slave_Tx_String.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.631103713.877171943">
+						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.631103713.877171943" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.631103713"/>
 					</fileInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
-						<entry excluding="010_Master_Rx_Testing.c|009_Master_Tx_Testing.c|Errata_fix.c|008_SPI_Interrupts.c|009_SPI_Interrupts.c|007_SPI_Command_Handling.c|006_SPI_Tx_Arduino.c|004_Button_Interrupt.c|syscalls.c|sysmem.c|main.c|002_LED_Button.c|001_LED_Toggle.c|005_SPI_Tx.c|003_LED_Button_ext.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry excluding="012_Slave_Tx_String.c|011_Master_Rx_Testing_IT.c|010_Master_Rx_Testing.c|009_Master_Tx_Testing.c|Errata_fix.c|008_SPI_Interrupts.c|009_SPI_Interrupts.c|007_SPI_Command_Handling.c|006_SPI_Tx_Arduino.c|004_Button_Interrupt.c|syscalls.c|sysmem.c|main.c|002_LED_Button.c|001_LED_Toggle.c|005_SPI_Tx.c|003_LED_Button_ext.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="drivers"/>
 					</sourceEntries>

@@ -1,0 +1,126 @@
+/*
+ * 010_Master_Tx_Testing.c
+ *
+ *  Created on: May 19, 2021
+ *      Author: Daniela
+ */
+
+#include<stdio.h>
+#include<string.h>
+#include "stm32f103xx.h"
+
+#define SLAVE_ADDR	0x68
+uint8_t tx_buff[32] = "Hellooo";
+
+I2C_Handle_t I2C1Handle;
+
+void delay(void)
+{
+	for(uint32_t i = 0 ; i < 500000/2 ; i ++);
+}
+
+void I2C_GPIOInits(void){
+
+	GPIO_Handle_t I2CPins;
+	I2CPins.pGPIOx = GPIOB;
+
+	// SCL -> B6
+	I2CPins.GPIO_PinConfig.GPIO_PinMode = 1; // Speed = 10 MHz
+	I2CPins.GPIO_PinConfig.GPIO_Config = 3; // Alternate function Open Drain
+	I2CPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_6;
+	GPIO_Init(&I2CPins);
+
+	// SDA -> B7
+	I2CPins.GPIO_PinConfig.GPIO_PinMode = 1; // Speed = 10 MHz
+	I2CPins.GPIO_PinConfig.GPIO_Config = 3; // Alternate function Open Drain
+	I2CPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_7;
+	GPIO_Init(&I2CPins);
+}
+
+void I2C_Inits(void){
+
+	I2C1Handle.pI2Cx= I2C1;
+	I2C1Handle.I2C_Config.I2C_ACKControl = I2C_ACK_ENABLE;
+	I2C1Handle.I2C_Config.I2C_DeviceAddress = SLAVE_ADDR; // This doesn't matter in this application bc MCU is acting like master
+	I2C1Handle.I2C_Config.I2C_FMDutyCycle = I2C_FM_DUTYCLYCLE_2; // Not used
+	I2C1Handle.I2C_Config.I2C_SCLSpeed = I2C_CLK_SPEED_SM; // Standard mode
+
+	I2C_Init(&I2C1Handle);
+}
+
+void GPIO_ButtonInit(void){
+	GPIO_Handle_t gpioBtn; // Variable for the GPIO Handle
+
+	// GPIO Button Configuration
+	gpioBtn.pGPIOx = GPIOA; // Initialize variable and select port
+	gpioBtn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_0;
+	gpioBtn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN ;
+	gpioBtn.GPIO_PinConfig.GPIO_Config = GPIO_IN_TYPE_PP;
+
+	GPIO_Init(&gpioBtn);
+}
+
+int main (void){
+
+	uint8_t command_code;
+	uint8_t length;
+
+	// Initialize GPIOs a IC2 pins
+	I2C_GPIOInits();
+
+	// Configure I2C
+	I2C_Inits();
+
+	// IRQ Config for events and errors
+	I2C_IRQConfig(IRQ_NO_I2C1_EV, ENABLE);
+	I2C_IRQConfig(IRQ_NO_I2C1_ER, ENABLE);
+
+	// Enable I2C peripheral
+	I2C_PeripheralControl(I2C1, ENABLE);
+
+	// Enable acking after PE = 1
+	I2C_ManageAcking(I2C1, I2C_ACK_ENABLE);
+
+	I2C_SlaveManageCallbackEvents(I2C1, ENABLE);
+
+	while (1);
+}
+
+// Whenever an event happens, this function will be called
+void I2C1_EV_IRQHandler (void){
+	I2C_EV_IRQHandling(&I2C1Handle);
+}
+
+// Whenever an error happens, this function will be called
+void I2C1_ER_IRQHandler (void){
+	I2C_ER_IRQHandling(&I2C1Handle);
+}
+
+void I2C_ApplicationEventCallback (I2C_Handle_t *pI2CxHandle, uint8_t AppEv){
+
+	static uint8_t command_code = 0;
+	static uint8_t cnt = 0;
+
+	if (AppEv == I2C_EV_DATA_REQUEST){
+		// Master is requesting data and slave must send it
+		if (command_code == 0x51){
+			// Send length info
+			I2C_SlaveSendData(I2C1, strlen((char*)tx_buffer));
+		} else if (command_code == 0x52){
+			// Send data
+			I2C_SlaveSendData(I2C1, tx_buffer[cnt++]);
+		}
+	} else if (AppEv == I2C_EV_DATA_RECEIVED){
+		// Data is waiting for the slave to read
+		command_code = I2C_SlaveReceiveData(I2C1);
+
+	} else if (AppEv == I2C_ERROR_AF){
+		// Only happens in slave transmission
+		// Masters doesn't need more data
+		command_code = 0xFF;
+		cnt = 0;
+	} else if (AppEv == I2C_EV_STOP){
+		// Only happens in slave reception
+		// Masters has ended I2C communication
+	}
+}

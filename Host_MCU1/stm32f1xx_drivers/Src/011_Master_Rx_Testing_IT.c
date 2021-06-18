@@ -149,16 +149,6 @@ void I2C_ApplicationEventCallback (I2C_Handle_t *pI2CxHandle, uint8_t AppEv){
 		// Hang in infinite loop
 		while (1);
 
-	}else if (AppEv == I2C_ERROR_ARLO){
-		printf("Acknowledgment error 2\n");
-
-		// Close communication
-		I2C_CloseSendData(pI2CxHandle);
-		//Generate stop condition
-		I2C_GenerateStopCondition(I2C1);
-		// Hang in infinite loop
-		while (1);
-
 	} else if (AppEv == I2C_ERROR_BERR){
 		printf("Bus error\n");
 

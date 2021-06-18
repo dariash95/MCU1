@@ -1,6 +1,6 @@
-17:20:08 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+17:19:40 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/011_Master_Rx_Testing_IT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011_Master_Rx_Testing_IT.d" -MT"Src/011_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_Master_Rx_Testing_IT.o"
+arm-none-eabi-gcc "../Src/012_Slave_Tx_String.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012_Slave_Tx_String.d" -MT"Src/012_Slave_Tx_String.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/012_Slave_Tx_String.o"
 arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f1xx_drivers.elf
  
@@ -8,13 +8,13 @@ arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
 arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
 arm-none-eabi-size   stm32f1xx_drivers.elf 
    text	   data	    bss	    dec	    hex	filename
-   9964	    144	   1832	  11940	   2ea4	stm32f1xx_drivers.elf
+   4096	     64	   1608	   5768	   1688	stm32f1xx_drivers.elf
 Finished building: default.size.stdout
-Finished building: stm32f1xx_drivers.bin
 Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
  
  
  
 
-17:20:10 Build Finished. 0 errors, 0 warnings. (took 1s.544ms)
+17:19:41 Build Finished. 0 errors, 0 warnings. (took 1s.468ms)
 

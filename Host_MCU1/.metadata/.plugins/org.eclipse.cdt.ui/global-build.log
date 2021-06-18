@@ -603,3 +603,192 @@ Finished building: stm32f1xx_drivers.list
  
  
  
+16:19:20 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+16:19:23 **** Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/011_Master_Rx_Testing_IT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011_Master_Rx_Testing_IT.d" -MT"Src/011_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_Master_Rx_Testing_IT.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/stm32f1xx_i2c.c:798:8: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+    if (pI2CxHandle->pI2Cx->SR2 = (1 << I2C_SR2_TRA)){
+        ^~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+  10012	    144	   1832	  11988	   2ed4	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.bin
+Finished building: stm32f1xx_drivers.list
+ 
+ 
+16:20:35 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10016	    144	   1832	  11992	   2ed8	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.bin
+Finished building: stm32f1xx_drivers.list
+ 
+ 
+ 
+17:17:52 **** Clean-only build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 clean 
+rm -rf *
+ 
+17:17:53 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_gpio.d" -MT"drivers/Src/stm32f1xx_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_gpio.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_spi.d" -MT"drivers/Src/stm32f1xx_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_spi.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/012_Slave_Tx_String.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012_Slave_Tx_String.d" -MT"Src/012_Slave_Tx_String.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/012_Slave_Tx_String.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_SlaveManageCallbackEvents':
+../drivers/Src/stm32f1xx_i2c.c:932:6: error: 'EnOrDi' undeclared (first use in this function); did you mean 'EnorDi'?
+  if (EnOrDi == ENABLE){
+      ^~~~~~
+      EnorDi
+../drivers/Src/stm32f1xx_i2c.c:932:6: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Src/012_Slave_Tx_String.c: In function 'main':
+../Src/012_Slave_Tx_String.c:66:10: warning: unused variable 'length' [-Wunused-variable]
+  uint8_t length;
+          ^~~~~~
+../Src/012_Slave_Tx_String.c:65:10: warning: unused variable 'command_code' [-Wunused-variable]
+  uint8_t command_code;
+          ^~~~~~~~~~~~
+../Src/012_Slave_Tx_String.c: In function 'I2C_ApplicationEventCallback':
+../Src/012_Slave_Tx_String.c:108:42: error: 'tx_buffer' undeclared (first use in this function); did you mean 'tx_buff'?
+    I2C_SlaveSendData(I2C1, strlen((char*)tx_buffer));
+                                          ^~~~~~~~~
+                                          tx_buff
+../Src/012_Slave_Tx_String.c:108:42: note: each undeclared identifier is reported only once for each function it appears in
+../Src/012_Slave_Tx_String.c:121:3: error: 'ctn' undeclared (first use in this function)
+   ctn = 0;
+   ^~~
+make: *** [Src/subdir.mk:18: Src/012_Slave_Tx_String.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:18:11 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../Src/012_Slave_Tx_String.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012_Slave_Tx_String.d" -MT"Src/012_Slave_Tx_String.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/012_Slave_Tx_String.o"
+../drivers/Src/stm32f1xx_i2c.c: In function 'I2C_SlaveManageCallbackEvents':
+../drivers/Src/stm32f1xx_i2c.c:932:6: error: 'EnOrDi' undeclared (first use in this function); did you mean 'EnorDi'?
+  if (EnOrDi == ENABLE){
+      ^~~~~~
+      EnorDi
+../drivers/Src/stm32f1xx_i2c.c:932:6: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/stm32f1xx_i2c.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Src/012_Slave_Tx_String.c: In function 'main':
+../Src/012_Slave_Tx_String.c:66:10: warning: unused variable 'length' [-Wunused-variable]
+  uint8_t length;
+          ^~~~~~
+../Src/012_Slave_Tx_String.c:65:10: warning: unused variable 'command_code' [-Wunused-variable]
+  uint8_t command_code;
+          ^~~~~~~~~~~~
+../Src/012_Slave_Tx_String.c: In function 'I2C_ApplicationEventCallback':
+../Src/012_Slave_Tx_String.c:108:42: error: 'tx_buffer' undeclared (first use in this function); did you mean 'tx_buff'?
+    I2C_SlaveSendData(I2C1, strlen((char*)tx_buffer));
+                                          ^~~~~~~~~
+                                          tx_buff
+../Src/012_Slave_Tx_String.c:108:42: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:18: Src/012_Slave_Tx_String.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:18:41 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f1xx_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f1xx_i2c.d" -MT"drivers/Src/stm32f1xx_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f1xx_i2c.o"
+arm-none-eabi-gcc "../Src/012_Slave_Tx_String.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012_Slave_Tx_String.d" -MT"Src/012_Slave_Tx_String.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/012_Slave_Tx_String.o"
+../Src/012_Slave_Tx_String.c: In function 'main':
+../Src/012_Slave_Tx_String.c:66:10: warning: unused variable 'length' [-Wunused-variable]
+  uint8_t length;
+          ^~~~~~
+../Src/012_Slave_Tx_String.c:65:10: warning: unused variable 'command_code' [-Wunused-variable]
+  uint8_t command_code;
+          ^~~~~~~~~~~~
+../Src/012_Slave_Tx_String.c: In function 'I2C_ApplicationEventCallback':
+../Src/012_Slave_Tx_String.c:108:42: error: 'tx_buffer' undeclared (first use in this function); did you mean 'tx_buff'?
+    I2C_SlaveSendData(I2C1, strlen((char*)tx_buffer));
+                                          ^~~~~~~~~
+                                          tx_buff
+../Src/012_Slave_Tx_String.c:108:42: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:18: Src/012_Slave_Tx_String.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:18:55 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/012_Slave_Tx_String.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012_Slave_Tx_String.d" -MT"Src/012_Slave_Tx_String.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/012_Slave_Tx_String.o"
+../Src/012_Slave_Tx_String.c: In function 'main':
+../Src/012_Slave_Tx_String.c:66:10: warning: unused variable 'length' [-Wunused-variable]
+  uint8_t length;
+          ^~~~~~
+../Src/012_Slave_Tx_String.c:65:10: warning: unused variable 'command_code' [-Wunused-variable]
+  uint8_t command_code;
+          ^~~~~~~~~~~~
+../Src/012_Slave_Tx_String.c: In function 'I2C_ApplicationEventCallback':
+../Src/012_Slave_Tx_String.c:111:28: error: 'tx_buffer' undeclared (first use in this function); did you mean 'tx_buff'?
+    I2C_SlaveSendData(I2C1, tx_buffer[cnt++]);
+                            ^~~~~~~~~
+                            tx_buff
+../Src/012_Slave_Tx_String.c:111:28: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:18: Src/012_Slave_Tx_String.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:19:05 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/012_Slave_Tx_String.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012_Slave_Tx_String.d" -MT"Src/012_Slave_Tx_String.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/012_Slave_Tx_String.o"
+../Src/012_Slave_Tx_String.c: In function 'main':
+../Src/012_Slave_Tx_String.c:66:10: warning: unused variable 'length' [-Wunused-variable]
+  uint8_t length;
+          ^~~~~~
+../Src/012_Slave_Tx_String.c:65:10: warning: unused variable 'command_code' [-Wunused-variable]
+  uint8_t command_code;
+          ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   4096	     64	   1608	   5768	   1688	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+17:19:40 **** Incremental Build of configuration Debug for project stm32f1xx_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/012_Slave_Tx_String.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -c -I../Inc -I"C:/Users/Daniela/Documents/Courses/Embedded_C/MCU1/Host_MCU1/stm32f1xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012_Slave_Tx_String.d" -MT"Src/012_Slave_Tx_String.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/012_Slave_Tx_String.o"
+arm-none-eabi-gcc -o "stm32f1xx_drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\Daniela\Documents\Courses\Embedded_C\MCU1\Host_MCU1\stm32f1xx_drivers\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f1xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f1xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f1xx_drivers.elf  > "stm32f1xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f1xx_drivers.elf  "stm32f1xx_drivers.bin"
+arm-none-eabi-size   stm32f1xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4096	     64	   1608	   5768	   1688	stm32f1xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f1xx_drivers.list
+Finished building: stm32f1xx_drivers.bin
+ 
+ 
+ 

@@ -218,6 +218,7 @@ void I2C_Init(I2C_Handle_t *pI2CxHandle){
 	pI2CxHandle->pI2Cx->CR2 = (temp & 0x3F); // To mask the rest of the bits
 
 	// Configuration of the slave address
+	temp = 0;
 	temp |= (pI2CxHandle->I2C_Config.I2C_DeviceAddress << 1);
 	temp |= (1 << 14); // Bit 14 must be 1 according to the manual
 	pI2CxHandle->pI2Cx->OAR1 = temp;
@@ -640,6 +641,33 @@ static void I2C_MasterHandleRXNEIT(I2C_Handle_t *pI2CxHandle){
 }
 
 /******************************************************************
+ * @func			I2C_SlaveSendData (I2C slave send data)
+ * @brief			This functions sends data when master requests for it
+ * @param [in]		I2C instance
+ * @param [in]		Data to be sent
+ * @return			None
+ * @note 			None
+ */
+void I2C_SlaveSendData(I2C_RegDef_t *pI2Cx, uint8_t data){
+
+	pI2Cx->DR = data;
+}
+
+/******************************************************************
+ * @func			I2C_SlaveRecieveData (I2C slave receive data)
+ * @brief			This functions receives data when master sends it
+ * @param [in]		I2C instance
+ * @param [out]		data received
+ * @return			None
+ * @note 			sNone
+ */
+uint8_t I2C_SlaveReceiveData(I2C_RegDef_t *pI2Cx){
+
+	return (uint8_t)pI2Cx->DR;
+}
+
+
+/******************************************************************
  * @func			I2C_EV_IRQHandling (I2C Event Handling)
  * @brief			This functions handles each case an interrupt can be triggered for
  * @param [in]		I2C Handle
@@ -720,7 +748,7 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CxHandle){
 	temp3 = pI2CxHandle->pI2Cx->SR1 & (1 << I2C_SR1_STOPF);
 
 	if (temp1 && temp3){
-		// Interrupt happened because of STOPF event
+		// Interrupt happened because of STOPF event. Only happens in slave mode
 
 		// Clear STOPF flag -> Read SR1 (done). Write something to CR1
 		pI2CxHandle->pI2Cx->CR1 |= 0x0000; // This value will not affect the other values of the register
@@ -742,6 +770,13 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CxHandle){
 			if (pI2CxHandle->TxRxState == I2C_BUSY_IN_TX){
 				I2C_MasterHandleTXEIT(pI2CxHandle);
 			}
+		} else {
+			// The device is in slave mode
+			// Make sure slave in in transmitter mode by checking TRA bit
+			// TRA = 1 -> Transmitter mode		TRA = 0 -> Receiver mode
+			if (pI2CxHandle->pI2Cx->SR2 & (1 << I2C_SR2_TRA)){
+				I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_DATA_REQUEST);
+			}
 		}
 	}
 
@@ -756,6 +791,13 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CxHandle){
 		if (pI2CxHandle->pI2Cx->SR2 & (1 << I2C_SR2_MSL)){
 			if (pI2CxHandle->TxRxState == I2C_BUSY_IN_RX){
 				I2C_MasterHandleRXNEIT(pI2CxHandle);
+			}
+		} else {
+			// Device is in slave mode
+			// Make sure slave in in transmitter mode by checking TRA bit
+			// TRA = 1 -> Transmitter mode		TRA = 0 -> Receiver mode
+			if (pI2CxHandle->pI2Cx->SR2 & (1 << I2C_SR2_TRA)){
+				I2C_ApplicationEventCallback(pI2CxHandle, I2C_EV_DATA_RECEIVED);
 			}
 		}
 	}
@@ -883,5 +925,18 @@ void I2C_ER_IRQHandling(I2C_Handle_t *pI2CxHandle){
 
 		//Implement the code to notify the application about the error
 		I2C_ApplicationEventCallback(pI2CxHandle,I2C_ERROR_TIMEOUT);
+	}
+}
+
+void I2C_SlaveManageCallbackEvents(I2C_RegDef_t *pI2Cx, uint8_t EnorDi){
+
+	if (EnorDi == ENABLE){
+		pI2Cx->CR2 |= (1 << I2C_CR2_ITEVTEN);
+		pI2Cx->CR2 |= (1 << I2C_CR2_ITBUFEN);
+		pI2Cx->CR2 |= (1 << I2C_CR2_ITERREN);
+	} else {
+		pI2Cx->CR2 &= ~(1 << I2C_CR2_ITEVTEN);
+		pI2Cx->CR2 &= ~(1 << I2C_CR2_ITBUFEN);
+		pI2Cx->CR2 &= ~(1 << I2C_CR2_ITERREN);
 	}
 }
